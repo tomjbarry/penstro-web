@@ -1,0 +1,23 @@
+mixin EmailChange
+	div.pyEmailChange
+		+Form#form.col-xs-12
+			+AuthenticationRequired('authenticated')
+				form(name=constants.forms.EMAIL_CHANGE, ng-submit='changeEmail()', action=constants.values.VOID_ACTION)
+					div.row
+						div.col-xs-12
+							label
+								strong.form-title= t('emailTokenLinksOptions.emailChange.emailChange')
+							+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.EMAIL, 'left').pull-right
+					div.row
+						div.col-xs-12
+							+SubAlert('alert')
+					div.row
+						div.col-xs-12
+							+FormInput('email', t('emailTokenLinksOptions.emailChange.email'), undefined, undefined, 'email', 'email', 'errors.email', t('emailTokenLinksOptions.emailChange.emailPlaceholder'))
+					div.row
+						div.col-xs-12
+							+FormInput('password', t('emailTokenLinksOptions.emailChange.password'), undefined, undefined, 'password', 'password', 'errors.password', t('emailTokenLinksOptions.emailChange.passwordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+					div.row
+						div.col-xs-12
+							span.pull-right
+								button(type='submit', ng-class='{disabled: emailLoading}', aria-label=t('emailTokenLinksOptions.emailChange.submit')).btn= t('emailTokenLinksOptions.emailChange.submit')

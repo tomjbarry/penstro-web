@@ -1,0 +1,7 @@
+mixin NJAppreciationSummary(appreciation)
+	span(class!=attributes.class)
+		if appreciation >= 0
+			span.block-sm.pyAppreciation
+				span.fancy.pull-right
+					span= t('shared:symbols.currency')
+					span= appreciation

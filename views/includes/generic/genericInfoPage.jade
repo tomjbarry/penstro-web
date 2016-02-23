@@ -1,0 +1,10 @@
+mixin GenericInfoPage(title)
+	div.pyInfo.col-xs-12
+		if title
+			div.row
+				span.col-xs-12.text-center
+					h1= title
+				span.col-xs-1
+				hr.col-xs-10
+				span.col-xs-1
+		block

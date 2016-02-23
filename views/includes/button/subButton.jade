@@ -1,0 +1,4 @@
+mixin SubButton(caption, bind, icon, click, show, sref, srefActive, srefOptions, ngClass, ngDisabled, count, tooltip)
+	+Button(caption, bind, icon, click, 'button', sref, srefActive, srefOptions, ngClass, ngDisabled, show, count, tooltip, 'SUB')(class!=attributes.class,id!=attributes.id).pySubButton
+		if block
+			block

@@ -1,0 +1,9 @@
+mixin Search(submit, model, error, symbol, actionBind, ngDisabled)
+	form(ng-submit=submit, action=constants.values.VOID_ACTION)
+		div
+			+SubAlert(error)
+		div.input-group
+			span(ng-show=symbol, ng-bind=symbol).input-group-addon
+			input(ng-model=model, type='text', role='search').form-control.input-sm
+			span.input-group-btn
+				button(type='submit', ng-bind=actionBind, ng-disabled=ngDisabled, aria-label=action).btn.btn-sm= action

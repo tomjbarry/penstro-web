@@ -1,0 +1,12 @@
+mixin NJContentInfo(bind)
+	if bind
+		if bind.warning
+			span.label.label-danger= t('contentInfo.warning')
+		if bind.removed
+			span.label.label-primary= t('contentInfo.removed')
+		if bind.flagged
+			span.label.label-warning= t('contentInfo.flagged')
+		if bind.disabled
+			span.label.label-default= t('contentInfo.disabled')
+		if bind.archived
+			span.label.label-success= t('contentInfo.archived')

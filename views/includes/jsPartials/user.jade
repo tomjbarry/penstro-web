@@ -1,0 +1,51 @@
+mixin User
+	div(ng-controller='UserController').pyUser
+		div.pySingle.col-xs-12
+			div.row
+				div.col-xs-12
+					+AppreciationSummary('tally.appreciation', t('tallyTooltips.user.currency'), undefined, 'openStatistics()')
+					+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.unauthed.APPRECIATION, false).pull-left
+					span.pyUsernameReference
+						//-+TitleIcon('fa-user')
+						+UserTitle('user.username', true)
+					//-span.pull-right
+						+HelpLink(constants.helpTopics.USERS.name, undefined, 'left')
+						+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.unauthed.HELP, false).pyTourLeft
+				div.col-xs-12
+					+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.unauthed.USERNAME, false)
+			div.row
+				div.col-xs-12
+					+ContentInfo('user')
+			div(ng-show='user.appreciationResponse').row
+				div.col-xs-12
+					h4= t('appreciationResponse')
+				div.col-xs-12
+					+Warning('appreciationResponseHideExplicit', constants.states.USERS_ID + '({' + constants.pathVariables.USER + ': ' + username + '})')
+						+AppreciationResponseContent('user.appreciationResponse', undefined, true)
+			div.row
+				div.col-xs-12
+					+Warning('hideExplicit', constants.states.USERS)
+						+ProfileContent('user.description', true)
+			div.row
+				span.col-xs-12
+					span.pull-left
+						+UserActions
+					span.pull-right
+						+DropdownButtonSplit(undefined, 'activeSubPageable.label', '{{showSubPageableIcon}}', 'fa-ellipsis-h', 'toggleSubPageable()', 'subPageableDropdownOpen', 'loadingSubPageable', undefined, undefined, undefined, 'pull-right').pyInverseButton.btn-xs
+							ul.dropdown-menu
+								li(ng-repeat='subPageable in subPageableOptions track by $index')
+									+DropdownButtonInner(undefined, 'subPageable.label', '{{subPageable.icon}}', 'loadSubPageable(subPageable)', undefined, undefined, undefined, undefined, 'subPageable.label === activeSubPageable.label')
+						+ReplyAuthentication('authenticated')
+							+CommentsDisabled('user.canComment')
+								+ActionButton(t('create.comment.user'), undefined, 'fa-comment', 'toggleReply()', undefined, undefined, undefined, undefined, '!user.canComment').btn-xs
+							+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.authed.COMMENT, true).pyTourLeft
+				span(ng-show='showCreateComment && authenticated').col-xs-12
+					+CreateComment()
+				span.col-xs-12
+					+SubAlert('subPageableAlert')
+			+AdminOnly
+				div.row
+					div.col-xs-12
+						+ActionButton(t('adminView'), undefined, 'fa-beer', undefined, undefined, adminConstants.states.USERS_ID + '({' + constants.pathVariables.USER + ': user.username.username})', 'active', '{reload: true}')
+		div(ng-show='showSubPageable').ng-hide
+			div(ui-view=constants.partials.SUB_PAGEABLE)

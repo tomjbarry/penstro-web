@@ -1,0 +1,16 @@
+mixin Content(bind, showTopHr, showBottomHr)
+	if showTopHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr.pyMarkdownContentHrTop
+			span.col-xs-2
+	div.row
+		span.col-xs-12
+			span(ng-bind=bind, class=attributes.class).pyNoMarkdown.pyContent
+	if showBottomHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr.pyMarkdownContentHrBottom
+			span.col-xs-2

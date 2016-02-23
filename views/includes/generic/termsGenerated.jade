@@ -1,0 +1,54 @@
+mixin TermsGenerated
+	div#pyTerms.row.pyTermsGenerated
+		- var key, section, i;
+		span(id=constants.viewIds.SIDEBAR).hidden-xs.col-sm-4.col-md-3.pull-right.jsOnly
+			span.fixed-sm.pyTerms
+				ul.nav.nav-pills.nav-stacked.pyTermsSidebar
+					each section, key in constants.termsSections
+						li.pyTermsSidebarSection
+							a(href='#' + section.name, prevent-default='', scroll-to=section.name)= t('terms:' + section.name + '.t')
+		span(scroll-spy='scroll', data-target='#pyTermsSidebar').pyTerms.col-xs-12.col-sm-8.col-md-9
+			div.row
+				span.col-xs-12.text-center
+					h1= t('terms:default.t')
+				span.col-xs-1
+				hr.col-xs-10
+				span.col-xs-1
+			div.row
+				span.col-xs-12
+					+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.TERMS, 'left').pull-right
+				span.col-xs-12
+					p.text-pad-left!= t('terms:default.p')
+			each section, key in constants.termsSections
+				div.pyHelpSection.row
+					span.col-xs-12
+						h3(id=section.name)= t('terms:' + section.name + '.t')
+					if section.p && section.p > 0
+						- i = 0;
+						span.col-xs-12
+							span.row
+								while i < section.p
+									span.col-xs-12
+										p.text-pad-left!= t('terms:' + section.name + '.p.' + i)
+									- i++
+					if section.ul && section.ul > 0
+						- i = 0;
+						span.col-xs-12
+							ul
+								while i < section.ul
+									li!= t('terms:' + section.name + '.ul.' + i)
+									- i++
+					if section.ol && section.ol > 0
+						- i = 0;
+						span.col-xs-12
+							ol
+								while i < section.ol
+									li!= t('terms:' + section.name + '.ol.' + i)
+									- i++
+			span(ng-show='authenticated').row.ng-hide
+				span.col-xs-12
+					span.pull-left
+						+SubButton(t('termsOptions.decline'), undefined, 'fa-times', 'decline()')
+					span.pull-right
+						+SubButton(t('termsOptions.acceptWait'), undefined, 'fa-cog fa-spin', undefined, '!allowAccept', undefined, undefined, undefined, undefined, '!allowAccept')
+						+SubButton(t('termsOptions.accept'), undefined, 'fa-check', 'accept()', 'allowAccept', undefined, undefined, undefined, undefined, '!allowAccept')

@@ -1,0 +1,11 @@
+mixin ClickLink(click, ngDisabled)
+	//- dont use srefActive
+	if ngDisabled
+		span(ng-hide=ngDisabled).ng-hide
+			a(class!=attributes.class, ng-click=click, href=constants.values.VOID_ACTION).pyLink
+				block
+		span(ng-show=ngDisabled).ng-hide
+			block
+	else
+		a(class!=attributes.class, ng-click=click, href=constants.values.VOID_ACTION).pyLink
+			block

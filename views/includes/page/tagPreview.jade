@@ -1,0 +1,14 @@
+mixin TagPreview(iter)
+	div(ng-controller='TagPreviewController').pyTagPreview.col-xs-12.col-md-12
+		div(ng-init='init(' + iter + ')').pageItem
+			+Preview
+				div.row
+					span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+						+Link(constants.states.TAGS_ID + '({' + constants.pathVariables.TAG + ': tag.name})', undefined, '{reload: true}').pyTagReference
+							//-+TitleIcon('fa-tag')
+							+Title('tag.name')
+						//-
+							span &nbsp
+							+Timestamp('timeSince', 'calendar')
+					span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+						+AppreciationSummary('tally.appreciation', t('tallyTooltips.tag.currency'))

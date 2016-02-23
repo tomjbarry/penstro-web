@@ -1,0 +1,9 @@
+mixin NJFollowInfo(preview)
+	if preview
+		+NJPreview
+			div.row
+				div.col-xs-12
+					+NJUserReference(preview.username)
+			div.row
+				div.col-xs-12
+					+NJTimestamp(preview.added)

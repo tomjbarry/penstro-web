@@ -1,0 +1,52 @@
+mixin CurrentModals
+	span
+	//-
+		script(type='text/ng-template')#offerModal
+			+Modal
+				form(name=constants.forms.CREATE_OFFER, ng-submit='submit()', action=constants.values.VOID_ACTION)
+					div.modal-header
+						div.row
+							div.col-xs-12
+								label
+									strong.form-title= t('create.offer')
+									+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.BACK, 'left').pull-right
+					div.modal-body
+						div.row
+							+Loader('!offerData.loading')
+								div.col-xs-12
+									+SubAlert('offerData.alert')
+								div.col-xs-12
+									+FormInput('offerUsername', t('offerOptions.username'), undefined, undefined, 'text', 'offerData.username', 'offerData.errors.username', t('offerOptions.usernamePlaceholder'), 'offerData.open', undefined, undefined, undefined, t('shared:symbols.username'))
+								div.col-xs-12
+									+FormInput('offerAmount', t('offerOptions.amount'), undefined, undefined, 'number', 'offerData.amount', 'offerData.errors.amount', undefined, undefined, constants.values.STEP_COINS, constants.values.OFFER_MIN, undefined, undefined, t('shared:symbols.coins'))
+					div.modal-footer
+						div.row
+							div.col-xs-12
+								span.pull-left
+									button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn.btn-xs= t('cancel')
+								span.pull-right
+									button(type='submit', ng-class='{disabled: offerData.loading}', aria-label=t('offerOptions.offerSubmit')).btn.btn-xs= t('offerOptions.offerSubmit')
+		script(type='text/ng-template')#emailOfferModal
+			+Modal
+				form(name=constants.forms.CREATE_EMAIL_OFFER, ng-submit='submit()', action=constants.values.VOID_ACTION)
+					div.modal-header
+						div.row
+							div.col-xs-12
+								strong= t('create.emailOffer')
+								+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.BACK, 'left').pull-right
+					div.modal-body
+						div.row
+							+Loader('!emailOfferData.loading')
+								div.col-xs-12
+									+SubAlert('emailOfferData.alert')
+								div.col-xs-12
+									+FormInput('emailOfferEmail', t('offerOptions.email'), undefined, undefined, 'email', 'emailOfferData.email', 'emailOfferData.errors.email', t('offerOptions.emailPlaceholder'), 'emailOfferData.open')
+								div.col-xs-12
+									+FormInput('emailOfferAmount', t('offerOptions.amount'), undefined, undefined, 'number', 'emailOfferData.amount', 'emailOfferData.errors.amount', undefined, undefined, constants.values.STEP_COINS, constants.values.OFFER_MIN, undefined, undefined, t('shared:symbols.coins'))
+					div.modal-footer
+						div.row
+							div.col-xs-12
+								span.pull-left
+									button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn.btn-xs= t('cancel')
+								span.pull-right
+									button(type='submit', ng-class='{disabled: emailOfferData.loading}', aria-label=t('offerOptions.emailOfferSubmit')).btn.btn-xs= t('offerOptions.emailOfferSubmit')

@@ -1,0 +1,11 @@
+mixin ContentPreview(bind, dirtyForm, placeholder, preview, showPreview)
+	div.pyContentPreview.row
+		div(ng-hide=showPreview).col-xs-12.ng-hide
+			div(py-editor=bind, dirty-form=dirtyForm, placeholder=placeholder)
+		div(ng-show=showPreview).col-xs-12.ng-hide
+			+PreviewContent(preview, false)
+		div(ng-controller='ContentPreviewController').col-xs-12
+			span.pull-left
+				button(type='button', ng-click='preview();$parent.' + showPreview + ' = true;', ng-hide='$parent.' + showPreview, aria-label=t('editor.autoPreview.refresh')).btn.btn-xs= t('editor.autoPreview.refresh')
+				button(type='button', ng-click='$parent.' + showPreview + ' = false;', ng-show='$parent.' + showPreview, aria-label=t('editor.autoPreview.edit')).btn.btn-xs= t('editor.autoPreview.edit')
+				+HelpLink(constants.helpTopics.EDITOR.name, constants.helpTopics.EDITOR.sections.PREVIEW, 'bottom')

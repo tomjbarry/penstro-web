@@ -1,0 +1,122 @@
+mixin Settings
+	div.pySettings
+		div(ng-show='authenticated').ng-hide
+			div
+				+Form#settingsForm.col-xs-12
+					form(name=constants.forms.SETTINGS, ng-submit='submitSettings()', action=constants.values.VOID_ACTION)
+						div.row
+							div.col-xs-12
+								label
+									strong.form-title= t('settings')
+						div.row
+							div.col-xs-12.col-md-4
+								+FormSelect('languageSelect', t('settingsOptions.language'), undefined, undefined, 'name for name in languages', 'language')
+							+InputBuffer().col-md-4
+							div.col-xs-12.col-md-4
+								+FormSelect('interfaceLanguageSelect', t('settingsOptions.interfaceLanguage'), undefined, undefined, 'name for name in interfaceLanguages', 'interfaceLanguage')
+						div.row
+							div.col-xs-6.col-md-3
+								+FormInput('warning', t('settingsOptions.warning'), undefined, undefined, 'checkbox', 'warning')
+							+InputBuffer().col-md-1
+							div.col-xs-6.col-md-3
+								+FormInput('allowProfileComments', t('settingsOptions.allowProfileComments'), undefined, undefined, 'checkbox', 'allowProfileComments')
+							+InputBuffer().col-md-1
+							div.col-xs-6.col-md-3
+								+FormInput('hideUserProfile', t('settingsOptions.hideUserProfile'), undefined, undefined, 'checkbox', 'hideUserProfile')
+							+InputBuffer().col-md-1
+						div.row
+							div.col-xs-12
+								button(type='button', ng-click='resetSettings()', aria-label=t('settingsOptions.reset')).btn.pull-left= t('settingsOptions.reset')
+								button(type='submit', aria-label=t('settingsOptions.submit')).btn.pull-right= t('settingsOptions.submit')
+			hr
+			div.pyInfo.col-xs-12
+				div.row
+					div.col-xs-12
+						label
+							strong.form-title= t('settingsOptions.currentEmail')
+				div.row(ng-hide='changeEmailToggle').ng-hide
+					div.col-xs-12.col-md-6
+						strong(ng-class='{pyInvalid: emailInvalid}', ng-bind='email')
+					div.col-xs-12.col-md-6
+						button(type='button', ng-click='sendConfirmationToken()', aria-label=t('settingsOptions.sendConfirmationToken')).btn= t('settingsOptions.sendConfirmationToken')
+						button(type='button', ng-click='sendEmailChangeToken()', aria-label=t('settingsOptions.sendEmailChangeToken'), ng-hide='emailInvalid').ng-hide.btn.pull-right= t('settingsOptions.sendEmailChangeToken')
+						button(type='button', ng-click='toggleChangeEmail()', aria-label=t('settingsOptions.changeEmail'), ng-show='emailInvalid').ng-hide.btn.pull-right.red= t('settingsOptions.changeEmail')
+				div.row(ng-show='changeEmailToggle').ng-hide
+					div.col-xs-12
+						form(name=constants.forms.SETTINGS_EMAIL_CHANGE, ng-submit='changeEmail()', action=constants.values.VOID_ACTION)
+							div.row
+								div.col-xs-12
+									+SubAlert('changeEmailData.alert')
+							div.row
+								div.col-xs-12
+									+FormInput('email', t('emailTokenLinksOptions.emailChange.email'), undefined, undefined, 'email', 'changeEmailData.email', 'changeEmailData.errors.email', t('emailTokenLinksOptions.emailChange.emailPlaceholder'))
+							div.row
+								div.col-xs-12
+									+FormInput('password', t('emailTokenLinksOptions.emailChange.password'), undefined, undefined, 'password', 'changeEmailData.password', 'changeEmailData.errors.password', t('emailTokenLinksOptions.emailChange.passwordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+							div.row
+								div.col-xs-12
+									span.pull-left
+										button(type='button', ng-click='toggleChangeEmail()', aria-label=t('settingsOptions.cancelChangeEmail')).btn= t('settingsOptions.cancelChangeEmail')
+									span.pull-right
+										button(type='submit', ng-class='{disabled: changeEmailData.loading}', aria-label=t('emailTokenLinksOptions.emailChange.submit')).btn= t('emailTokenLinksOptions.emailChange.submit')
+			hr
+			div.pyInfo.col-xs-12
+				div.row
+					div.col-xs-12
+						label
+							strong.form-title= t('settingsOptions.currentPaymentId')
+				div.row
+					div.col-xs-12.col-md-6
+						strong(ng-bind='paymentId')
+					div.col-xs-12.col-md-6
+						button(type='button', ng-click='sendPaymentIdChangeToken()', ng-show='paymentId', aria-label=t('settingsOptions.sendPaymentIdChangeTokenChange')).ng-hide.btn.pull-right= t('settingsOptions.sendPaymentIdChangeTokenChange')
+						button(type='button', ng-click='sendPaymentIdChangeToken()', ng-hide='paymentId', aria-label=t('settingsOptions.sendPaymentIdChangeTokenAdd')).ng-hide.btn.pull-right= t('settingsOptions.sendPaymentIdChangeTokenAdd')
+			hr
+			div
+				+Form#passwordForm.col-xs-12
+					form(name=constants.forms.PASSWORD_CHANGE, ng-submit='submitPasswordChange()', action=constants.values.VOID_ACTION)
+						div.row
+							div.col-xs-12
+								label
+									strong.form-title= t('settingsOptions.changePassword')
+						div.row
+							div(ng-show='zxcvbnLoaded && typeof(changePassword.newPassword) !== "undefined" && changePassword.newPassword.length > 0').ng-hide.col-xs-12
+								+PasswordScore('settingsOptions.passwordScore', 'passwordScore', 'passwordAdvice')
+							div.col-xs-12.col-md-6
+								+FormInput('changePasswordOldPassword', t('settingsOptions.oldPassword'), undefined, undefined, 'password', 'changePassword.oldPassword', 'changePasswordErrors.oldPassword', t('settingsOptions.oldPasswordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+							div.col-xs-12
+								div.row
+									div.col-xs-12.col-md-5
+										+FormInput('changePasswordNewPassword', t('settingsOptions.newPassword'), undefined, undefined, 'password', 'changePassword.newPassword', 'changePasswordErrors.newPassword', t('settingsOptions.newPasswordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+									+InputBuffer().col-md-2
+									div.col-xs-12.col-md-5
+										+FormInput('changePasswordConfirmNewPassword', t('settingsOptions.confirmNewPassword'), undefined, undefined, 'password', 'changePassword.confirmNewPassword', 'changePasswordErrors.confirmNewPassword', t('settingsOptions.confirmNewPasswordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+							div.col-xs-12
+								button(type='submit', aria-label=t('settingsOptions.changePasswordSubmit')).btn.pull-right= t('settingsOptions.changePasswordSubmit')
+			hr
+			div
+				div.row
+					div.col-xs-12
+						label
+							strong.form-title= t('settingsOptions.delete')
+						button(type='button', ng-click='sendDeleteToken()', aria-label=t('settingsOptions.sendDeleteToken')).btn.pull-right= t('settingsOptions.sendDeleteToken')
+		div(ng-hide='authenticated').ng-hide
+			+Form#sessionForm.col-xs-12
+				form(name=constants.forms.SETTINGS_SESSION, ng-submit='submitSessionSettings()', action=constants.values.VOID_ACTION)
+					div.row
+						div.col-xs-12
+							label
+								strong.form-title= t('settings')
+					div.row
+						div.col-xs-12.col-md-4
+							+FormSelect('sessionLanguageSelect', t('settingsOptions.language'), undefined, undefined, 'name for name in languages', 'language')
+						+InputBuffer().col-md-4
+						div.col-xs-12.col-md-4
+							+FormSelect('sessionInterfaceLanguageSelect', t('settingsOptions.interfaceLanguage'), undefined, undefined, 'name for name in interfaceLanguages', 'interfaceLanguage')
+					div.row
+						div.col-xs-12.col-md-2
+							+FormInput('sessionWarning', t('settingsOptions.warning'), undefined, undefined, 'checkbox', 'warning')
+						+InputBuffer().col-md-10
+					div.row
+						div.col-xs-12
+							button(type='submit', aria-label=t('settingsOptions.submit')).btn.pull-right= t('settingsOptions.submit')

@@ -1,0 +1,6 @@
+mixin ExtraStats(stats)
+	span.pyExtraStats
+	//-
+		span(tooltip-placement='bottom', tooltip-html-unsafe!=stats)
+			block
+			+Icon().fa-fw.fa-lg.fa-plus-circle

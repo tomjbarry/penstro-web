@@ -1,0 +1,329 @@
+{
+	"default":{
+		"i":"Help!",
+		"o":"Select the topic and section that you need help with."
+	},
+	"account":{
+		"default":{
+			"i":"Account",
+			"o":"An account is not necessary to browse Penstro, but without one very few features are available. If you plan to <a href='__helpTopics.POSTINGS.sections.CREATE__'>post</a>, <a href='__helpTopics.COMMENTS.sections.CREATE__'>comment</a>, <a href='__helpTopics.PAYMENT.sections.APPRECIATION__'>tip</a>, or <a href='__helpTopics.USERS.sections.FOLLOW__'>follow</a>, we recommend that you create an account!"
+		},
+		"register":{
+			"t":"Registration",
+			"i":"Creating an account",
+			"o":"An account can be created by simply filling out a quick form. It's simple to join. Just fill out the form!<br><br>Once your account is created, there's a few things you need to do before having access to all the features. First, you must accept the <a href='__TERMS__'>Terms of Service</a>, and <a href='__termsSections.STANDARDS.link__'>read the rules</a>. Next, visit the <a href='__SETTINGS__'>settings page</a> and confirm your email. This step is necessary to ensure you have a way to recover and manage your account, before adding anything of value to it! Finally, you must link a PayPal account in order for your readers to support your posts.<br><br>We don't ask for any information that is not relevant or necessary. Take a look at our <a href='__termsSections.PRIVACY.link__'>privacy policy!</a>"
+		},
+		"login":{
+			"t":"Login",
+			"i":"Logging in",
+			"o":"If you already have an account, logging in is simple! You just need to provide your name and password. The login process is designed to be simple, easy, and accessible anywhere on this site. We don't annoy you with constant reminders."
+		},
+		"username":{
+			"t":"Username",
+			"i":"Usernames are unique, and restricted to Alphabetic, Numeric, or _ characters.",
+			"o":"A username cannot be changed once created, so be careful! A username is also unique to this site, so only one user may have specific username. While capitalization does not matter when identifying your account, capitilization will affect the way your username is displayed.<br><br>A username is restricted to alphabetic (A-z), numeric (0-9), and underscore (_) characters."
+		},
+		"email":{
+			"t":"Email",
+			"i":"Emails are tied to an account and must be unique",
+			"o":"The email linked to your account must be unique for this site, meaning that only one account may be linked to a specific email at any time. If you wish to use the email with a different account, you must first change the linked email in your <a href='__SETTINGS__'>Settings</a>.<br><br>Your email is never shared by default. It is your choice if your email appears in your profile description. For more information, please read our <a href='__termsSections.PRIVACY.link__'>privacy policy.</a>"
+		},
+		"password":{
+			"t":"Password",
+			"i":"A private password at least 14 characters in length.",
+			"o":"A password, above all else, should be kept secret. Changing your password can be done at any time in your <a href='__SETTINGS__'>settings</a>. If you forget your password and cannot log in, you must request a password change through email tied to your account.<br><br>For security purposes, we require passwords to be at least 14 characters in length, but we do not require special characters or punctuation within your password. While this is different than many other standard website practices, we believe that the increased password length is the bare minimum of an increase in security for a modern website, and we recommend that your password be longer, more complex, and different than your passwords on any other websites."
+		},
+		"locked":{
+			"t":"Locked account",
+			"i":"Locked or suspended account",
+			"o":"Your account may become locked at any time for any number of reasons. Violating the <a href='__termsSections.STANDARDS.link__'>rules</a> is one of the most common scenarios, either through your posts, comments, descriptions, or harrassing our users. This will result in either a temporary or permanant suspension. Administrators or moderators are also able to suspend your account for violations of the <a href='__TERMS__'>Terms of Service</a>."
+		},
+		"idle":{
+			"t":"Idle",
+			"i":"Account signed out due to inactivity",
+			"o":"After a few minutes of inactivity, you will be automatically signed out. This is a simple security precaution. Please do not rely on this feature and manually sign out from your account you have finished using it, especially in any publicly accessible location."
+		},
+		"theft":{
+			"t":"Simultaneous logins",
+			"i":"Account logged in elsewhere",
+			"o":"For security reasons, it is not permitted to be signed in at multiple locations. The most likely cause of this issue is when you have signed in to another device that you own, such as when logging into this site from your desktop and forgetting to log out on your mobile device. In the event that you are not responsible for multiple simultaneous logins, or have lost control of your account, please contact an administrator as soon as possible."
+		},
+		"deleted":{
+			"t":"Account deletion",
+			"i":"Account is scheduled for deletion",
+			"o":"You are permitted to delete your account at any time. In order to prevent unwanted or accidental permanant deletions, your account is kept active for a specific duration, just in case you change your mind! If you wish to cancel this action at any time, you will be presented with this action at any time after logging in."
+		},
+		"warning":{
+			"t":"Explicit content",
+			"i":"Browsing explicit content",
+			"o":"If you are not willing to see adult or explicit content, the default option of browsing this site hides all explicit posts and comments. If you navigate to any content that displays adult content, you will be presented with the option to continue, go back, or change your settings to allow future viewing of adult content. Enabling this option allows the viewing of all available content, regardless of adult or explicit content."
+		},
+		"commentsDisabled":{
+			"t":"Comments disabled",
+			"i":"Comments disabled",
+			"o":"Commenting may be disabled for many reasons. The most common reasons include comments on a disabled post or comment, or a locked tag."
+		},
+		"promoteDisabled":{
+			"t":"Promote disabled",
+			"i":"Promoting is disabled",
+			"o":"Promoting and tipping a post or comment is prohibited if the content is removed. The content may be disabled by the author, removed by a moderator, or disabled for some other reason."
+		},
+		"cacheDelay":{
+			"t":"Awaiting confirmation from server",
+			"i":"Awaiting confirmation from server",
+			"o":"When making any changes to your account or any content, there may be a delay before seeing your changes. This is to confirm that the changes have been received properly, and ensure that future viewing of the content will reflect those changes accurately. Navigating away while this is in process will not have any adverse effects, but the changes may not be visible until it has completed."
+		}
+	},
+	"profile":{
+		"default":{
+			"i":"Profile",
+			"o":"Your profile is public to all users. Be careful what you write here!"
+		},
+		"description":{
+			"t":"Profile Bio",
+			"i":"A short description of you",
+			"o":"Your profile is where you say what you want! Unlike other social networks, we have no separate forms and fields for various information about you. Here, you are free to put exactly what information you want others to know about you, in exactly the layout you want. It's up to you to make your profile stand out. There is no right or wrong way to fill out your profile, as long as you follow the <a href='__termsSections.STANDARDS.link__'>rules</a> when creating it."
+		},
+		"appreciationResponse":{
+			"t":"Tip Response",
+			"i":"Show your gratitude",
+			"o":"A personal message or reply thanking your supporters may be impractical for some with overwhelming support. For all our users, thanking or even being thanked constantly can get monotonous. We want you to focus on creating quality content; that's what your supporters want! We provide an easy way to express your gratitude to your supporters creatively, and in a way that wont annoy either party."
+		},
+		"warning":{
+			"t":"Explicit content",
+			"i":"Explicit or adult content in your profile",
+			"o":"Your profile is permitted to have explicit or adult content. However, we require that you mark your bio or tip response if they contain such content. There are separate fields to mark each, in case both are not explicit."
+		},
+		"backers":{
+			"t":"Backers",
+			"i":"Backers offering to support your content",
+			"o":"You may be capable of creating great content, but don't have the ability to promote it properly. We provide a backing system to allow content creators to do what they do best! This system allows others to offer to back you. In exchange for covering the costs of promoting content (only upon post or comment creation), then each user who tips you for that specific post or comment, and only that specific post or comment, will be required to tip an equivalent amount to the backer.<br><br>When backing another user, you specify the amount that you are willing to offer. This amount is removed immediately and held in escrow, to be used by the receiver when their content is created. It can be cancelled or refused by either party at any time, and all remaining funds get returned.<br><br>Even if a user has backed you, you are not required to use their backing on any future content. Only content, of which you use backing funds to initially promote, will have the requirement for users to tip backers."
+		}
+	},
+	"payment":{
+		"default":{
+			"i":"Payment",
+			"o":"The only payment service that we currently use is PayPal. This requires you to have a PayPal account in order to buy Pennies, tip users, or receive tips for content that you have created."
+		},
+		"coins":{
+			"t":"Penstro Pennies",
+			"i":"Penstro Pennies",
+			"o":"Penstro Pennies are used for promoting content. They are intended to be convenient and easy to use, without having to make a separate purchase for every promotion. Pennies are not redeemable for any other currency, and have no value on their own."
+		},
+		"promotion":{
+			"t":"Promoted content",
+			"i":"Promoted content",
+			"o":"Content can be promoted by anyone for any amount of Pennies they wish to use. Promoting a post or comment raises its rank relative to other content so that it appears higher in the results. This process is similar to bidding for the top position, and all lower promotion amounts receive their respective lower ranks. In order to ensure fresh content, only the promotions applied during the sorted time period are used.<br><br>A promotion is tracked instantly. However, it may take a few minutes for the promoted post or comment to be ranked higher when listed. It is only possible for it to be ranked lower if other content is promoted for a larger amount."
+		},
+		"appreciation":{
+			"t":"Tips",
+			"i":"Tipped content",
+			"o":"If you create high quality content, others may want to tip you. This is not a payment for work received, only a tip by those who wish to support you and the content that you create. Tips are tracked by the content on which they are received in order both to rank that content and to help authors determine what their audience desires.<br><br>Tips are not directly tracked. Instead, a service fee is taken by Penstro; this fee is converted into an equivalent amount of Pennies and immediately applied as a promotion. This system ensures that no benefit is gained by colluding gifts to raise ranks on content. Instead, the post or comment is ranked based entirely on what fees (either through promoting directly or as the promotional service fee of the tip) are received."
+		},
+		"payment":{
+			"t":"Payment",
+			"i":"Payment",
+			"o":"Payment is accepted through PayPal. Purchases are processed within minutes. When purchasing Pennies or tipping a user, follow the steps presented and you will be redirected to PayPal payments, where your purchase will be carried out by PayPal. Currently, only U.S. currency is accepted."
+		},
+		"processing":{
+			"t":"Checking payments",
+			"i":"Checking payments",
+			"o":"While your payment is being processed, you will see a notice showing that the site is awaiting confirmation. This may take a few minutes. When this process completes, the content will be refreshed, but you are not required to stay on the same page. In the unlikely event of an error, please immediately contact an administrator."
+		}
+	},
+	"editor":{
+		"default":{
+			"i":"Editor",
+			"o":"The editor is used for all content. We recommend that you become familiar with some of the features it offers. A well formatted post is just as important as the content itself."
+		},
+		"preview":{
+			"t":"Preview",
+			"i":"Proofread your work!",
+			"o":"The editor displays a preview of your work to allow you to see how your work will be displayed before submitting. This is perhaps the most important feature. Posts and comments cannot be edited, so proofreading is essential!"
+		},
+		"user":{
+			"t":"Referencing a user",
+			"i":"Link to a user",
+			"o":"The editor provides a convenient shorthand for linking to a user. Unlike other networks, this does not send that user a notification. This feature is intended to be for the readers benefit, giving context if one author refers to another."
+		},
+		"tag":{
+			"t":"Referencing a tag",
+			"i":"Link to a tag",
+			"o":"Tags can be referenced in content as another simple way of giving context to the reader. This is not the same thing as <a href='__helpTopics.POSTINGS.sections.TAGS__'>tagging a post</a>."
+		},
+		"link":{
+			"t":"Links",
+			"i":"Adding a link",
+			"o":"If you don't understand how links work on the internet, you're beyond our help."
+		},
+		"image":{
+			"t":"Images",
+			"i":"Adding an image",
+			"o":"Images be displayed within content in a straightforward manner. All you have to do is specify the image, and it will be displayed at the default size of the image. If the image doesn't fit in your content as you would like, try changing the width and height to match your desired look."
+		},
+		"secureImage":{
+			"t":"Images in Messages",
+			"i":"Images in Messages",
+			"o":"For security purposes, images received in private messages must be accepted before they will be shown."
+		}
+	},
+	"posts":{
+		"default":{
+			"i":"Posts",
+			"o":"Posts are the primary source of content; everything else on Penstro is based upon providing the tools to create, find, and rate the best possible posts."
+		},
+		"create":{
+			"t":"Creating a post",
+			"i":"Create a post for others to see!",
+			"o":"Creating a post is easy, but creating a great post is hard! All that is required at minimum is your properly formatted (formatting information can be found in the <a href='__helpTopics.EDITOR.sections.LINK__'>editor</a> section) and carefully constructed content with a matching title. Be careful, however, as once the post is created it cannot be edited.<br><br>There are many additional options as well, including <a href='__helpTopics.POSTINGS.sections.TAGS__'>tags</a>, an initial <a href='__helpTopics.POSTINGS.sections.PROMOTE__'>promotion</a>, <a href='__helpTopics.POSTINGS.sections.BACKER__'>backers</a>, and the <a href='__helpTopics.POSTINGS.sections.WARNING__'>explicit content</a> field, with more information below."
+		},
+		"edit":{
+			"t":"Edit",
+			"i":"Edits to a post",
+			"o":"Editting a post is allowed. While you should proofread your work, there are always a few scenarios that cannot be forseen, such as outdated information or broken links."
+		},
+		"title":{
+			"t":"Title",
+			"i":"The title should quickly summarize the post",
+			"o":"The title is the first thing any reader will see, and is one of the most important factors that the reader will consider while browsing. The title should summarize the main point of the post. It may be tempting to create the catchiest or most eye-grabbing title that matches the post, but some readers may be irritated if a title misleads what is in the content."
+		},
+		"tags":{
+			"t":"Tags",
+			"i":"Space separated tags",
+			"o":"<a href='__helpTopics.TAGS.link__'>Tags</a> are an easy way to categorize posts. Relevant tags can be crucial to ensuring your post reaches your intended audience, but a post may only have 5 tags at any time. <br><br>These tags may change throughout the life of your post. When any user, including yourself, promotes this post, they have the option of voting on the relevant tags. A tally is kept of the top promoted tags for a post, and every few minutes, the top 5 tags for a post are selected. This is also how tags across the site are ranked."
+		},
+		"backer":{
+			"t":"Backer",
+			"i":"A backer fronts the inital promotion in exchange for a share of the support",
+			"o":"A backer can be selected to front the initial promotion. In exchange, the backer receives half of all tip. A backer can only be used to promote a post when it is created. More information can be found in the <a href='__helpTopics.CURRENT.sections.BACKERS__'>backers</a> section."
+		},
+		"warning":{
+			"t":"Explicit content",
+			"i":"This post contains explicit content",
+			"o":"A post with explicit content should have the explicit content field marked. This can be changed when the post is promoted, allowing the community to vote on what is considered explicit. If in doubt, mark it as explicit."
+		},
+		"promote":{
+			"t":"Promoting a post",
+			"i":"Promoting a post",
+			"o":"Posts are sorted by how much promotion they have received recently. The post with the most promotion will be at the top; promoting a post will raise its rank for sorting. When a user promotes a post, they may additionally vote on whether that post should be marked explicit, and may suggest alternate tags. Both the vote on explicit content and the suggested tags are considered based on a relation between the promotion amount and the total value of the post."
+		},
+		"appreciate":{
+			"t":"Tipping a post",
+			"i":"Tipping a post",
+			"o":"The true measure of a post is what its readers perceive its worth to be. Any user can tip to the author of a post. A service fee from each tip is applied as a <a href='__helpTopics.POSTINGS.sections.PROMOTE__'>promotion</a>, raising the post's relative rank when compared to other posts."
+		},
+		"image":{
+			"t":"Post image",
+			"i":"Post image",
+			"o":"Posts can optionally include an image. This image will be displayed at the top of the post, and will additionally be displayed when linked to other social media."
+		},
+		"preview":{
+			"t":"Preview",
+			"i":"Preview",
+			"o":"A short preview of what the post contains may entice users to view the content. This preview will additionally be displayed when linked to other social media."
+		},
+		"flag":{
+			"t":"Reporting a post for a violation",
+			"i":"Reporting a post for a violation",
+			"o":"Any post violating the <a href='__termsSections.STANDARDS.link__'>rules</a> or the <a href='__TERMS__'>terms of service</a> should be immediately reported. Each user may report each post, comment, or user once.<br><br>While moderation is kept to a minimum, a post may be automatically removed if it has been reported by enough users. In order for a post to be removed, a minimum number of users must report it, where it will be considered for automatic removal."
+		}
+	},
+	"comments":{
+		"default":{
+			"i":"Comments",
+			"o":"Comments are another source of content. While they are typically not as long or detailed as a post, comments can be just as valuable as a solid post. Comments can add extra context or value to a discussion in a way that no post can.<br><br>You can comment on posts, tags, users, or even other comments."
+		},
+		"reply":{
+			"t":"Creating a comment",
+			"i":"Creating a comment",
+			"o":"Creating a comment is easier than creating a post. All thats required is the content itself, and there is no need for a title or tags. Comments can always be edited, but you should always proofread your work! If a comment absolutely must have a title, tags, or a preview for external links, it would be better suited as a <a href='__helpTopics.POSTINGS.link__'>post</a>."
+		},
+		"backer":{
+			"t":"Backer",
+			"i":"A backer fronts the initial promotion in exchange for a share of the support",
+			"o":"Adding a backer to a comment is identical to <a href='__helpTopics.POSTINGS.sections.BACKER__'>adding a backer to a post</a>."
+		},
+		"warning":{
+			"t":"Explicit content",
+			"i":"This comment contains explicit content",
+			"o":"A comment with explicit content should have the explicit content field marked in the same manner as an <a href='__helpTopics.POSTINGS.sections.WARNING__'>explicit post</a>. This can be changed when the comment is promoted, allowing the community to vote on what is considered explicit. If in doubt, mark it as explicit."
+		},
+		"promote":{
+			"t":"Promoting a comment",
+			"i":"Promoting a comment",
+			"o":"Comments are sorted by how much promotion they have received recently. Promoting comments are similar to <a href='__helpTopics.POSTINGS.sections.PROMOTE__'>promoting posts</a>, except that there are no tags involved."
+		},
+		"appreciate":{
+			"t":"Tipping a comment",
+			"i":"Tipping a comment",
+			"o":"Any user can tip the author of a comment. A cut of this tip is applied as a <a href='__helpTopics.COMMENTS.sections.PROMOTE__'>promotion</a>, raising the comment's relative rank."
+		},
+		"flag":{
+			"t":"Reporting a comment for a violation",
+			"i":"Reporting a comment for a violation",
+			"o":"See <a href='__helpTopics.POSTINGS.sections.FLAG__'>reporting a post</a>."
+		}
+	},
+	"tags":{
+		"default":{
+			"i":"Tags",
+			"o":"Tags are a crucial feature which helps to find the content you want. These sort posts categorically, so that content can be found by what you like or created based on what the community likes. While a post's rank might reflect its quality, the tags are what that post is about."
+		},
+		"tag":{
+			"t":"Tagging",
+			"i":"Tagging",
+			"o":"Tags are created as soon as they are used in a post. Tags are added to a post upon creation or by any user after promoting a post."
+		},
+		"postings":{
+			"t":"Tagged posts",
+			"i":"Finding posts by tag",
+			"o":"Tags are intended to be used to find content by a category. You are able to view a tag and all tagged posts, ranked by each post's value."
+		},
+		"promote":{
+			"t":"Promoting a tag",
+			"i":"Promoting a tag",
+			"o":"Tags are automatically promoted when used according to their respective amounts. Using a tag without any promotion will not change a tags rank."
+		}
+	},
+	"users":{
+		"default":{
+			"i":"Users",
+			"o":"All content is produced by users themselves. Users author the best content, and we encourage you to follow, support, or compete with them!"
+		},
+		"appreciationResponse":{
+			"t":"Tip Response",
+			"i":"Expressing your gratitude",
+			"o":"Some users want to get creative and express some gratitude when you support them! A tip response is the best way to show some content exclusively for those who have given a tip to you. <br><br>While tip responses can really customize the experience of your readers, we dont require or even emphasize the use of tip responses. Tip responses are entirely optional, to give each user an extra method to display their content."
+		},
+		"message":{
+			"t":"Messages",
+			"i":"Messaging a user",
+			"o":"Any user may message any other. Remember that this site is not intended for casual interaction. Sending a message is more frequently a way to exchange contact details for alternate means of communication using a more appropriate service."
+		},
+		"messageFlag":{
+			"t":"Reporting a conversation",
+			"i":"Reporting a conversation",
+			"o":"Any harrassment or any other prohibited activities, determined as per our <a href='__TERMS__'>Terms of Service</a> and our <a href='__termsSections.STANDARDS.link__'>Rules</a>, and the offender should be immediately reported. If the incident requires moderator attention, such as any messages that violate the law, threats, or harrassment, please <a href='__SUPPORT__'>contact an administrator</a>."
+		},
+		"activity":{
+			"t":"Activity",
+			"i":"Activity",
+			"o":"A user's activity is visible for anyone to look at. <a href='__helpTopics.USERS.sections.FOLLOW__'>Following a user</a> combines that user's activity with all other users you are following into a single feed of activity."
+		},
+		"follow":{
+			"t":"Following a user",
+			"i":"Following a user",
+			"o":"Follow your favorite authors! This is a great way to view any new posts that they produce, content that they promote, or other authors with potentially similar interests that they follow."
+		},
+		"back":{
+			"t":"Backing a user",
+			"i":"Backing a user",
+			"o":"A great way to support a struggling author is to offer to cover their initial promotions on posts or comments. You offer a set amount, which either of you can cancel at any time, and if they use those funds to promote their post or comment, then you will both be tipped evenly for that content.<br><br>More information on the <a href='__helpTopics.CURRENT.sections.BACKERS__'>backing system can be found here</a>."
+		},
+		"flag":{
+			"t":"Reporting a user for inappropriate conduct",
+			"i":"Reporting a user for inappropriate conduct",
+			"o":"Any harrassment or violations of our <a href='__TERMS__'>Terms of Service</a> or <a href='__termsSections.STANDARDS.link__'>Rules</a> and the offender should be reported for inappropriate conduct."
+		}
+	}
+}

@@ -1,0 +1,14 @@
+mixin NJContent(content, showTopHr, showBottomHr)
+	if showTopHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr
+			span.col-xs-2
+	p(class=attributes.class).pyContent= content
+	if showBottomHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr.pyMarkdownContentHrBottom
+			span.col-xs-2

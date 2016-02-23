@@ -1,0 +1,12 @@
+mixin Button(caption, bind, icon, click, type, sref, srefActive, srefOptions, ngClass, ngDisabled, show, count, tooltip, bType, svg, fallbackSvg)
+	//- dont use srefActive
+	- var href = constants.values.VOID_ACTION;
+	- var hideClass;
+	if sref
+		- href = undefined;
+	if show
+		- hideClass = 'ng-hide';
+	a(href=href, id!=attributes.id, class!=attributes.class, class=hideClass, ng-click=click, type=type, ui-sref=sref, ui-sref-opts=srefOptions, ng-class=ngClass, ng-disabled=ngDisabled, ng-show=show, tooltip=tooltip, tooltip-placement='bottom', role='button', aria-label=caption).jsOnly.btn.pyButton.hidden-print
+		+ButtonInner(caption, bind, icon, count, bType, undefined, undefined, svg, fallbackSvg)
+			if block
+				block

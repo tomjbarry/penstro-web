@@ -1,0 +1,19 @@
+mixin Followee()
+	div(ng-controller='FolloweeController').pyFollowee
+		div.pySingle.col-xs-12
+			div.row
+				div.col-xs-12
+					span.pull-left
+						+UserReference('info.username', 'clickUser()')
+					span.pull-right
+						+Timestamp('timeSince', 'calendar')
+			//-div.row
+				div.col-xs-12
+					+SubAlert('subAlert')
+				div.col-xs-12
+					span.pull-left
+						+SubButton(t('unfollow'), undefined, 'fa-times', 'unfollow()', undefined, undefined, undefined, undefined, undefined, 'disabled').btn-xs
+		div(ng-show='subData.single').col-xs-12
+			div.row
+				div(ui-view=constants.partials.SUB_SINGLE)
+		

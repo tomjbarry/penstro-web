@@ -1,0 +1,5 @@
+mixin NJAlert(msg, allowClose)
+	div(data-alert, class!=attributes.class).alert-box.round
+		span= msg
+		if allowClose
+			a(href='#').close.jsOnly &times;

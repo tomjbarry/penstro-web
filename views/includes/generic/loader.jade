@@ -1,0 +1,7 @@
+mixin Loader(bind)
+	div(ng-show=bind, class=attributes.class).ng-hide
+		block
+	div(ng-hide=bind).hidden-print
+		div.pyLoader.text-center.jsOnly
+			//-img(src=constants.imgUrls.SPINNER, ng-hide=bind).pyLoaderImage
+			+Icon().fa-cog.fa-spin.fa-5x

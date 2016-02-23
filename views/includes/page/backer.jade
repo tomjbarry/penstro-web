@@ -1,0 +1,17 @@
+mixin Backer(iter)
+	div(ng-controller='BackerController').pyBacker.col-xs-12.col-md-12
+		div(ng-init='init(' + iter + ')')
+			div(ng-hide='disabled').pageItem
+				div.row
+					div.col-xs-12
+						span.pull-left
+							div
+								span= t('to')
+									+UserReference('backer.target')
+							div
+								span= t('from')
+									+UserReference('backer.source')
+						+ValueSummary('tally.value', t('tallyTooltips.backer.coins')).pull-right
+					div.col-xs-12
+						span.pull-left
+							+SubButton(t('cancel'), undefined, 'fa-times', 'cancel()', undefined, undefined, undefined, undefined, undefined, 'disabled')

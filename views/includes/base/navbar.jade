@@ -1,0 +1,24 @@
+mixin Navbar
+	div.pyNavBar.pyMenu
+		nav(role='banner', id=constants.viewIds.NAVBAR).navbar.navbar-default.navbar-fixed-top
+			div.container
+				- var actionId = 'action'
+				div.navbar-header
+					span.pull-right
+						button(type='button', ng-click='navbar.toggleAction()').navbar-toggle.collapsed
+							span.sr-only= t('navbar.label.action')
+							+Icon().fa-fw.fa-user
+						+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.ACTION_BAR, false).navHideExpanded
+					//- - var navTitle = req.title; if(typeof(req.titleTranslate) !== 'undefined' && req.titleTranslate) {navTitle = t('titles:' + req.title, req.titleArgs);}
+					span
+						a(ng-click='navbar.dismissNavigation()', ui-sref=constants.states.DEFAULT, ui-sref-opts='{reload: true}').navbar-brand.brandScale
+							//- span(ng-bind='title.title').navbar-brand= navTitle
+							//-span
+								img(src=constants.imgUrls.MONEY_THUMB)
+								span= t('titles:app')
+							//-
+								img(src=constants.imgUrls.BRAND, alt=t('imgAlts.brand'))
+							img(src=constants.imgUrls.BRAND_SMALL, alt=t('imgAlts.brand'))
+						+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.BRAND, false)
+				div(id=actionId, collapse='navbar.actionCollapsed').collapse.navbar-collapse
+					+ActionMenu

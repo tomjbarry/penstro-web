@@ -1,0 +1,4 @@
+mixin MiniButton(caption, bind, icon, click, show, sref, srefActive, srefOptions, ngClass, ngDisabled, count, tooltip)
+	+Button(caption, bind, icon, click, 'button', sref, srefActive, srefOptions, ngClass, ngDisabled, show, count, tooltip, 'MINI')(class!=attributes.class,id!=attributes.id).pyMiniButton
+		if block
+			block

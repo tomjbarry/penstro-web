@@ -1,0 +1,12 @@
+mixin FormSection(id, label, helpTopic, helpSection, error)
+	div.formInput.row
+		if label
+			span.col-xs-12
+				label(for=id)= label
+				if helpTopic
+					+HelpLink(helpTopic, helpSection, 'bottom', true).pull-right
+			if error
+				span.col-xs-12
+					+ValidationInformation(error)(for=id)
+		if block
+			block

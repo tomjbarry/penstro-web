@@ -1,0 +1,5 @@
+mixin NJProfileContent(content, showTopHr, showBottomHr)
+	if content
+		+NJMarkdownContent(content, showTopHr, showBottomHr).pyProfileContent
+	else
+		span= t('noDescription')

@@ -1,0 +1,15 @@
+mixin NJMarkdownContent(content, showTopHr, showBottomHr)
+	if showTopHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr
+			span.col-xs-2
+	div.row
+		div.pyContent.pyMarkdownContent.col-xs-12!= utils.markdownConverter.convertAndSanitize(content)
+	if showBottomHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr.pyMarkdownContentHrBottom
+			span.col-xs-2

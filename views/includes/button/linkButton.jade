@@ -1,0 +1,5 @@
+mixin LinkButton(caption, bind, icon, click, type, href, ngHref, ngClass, ngDisabled, show, count, tooltip, bType, svg, fallbackSvg)
+	a(href=href, ng-href=ngHref, id!=attributes.id, class!=attributes.class, class=hideClass, ng-click=click, type=type, ng-class=ngClass, ng-disabled=ngDisabled, ng-show=show, tooltip=tooltip, tooltip-placement='bottom', role='button', aria-label=caption).jsOnly.btn.pyLinkButton.pyButton.hidden-print
+		+ButtonInner(caption, bind, icon, count, bType, undefined, undefined, svg, fallbackSvg)
+			if block
+				block

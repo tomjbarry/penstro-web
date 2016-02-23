@@ -1,0 +1,7 @@
+mixin NJValueSummary(value)
+	span(class!=attributes.class)
+		span.block-sm.pyValue
+			span.fancy.pull-right
+				span= value
+				span &nbsp
+				span= t('shared:symbols.coins')

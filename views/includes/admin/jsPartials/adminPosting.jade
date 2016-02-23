@@ -1,0 +1,31 @@
+mixin AdminPosting
+	+AdminOnly
+		div(ng-controller='PostingController').pyPosting
+			div.pySingle.col-xs-12
+				div.row
+					span.col-xs-12
+						div.row
+							div.col-xs-12
+								+AppreciationSummary('tally.appreciation', t('tallyTooltips.posting.currency'), undefined, 'openStatistics()')
+								span.pyPostingReference
+									+TitleIcon('fa-newspaper-o')
+									+Removed('posting.removed')
+										+Title('title').posting-title
+						div.row
+							div.col-xs-12
+								+AuthorReference('posting.author')
+								span &nbsp
+								+Timestamp('timeSince', 'calendar')
+								+BeneficiaryReference('posting.beneficiary')
+								+ContentInfo('posting')
+							span(ng-show='posting.tags && posting.tags.length').ng-hide.pull-right
+								+TagList('posting.tags').pull-right
+				div.row
+					div.col-xs-12
+						+PostingContent('posting.content', true)
+				div.row
+					div.col-xs-12
+						span.pull-left
+							+AdminPostingActions
+						span.pull-right
+							+ActionButton(t('normalView'), undefined, 'fa-anchor', undefined, undefined, constants.states.POSTINGS_ID + '({' + constants.pathVariables.POSTING + ': posting.id})', 'active', '{reload: true}')

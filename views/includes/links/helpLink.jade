@@ -1,0 +1,9 @@
+mixin HelpLink(topic, section, placement, notTabbable)
+	- var topicInfo = 'default';
+	- if(typeof(topic) !== 'undefined') {topicInfo = topic;}
+	- var sectionInfo = '.default.i';
+	- if(typeof(section) !== 'undefined') {sectionInfo = '.' + section + '.i';}
+	- if(typeof(placement) === 'undefined') {placement = 'bottom';}
+	span
+	//-+GenericHelpLink(topic, section, notTabbable)(class!=attributes.class)
+		i(tooltip=t('help:' + topicInfo + sectionInfo), tooltip-placement=placement, aria-hidden="true").fa.fa-fw.fa-2x.fa-question-circle

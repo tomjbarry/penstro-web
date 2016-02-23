@@ -1,0 +1,336 @@
+@-ms-viewport{
+	width: extend-to-zoom;
+	zoom: 1.0;
+}
+
+body {
+	color: @py-font-color;
+	background-color: @py-background-color;
+	font-family: @font-stack-basic;
+}
+
+h1, h2, h3, h4, h5, h6,
+.pyTitle, .pageableTitle, .title, .fancy {
+	font-family: @font-stack-fancy;
+}
+
+#body {
+	margin-top: @py-margin-top;
+	margin-right: @py-margin-horizontal;
+	margin-left: @py-margin-horizontal;
+}
+
+#pagebody {
+	min-height: floor(@py-screen-height-xs * .75);
+	@media (min-height: @py-screen-height-sm) {
+		min-height: floor(@py-screen-height-sm * .75);
+	}
+	@media (min-height: @py-screen-height-md) {
+		min-height: floor(@py-screen-height-md * .75);
+	}
+	@media (min-height: @py-screen-height-lg) {
+		min-height: floor(@py-screen-height-lg * .75);
+	}
+}
+
+input,
+textarea,
+select {
+	background-color: @py-secondary-color-light;
+	color: @py-font-color;
+}
+
+a[disabled] {
+	pointer-events: none;
+	color: @py-disabled-link-color;
+	//cursor: not-allowed;
+}
+
+a[disabled].pyDropdownButtonInner {
+	text-decoration: line-through;
+	//cursor: not-allowed;
+}
+
+.pyActionsAuthentication div {
+	padding: 1em;
+}
+
+/*
+.pyLoader img {
+	width: 25%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	display: block;
+}
+*/
+
+.pyLoader {
+	margin: @py-loader-margin;
+}
+
+.pyValidationInformation {
+	color: @py-validation-text-color;
+	label {
+		color: @py-validation-text-color;
+		margin-bottom: 0;
+	}
+}
+
+.pySubAlert {
+	color: @py-error-color;
+}
+
+.pyAlerts {
+	z-index:1001;
+	position: absolute;
+	margin-top: @py-alert-margin-top;
+	padding-top: @py-alert-padding-top;
+}
+
+.modal-open {
+	overflow: auto;
+}
+
+.title {
+	font-size: @py-font-size-4;
+}
+i.title {
+	font-style: normal;
+}
+
+.posting-title {
+	font-family: @py-font-stack-posting;
+	font-style: italic;
+}
+
+.pageableTitle {
+	font-size: @py-font-size-4;
+	font-style: italic;
+}
+
+.pageableTitleHr {
+	margin-top: 0px;
+}
+
+.username {
+	font-size: @py-font-size;
+	font-weight: bold;
+}
+
+.tag {
+	font-size: @py-font-size;
+}
+
+hr.pyMarkdownContentHrTop {
+	margin-top: @py-content-separator-margin-outer;
+	margin-bottom: @py-content-separator-margin-inner;
+}
+
+hr.pyMarkdownContentHrBottom {
+	margin-top: @py-content-separator-margin-inner;
+	margin-bottom: @py-content-separator-margin-outer;
+}
+
+.pageableHr {
+	margin-top: @grid-gutter-width / 4;
+	margin-bottom: @grid-gutter-width / 4;
+}
+
+.pyAppreciationSummaryTitle {
+	font-style: italic;
+}
+
+.pyAppreciation {
+	font-size: @py-appreciation-summary-size;
+	padding: @py-appreciation-summary-padding;
+	color: @py-currency-color;
+	a {
+		color: @py-currency-color;
+	}
+	a:hover,
+	a:focus {
+		color: @py-currency-color-darkest;
+	}
+}
+
+.pyAppreciation.pyAppreciationSmall {
+	font-size: @py-appreciation-summary-size-small;
+}
+
+.pyValue {
+	font-size: @py-appreciation-summary-value-size;
+	color: @py-coins-color;
+	a {
+		color: @py-coins-color;
+	}
+	a:hover,
+	a:focus {
+		color: @py-coins-color-darkest;
+	}
+}
+
+.pyFooter {
+	border-top: @py-footer-border-top;
+	margin-top: @py-footer-margin;
+	padding-top: @py-footer-padding;
+	padding-bottom: @py-footer-padding;
+	.list-inline li {
+		padding: @py-footer-list-item-padding;
+	}
+}
+
+.pyPaymentProcessing,
+.pyCacheDelayWaiting,
+.pyTourAvailable,
+.pyBetaAlert {
+	margin-bottom: @py-alert-processing-margin-bottom;
+}
+
+.alert-pyBetaAlert {
+	background-color: @py-alert-beta-background-color;
+	color: @py-alert-beta-color;
+	border-color: @py-alert-beta-border-color;
+}
+
+.alert-pyPaymentProcessing {
+	background-color: @py-alert-payment-background-color;
+	color: @py-alert-payment-color;
+	border-color: @py-alert-payment-border-color;
+}
+
+.alert-pyCacheDelayWaiting {
+	background-color: @py-alert-cache-delay-background-color;
+	color: @py-alert-cache-delay-color;
+	border-color: @py-alert-cache-delay-border-color;
+}
+
+.alert-pyTourAvailable,
+.pyTourSection .popover {
+	background-color: @py-alert-tour-available-background-color;
+	color: @py-alert-tour-available-color;
+	border-color: @py-alert-tour-available-border-color;
+	.popover-title {
+		background-color: @py-alert-tour-available-title-background-color;
+	}
+}
+
+.pyTourSection .popover {
+	max-width: @py-tour-width;
+	width: @py-tour-width;
+}
+
+.pyHelpLink {
+	color: @py-help-link-color;
+}
+.pyHelpLink:hover,
+.pyHelpLink:focus {
+	color: @py-help-link-hover-color;
+}
+
+.pyModal .pyHelpLink,
+.pyWarning .pyHelpLink {
+	color: @py-help-link-modal-color;
+}
+.pyModal .pyHelpLink:hover,
+.pyModal .pyHelpLink:focus,
+.pyWarning .pyHelpLink:hover,
+.pyWarning .pyHelpLink:focus {
+	color: @py-help-link-modal-hover-color;
+}
+
+.pyHelpSection {
+	margin-bottom: @py-help-section-margin-bottom;
+}
+
+.pyTermsSection {
+	margin-bottom: @py-terms-section-margin-bottom;
+}
+
+.pyTourSection .popover {
+	overflow-wrap: break-word;
+	white-space: normal;
+	a.btn {
+		background-color: inherit;
+		i {
+			color: @py-tour-button-icon-color;
+		}
+	}
+	.arrow {
+		padding-left: @py-tour-popover-arrow-padding-hor;
+		padding-right: @py-tour-popover-arrow-padding-hor;
+	}
+}
+
+.pyTourSection.pyTourLeft .popover .arrow {
+	margin-left: -50px;
+}
+
+.pyRestricted {
+	.pyRestrictedUsername {
+		color: @py-restricted-username-color;
+	}
+	.pyRestrictedPassword {
+		color: @py-restricted-password-color;
+	}
+	.pyRestrictedEmail {
+		color: @py-restricted-email-color;
+	}
+}
+
+.deprecatedBrowser {
+	display: none;
+}
+
+.pyInvalid {
+	text-decoration: line-through;
+	color: red;
+}
+
+.pyTextSize1 {
+	font-size: @py-font-size;
+}
+
+.pyTextSize2 {
+	font-size: @py-font-size-2;
+}
+
+.pyTextSize3 {
+	font-size: @py-font-size-3;
+}
+
+.pyTextSize4 {
+	font-size: @py-font-size-4;
+}
+
+.pyTextSize5 {
+	font-size: @py-font-size-5;
+}
+
+.g-recaptcha div div {
+	margin: 0 auto;
+}
+
+.py-search-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rext(0, 0, 0, 0);
+	border: 0;
+}
+
+.recaptcha-loading {
+	position: relative;
+	z-index: 1;
+}
+
+.recaptcha-move {
+	position: relative;
+	margin-top: -70px;
+	z-index: 2;
+}

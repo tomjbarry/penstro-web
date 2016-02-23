@@ -1,0 +1,30 @@
+mixin PurchaseModal
+	script(type='text/ng-template')#purchaseModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('purchaseCurrency')
+							span.pull-right
+								+PaymentImage
+								+HelpLink(constants.helpTopics.PAYMENT.name, undefined, 'left').pull-right
+				div.modal-body
+					div.row
+						+Loader('!purchaseData.loading')
+							div.col-xs-12
+								+SubAlert('purchaseData.alert')
+							div.col-xs-12
+								+FormInput('purchaseCurrencyAmount', t('purchaseCurrencyOptions.amount'), constants.helpTopics.PAYMENT.name, constants.helpTopics.PAYMENT.sections.COINS, 'number', 'purchaseData.amount', 'purchaseData.errors.amount', undefined, 'purchaseData.open', constants.values.STEP_COINS, constants.values.PURCHASE_MIN, undefined, undefined, t('shared:symbols.coins'))
+							div.col-xs-12
+								strong
+									em= t('purchaseCurrencyOptions.warning')
+							div.col-xs-12
+								+Total('sinceAction >= 0', 'total', 'amount', undefined, 'tax')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: purchaseData.loading}', aria-label=t('purchaseCurrencyOptions.submit')).btn= t('purchaseCurrencyOptions.submit')

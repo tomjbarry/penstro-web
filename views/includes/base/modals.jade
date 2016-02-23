@@ -1,0 +1,17 @@
+mixin Modals
+	div.pyModals
+		//-+EditorLinkModal
+		//-+EditorImageModal
+		+LoginModal
+		+RegisterModal
+		+PurchaseModal
+		+SocialModal
+		+PromotionStatsModal
+		+PostingModals
+		+CommentModals
+		+UserModals
+		+CurrentModals
+		if utils.mode.admin
+			+AdminPostingModals
+			+AdminCommentModals
+			+AdminUserModals

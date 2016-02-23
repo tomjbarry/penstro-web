@@ -1,0 +1,10 @@
+mixin DropdownNavButton(label, icon, open, disabled)
+	div(dropdown, is-open=open, class!=attributes.class).btn-group.pyDropdownNavButton.hidden-print
+		button(type='button', ng-disabled=disabled, dropdown-toggle, aria-label=label).btn.dropdown-toggle
+			if icon
+				i(class!=icon, aria-hidden="true").fa.fa-fw
+			span= label
+			span.menu-space
+			span.caret
+		if block
+			block

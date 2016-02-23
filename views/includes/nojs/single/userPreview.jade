@@ -1,0 +1,17 @@
+mixin NJUserPreview(preview)
+	if preview
+		- var pathVars = {}; pathVars[constants.pathVariables.USER] = preview.username.username;
+		- var userLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID, pathVars);
+		+NJPreview
+			div.row
+				span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+					div.row
+						div.col-xs-12
+							+NJLink(userLink).pyUsernameReference
+								+TitleIcon('fa-user')
+								+NJUserTitle(preview.username)
+					div.row
+						div.col-xs-12
+							+NJContentInfo(preview)
+				span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					+NJAppreciationSummary(preview.appreciation)

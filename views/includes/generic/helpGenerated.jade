@@ -1,0 +1,20 @@
+mixin HelpGenerated(topic, sectionMap)
+	div#pyHelp.row.pyHelpGenerated
+		- var key, section;
+		span(id=constants.viewIds.SIDEBAR).col-xs-12.col-sm-4.col-md-3.pull-right.jsOnly
+			span.fixed-sm.pyHelp
+				+Link(constants.states.HELP, undefined, '{reload: true}')(href=constants.viewUrls.HELP)
+					h4
+						+Icon().fa-fw.fa-question-circle
+						span= t('help')
+				hr
+				+HelpSidebarTopic(topic)
+					if sectionMap
+						each section, key in sectionMap
+							+HelpSidebarSection(topic, section)
+		span(scroll-spy=constants.viewIds.SIDEBAR, data-scroll-offset=constants.values.SCROLLSPY_OFFSET).pyHelp.col-xs-12.col-sm-8.col-md-9
+			+HelpTopic(topic)
+				if sectionMap
+					each section, key in sectionMap
+						+HelpSection(topic, section)
+	

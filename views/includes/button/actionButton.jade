@@ -1,0 +1,4 @@
+mixin ActionButton(caption, bind, icon, click, show, sref, srefActive, srefOptions, ngClass, ngDisabled, count, tooltip, svg, fallbackSvg)
+	+Button(caption, bind, icon, click, 'button', sref, srefActive, srefOptions, ngClass, ngDisabled, show, count, tooltip, 'ACTION', svg, fallbackSvg)(class!=attributes.class,id!=attributes.id).pyActionButton
+		if block
+			block

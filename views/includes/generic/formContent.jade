@@ -1,0 +1,11 @@
+mixin FormContent(id, label, bind, error, placeholder, focus)
+	+FormSection(id, label, undefined, undefined, error)
+		textarea(ng-model=bind, id=id, placeholder=placeholder, modal-focus=focus, rows=constants.values.TEXTAREA_ROWS, cols=constants.values.TEXTAREA_COLS).col-xs-12
+	//-div.formInput.row
+		if label
+			span.col-xs-12
+				label(for=id)= label
+			if error
+				span.col-xs-12
+					+ValidationInformation(error)(for=id)
+		textarea(ng-model=bind, id=id, placeholder=placeholder, modal-focus=focus, rows=constants.values.TEXTAREA_ROWS, cols=constants.values.TEXTAREA_COLS).col-xs-12

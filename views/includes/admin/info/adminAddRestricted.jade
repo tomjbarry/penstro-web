@@ -1,0 +1,21 @@
+mixin AdminAddRestricted
+	+AdminOnly
+		div(ng-controller='AddRestrictedController').pyAddRestricted
+			+Form#form
+				form(name=constants.forms.ADD_RESTRICTED, ng-submit='addRestricted()', action=constants.values.VOID_ACTION)
+					div.row
+						div.col-xs-12
+							label
+								strong.form-title= t('modRestrictedOptions.restricted')
+					div.row
+						div.col-xs-12
+							+SubAlert('alert')
+					div.row
+						div.col-xs-12
+							+FormInput('addRestricted', t('modRestrictedOptions.word'), undefined, undefined, 'text', 'word', 'errors.word')
+					div.row
+						div.col-xs-12
+							span.pull-left
+								+ActionButton(undefined, undefined, 'fa-refresh', 'refresh()').pyRefreshButton
+							span.pull-right
+								button(type='submit', ng-class='{disabled: restrictedLoading}', aria-label=t('modRestrictedOptions.submit')).btn= t('modRestrictedOptions.submit')

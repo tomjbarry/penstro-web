@@ -1,0 +1,5 @@
+mixin NJTagReference(tag)
+	- var pathVars = {}; pathVars[constants.pathVariables.TAG] = tag;
+	- var tagLink = utils.utils.formatUrl(constants.viewUrls.TAGS_ID, pathVars);
+	+NJLink(tagLink).pyTagReference.label
+		span.tag= tag

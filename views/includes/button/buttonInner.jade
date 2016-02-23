@@ -1,0 +1,14 @@
+mixin ButtonInner(caption, bind, icon, count, type, captionClass, iconBind, svg, fallbackSvg)
+	div.pyButtonInner
+		if svg
+			+SvgIcon(svg, fallbackSvg)
+		else
+			if icon || iconBind
+				i(ng-class=iconBind, class!=icon, aria-hidden="true").fa.fa-fw
+		if block
+			block
+		if count
+			span(ng-bind=count).badge
+		if caption || bind
+			span(ng-bind=bind, class!=captionClass).menu-space= caption
+		//- ADD HOVER EFFECT FOR MINI?

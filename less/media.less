@@ -1,0 +1,23 @@
+
+.tooltip-container .tooltip {
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	@media (min-width: @screen-md-min) {
+		// display is overridden in the html. who designed it wtf? plugins, man...
+		visibility: inherit;
+		width: inherit;
+		height: inherit;
+		overflow: inherit;
+	}
+}
+
+.tooltip.left {
+	margin-left: -35px;
+	margin-right: 35px;
+}
+
+.tooltip.bottom {
+	margin-right: -20px;
+}

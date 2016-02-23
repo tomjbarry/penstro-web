@@ -1,0 +1,8 @@
+mixin AdminFollower(iter)
+	+AdminOnly
+		div(ng-controller='AdminFollowerController').pyFollowInfo
+			span.pySingle.col-xs-12.col-md-4
+				span.pull-left
+					+UserReference('info.username')
+				span.pull-right
+					+Timestamp('timeSince', 'calendar')

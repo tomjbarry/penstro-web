@@ -1,0 +1,9 @@
+mixin SortSelect(bind)
+	span= t('sort')
+	div(ng-controller='SortSelectController').btn-group
+		button(type='button', ng-click='onChange("' + constants.paramValues.SORT_OPTION_VALUE + '")', ng-class='{active: sort["' + constants.paramValues.SORT_OPTION_VALUE + '"]}', aria-label=t('sortOption.value')).btn.pyButton.pyNavButton.sortOptionValue
+			span= t('sortOption.value')
+		button(type='button', ng-click='onChange("' + constants.paramValues.SORT_OPTION_PROMOTION + '")', ng-class='{active: sort["' + constants.paramValues.SORT_OPTION_PROMOTION + '"]}', aria-label=t('sortOption.promotion')).btn.pyButton.pyNavButton.sortOptionPromotion
+			span= t('sortOption.promotion')
+		button(type='button', ng-click='onChange("' + constants.paramValues.SORT_OPTION_COST + '")', ng-class='{active: sort["' + constants.paramValues.SORT_OPTION_COST + '"]}', aria-label=t('sortOption.cost')).btn.pyButton.pyNavButton.sortOptionCost
+			span= t('sortOption.cost')

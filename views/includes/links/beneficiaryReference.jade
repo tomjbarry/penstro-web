@@ -1,0 +1,5 @@
+mixin BeneficiaryReference(bind)
+	span(ng-show=bind).ng-hide
+		span= t('beneficiaryReference')
+		span &nbsp
+		+UserReference(bind)

@@ -1,0 +1,15 @@
+mixin Message()
+	div(ng-controller='MessageController').pyMessage
+		div(ng-class='{fromSelf: self, fromOther: !self}').pySingle.col-xs-12
+			div.row
+				div.col-xs-12
+					div(ng-show='self').ng-hide
+						+UsernameReference('current', undefined, 'currentUsername')
+					div(ng-hide='self').ng-hide
+						+UserReference('message.author')
+			div.row
+				div.col-xs-12
+					+Timestamp('timeSince', 'calendar')
+			div.row
+				div.col-xs-12
+					+MessageContent('message.message', true)

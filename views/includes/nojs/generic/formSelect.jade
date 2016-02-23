@@ -1,0 +1,24 @@
+mixin NJFormSelect(options, name, id, label, selection, helpTopic, helpSection, addonPre, addonPost)
+	if options
+		div.formInput.row
+			if label
+				span.col-xs-12
+					label(for=id)= label
+					if helpTopic
+						+HelpLink(helpTopic, helpSection).pull-right
+			span.col-xs-12.input-group
+				if addonPre
+					span.input-group-addon= addonPre
+				select(name=name, id=id).form-control
+					- var i;
+					- for (i in options)
+						if options.hasOwnProperty(i)
+							if i === selection
+								option(value=i, selected)= options[i]
+							else
+								option(value=i)= options[i]
+				if addonPost
+					span.input-group-addon= addonPost
+				if block
+					span.input-group-btn
+						block

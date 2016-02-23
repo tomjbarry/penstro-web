@@ -1,0 +1,28 @@
+extends ../pageLayout
+
+block Partial
+	div(ng-controller='SubPageableController').pySubPageable
+		div(ng-show='pageable').ng-hide
+			div.row
+				div.col-xs-12.hidden-print
+					div.row
+						div(ng-show='pageable.timeSort').col-xs-6.col-md-3.ng-hide
+							div(ng-show='pageable.timeSort && !pageable.timeRepliesSort').ng-hide
+								+TimeSelect(false)
+							div(ng-show='pageable.timeSort && pageable.timeRepliesSort').ng-hide
+								+TimeSelect(true)
+			div.pySubPageableContent.row
+				+Loader('pageable.loaded.current')
+					div.col-xs-12.hidden-print
+						+PreviousPage('pageable.loaded.current && pageable.hasPrevious()', 'onPrevious()')
+					div(ng-show='pageable.page && pageable.page.length').col-xs-12.ng-hide
+						div.row
+							span(ng-repeat='pageItem in pageable.page track by $index')
+								span(ng-class='{pageEven: $even, pageOdd: $odd}')
+									span(ng-controller='PageableItemController')
+										span(ui-view=constants.partials.SUB_SINGLE).gradient
+					span(ng-hide='pageable.page && pageable.page.length').ng-hide.col-xs-12
+						span(ng-hide='time').ng-hide= t('none')
+						span(ng-show='time').ng-hide= t('noneTime')
+					div.col-xs-12.hidden-print
+						+NextPage('pageable.loaded.current && pageable.hasNext()', 'onNext()')

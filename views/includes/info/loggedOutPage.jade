@@ -1,0 +1,22 @@
+mixin LoggedOutPage
+	+GenericInfoPage(t('loggedOutOptions.title'))
+		div.row
+			span.col-xs-12
+				+Icon().fa-fw.fa-5x.fa-sign-out.pull-left
+				span.text-info= t('loggedOutOptions.overview')
+				+Icon().fa-fw.fa-5x.fa-sign-out.pull-right
+		div.row
+			span.col-xs-12
+				h4.text-pad-left= t('loggedOutOptions.reasons.title')
+			span.col-xs-12
+				dl
+					dt= t('loggedOutOptions.reasons.one.title')
+					dd.text-pad-left= t('loggedOutOptions.reasons.one.description')
+					dt= t('loggedOutOptions.reasons.two.title')
+					dd.text-pad-left= t('loggedOutOptions.reasons.two.description')
+					dt= t('loggedOutOptions.reasons.three.title')
+					dd.text-pad-left= t('loggedOutOptions.reasons.three.description')
+			span.col-xs-12
+				p= t('loggedOutOptions.contact')
+				span.pull-right
+					+SubButton(t('support'), undefined, 'fa-life-ring', undefined, undefined, constants.states.SUPPORT)

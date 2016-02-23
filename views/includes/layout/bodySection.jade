@@ -1,0 +1,31 @@
+mixin BodySection
+	body#body
+		<!--[if lt IE 9]><span class='IEDeprecated'><![endif]-->
+		<!--[if IE 8]><span class='IE8'><![endif]-->
+		<!--[if lt IE 8]><span class='IE8Less'><![endif]-->
+		a(href='#' + constants.viewIds.CONTENT).sr-only.sr-only-focusable.jsOnly= t('sr.skipToContent')
+		div(ng-controller='MainController')
+			//-div#pageheader.container-fluid.hidden-print
+			div#pageheader.hidden-print
+				style .nojsOnly { display: none;}
+				noscript
+					style: |.jsOnly { display: none;}
+					style: |.nojsOnly { display: initial;}
+				<!--[if lt IE 9]>
+				noscript: style: |.nojsOnly { display: inline;}
+				noscript: style: |div.nojsOnly { display: block;}
+				style: |.nojsOnly { display: inline;}
+				style: |div.nojsOnly { display: block;}
+				style: |.jsOnly { display: none;}
+				<![endif]-->
+				block Header
+			div#pagebody.container
+				block Body
+			div#pagefooter.container-fluid.hidden-print
+				block Footer
+				//-a#jsStartErrorButton.ng-hide ERROR
+				//-span#jsStartErrorText.ng-hide
+		block AddJavascript
+		<!--[if lt IE 8]></span><![endif]-->
+		<!--[if IE 8]></span><![endif]-->
+		<!--[if lt IE 9]></span><![endif]-->

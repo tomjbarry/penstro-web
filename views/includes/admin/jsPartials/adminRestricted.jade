@@ -1,0 +1,8 @@
+mixin AdminRestricted(iter)
+	+AdminOnly
+		div(ng-controller='AdminRestrictedController').pyRestricted
+			div.pySingle.col-xs-12.col-md-12
+				span.pull-left
+					span(ng-bind='info.word', ng-class="{pyRestrictedUsername: type === 'u', pyRestrictedPassword: type === 'p', pyRestrictedEmail: type === 'e'}").fs-2.fancy
+				span.pull-right
+					+ActionButton(t('remove'), undefined, 'fa-remove', 'remove()')

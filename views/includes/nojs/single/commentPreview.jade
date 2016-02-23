@@ -1,0 +1,46 @@
+mixin NJCommentPreview(preview)
+	if preview
+		- var hideExplicit = preview.warning && !paramUtil.toBoolean(paramUtil.constructWarning(req));
+		- var pathVars = {}; pathVars[constants.pathVariables.COMMENT] = preview.id
+		- var commentLink = utils.utils.formatUrl(constants.viewUrls.COMMENTS_ID, pathVars)
+		- var parentLink, baseLink, baseTitle; pathVars = {};
+		if preview.parent
+			- pathVars[constants.pathVariables.COMMENT] = preview.parent; parentLink = utils.utils.formatUrl(constants.viewUrls.COMMENTS_ID, pathVars);
+		- pathVars = {};
+		if preview.type === constants.commentTypes.POSTING
+			- pathVars[constants.pathVariables.POSTING] = preview.base; baseLink = utils.utils.formatUrl(constants.viewUrls.POSTINGS_ID, pathVars); baseTitle = t('shared:base.posting');
+		else if preview.type === constants.commentTypes.TAG
+			- pathVars[constants.pathVariables.TAG] = preview.base; baseLink = utils.utils.formatUrl(constants.viewUrls.TAGS_ID, pathVars); baseTitle = t('shared:base.tag');
+		else if preview.type === constants.commentTypes.USER
+			- pathVars[constants.pathVariables.USER] = preview.base; baseLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID, pathVars); baseTitle = t('shared:base.user');
+		+NJPreview
+			div.row
+				span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+					div.row
+						div.col-xs-12
+							+NJLink(commentLink).pyCommentReference
+								+TitleIcon('fa-comment-o')
+								+NJRemoved(preview.removed)
+									span= t('shared:commentPreviewLink')
+							span.pull-right
+								div
+									+NJLink(baseLink).pull-right
+										span= baseTitle
+								if preview.parent
+									div
+										+NJLink(parentLink).pull-right
+											span= t('shared:parent')
+					div.row
+						div.col-xs-12
+							+NJAuthorReference(preview.author)
+							span &nbsp
+							+NJTimestamp(preview.created)
+					div.row
+						div.col-xs-12
+							+NJContentInfo(preview)
+				span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					+NJAppreciationSummary(preview.tally.appreciation)
+			div.row
+				div.col-xs-12
+					+NJWarningSimple(hideExplicit)
+						+NJCommentContent(preview.content, true)

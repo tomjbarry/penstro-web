@@ -1,0 +1,29 @@
+mixin FormInput(id, label, helpTopic, helpSection, type, bind, error, placeholder, focus, step, min, disabled, addonPre, addonPost)
+	+FormSection(id, label, helpTopic, helpSection, error)
+		span.col-xs-12.input-group
+			if addonPre
+				span.input-group-addon= addonPre
+			input(type=type, ng-model=bind, id=id, placeholder=placeholder, step=step, min=min, modal-focus=focus, ng-disabled=disabled).form-control
+			if addonPost
+				span.input-group-addon= addonPost
+			if block
+				span.input-group-btn
+					block
+	//- div.formInput.row
+		if label
+			span.col-xs-12
+				label(for=id)= label
+				if helpTopic
+					+HelpLink(helpTopic, helpSection, 'bottom', true).pull-right
+			if error
+				span.col-xs-12
+					+ValidationInformation(error)(for=id)
+		span.col-xs-12.input-group
+			if addonPre
+				span.input-group-addon= addonPre
+			input(type=type, ng-model=bind, id=id, placeholder=placeholder, step=step, min=min, modal-focus=focus, ng-disabled=disabled).form-control
+			if addonPost
+				span.input-group-addon= addonPost
+			if block
+				span.input-group-btn
+					block

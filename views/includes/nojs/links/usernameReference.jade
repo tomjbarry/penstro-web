@@ -1,0 +1,7 @@
+mixin NJUsernameReference(username)
+	- var pathVars = {}
+	- pathVars[constants.pathVariables.USER] = username
+	- var href = utils.utils.formatUrl(constants.viewUrls.USERS_ID, pathVars)
+		+NJLink(href).pyUsernameReference
+			+NJIcon('fa-user')
+			span.username= username

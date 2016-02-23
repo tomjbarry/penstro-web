@@ -1,0 +1,4 @@
+mixin PreviousPage(condition, onClick)
+	div.pyPreviousPage.row.text-center
+		button(ng-show=condition, ng-click=onClick, aria-label=t('pageable.previous')).btn.ng-hide.col-xs-12.btn-xs
+			span= t('pageable.previous')

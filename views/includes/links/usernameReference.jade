@@ -1,0 +1,12 @@
+mixin UsernameReference(username, click, usernameLink, disabled)
+	- var link = username;
+	if usernameLink
+		- link = usernameLink;
+	if click
+		+ClickLink(click, disabled).pyUsernameReference
+			+Icon().fa-user
+			span(ng-bind=username).username
+	else
+		+Link(constants.states.USERS_ID + '({' + constants.pathVariables.USER + ': ' + link + '})', undefined, '{reload: true}').pyUsernameReference
+			+Icon().fa-user
+			span(ng-bind=username).username

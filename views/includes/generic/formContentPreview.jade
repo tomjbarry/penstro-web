@@ -1,0 +1,20 @@
+mixin FormContentPreview(id, label, bind, error, placeholder, dirtyForm, preview, showPreview)
+	+FormSection(id, label, undefined, undefined, error)
+		if preview
+			div.col-xs-12
+				+ContentPreview(bind, dirtyForm, placeholder, preview, showPreview)
+		else
+			div.col-xs-12
+				div(py-editor=bind, dirty-form=dirtyForm, placeholder=placeholder)
+	//-div.formInput.row
+		if label
+			span.col-xs-12
+				label(for=id)= label
+				+HelpLink(constants.helpTopics.EDITOR.name, undefined, 'left').pull-right
+			if error
+				span.col-xs-12
+					+ValidationInformation(error)(for=id)
+		span.col-xs-12
+			div(py-editor=bind, dirty-form=dirtyForm, placeholder=placeholder)
+		span.col-xs-12
+			+ContentPreview(preview)

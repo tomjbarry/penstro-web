@@ -1,0 +1,20 @@
+mixin EditorLinkModal
+	script(type='text/ng-template')#editorLinkModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('editor.linkOptions.title')
+							+HelpLink(constants.helpTopics.EDITOR.name, constants.helpTopics.EDITOR.sections.LINK, 'left').pull-right
+				div.modal-body
+					div.row
+						div.col-xs-12
+							+FormInput('editorLinkUrl', t('editor.linkOptions.url'), undefined, undefined, 'text', 'linkData.url', undefined, t('editor.linkOptions.urlPlaceholder'), 'linkData.open')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', aria-label=t('editor.linkOptions.submit')).btn= t('editor.linkOptions.submit')

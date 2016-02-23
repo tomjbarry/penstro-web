@@ -1,0 +1,53 @@
+mixin ActionMenu
+	div(ng-show='loaded.account && (!authenticated || show)').pyActionMenu.ng-hide.tooltip-container
+		div(ng-show='authenticated').ng-hide.navbar-right
+			ul(role='menu', class!=attributes.class).nav.navbar-nav.navbar-right
+				li.navbar-right
+					+DropdownButtonInner(t('create.posting'), undefined, undefined, 'navbar.dismissAction()', undefined, constants.states.POSTINGS_CREATE, 'active', '{reload: true}', undefined, undefined, undefined, 'navHideExpanded', undefined, t('create.posting'), constants.imgUrls.POST_ICON, constants.imgUrls.POST_ICON_PNG)
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.authed.CREATE_POSTING, true)
+				li
+					+DropdownButtonInner(t('purchaseCurrency'), undefined, 'fa-usd', 'navbar.dismissAction();openPurchase()', undefined, undefined, undefined, undefined, '{active: purchaseData.open}', undefined, 'balance', 'navHideExpanded', undefined, t('purchaseCurrency')).pyPurchaseButton
+			ul(role='menu', class!=attributes.class).nav.navbar-nav
+				//-li(ng-controller='TourAvailableIconController')
+					+DropdownButtonInner(t('tour:toggle'), undefined, 'fa-spin fa-bus', '$parent.navbar.dismissAction();toggle()', 'tour.enabled && tour.available', undefined, undefined, undefined, undefined, undefined, undefined, 'navHideExpanded', undefined, t('tour:toggle'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.TOUR_AVAILABLE, false)
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.ACTION_BAR, false).navHideCollapsed
+				li(ng-controller='CacheDelayIconController')
+					+DropdownButtonInner(t('cacheDelay.toggle'), undefined, 'fa-spin fa-spinner', '$parent.navbar.dismissAction();toggle()', 'waiting.waiting > 0 || (tour.show === true && tour.section === "' + constants.tourStates.GENERAL.name + '" && tour.subSection === "' + constants.tourStates.GENERAL.authed.CACHE_DELAY + '")', undefined, undefined, undefined, undefined, undefined, undefined, 'navHideExpanded', undefined, t('cacheDelay.toggle'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.authed.CACHE_DELAY, true)
+				li(ng-controller='PaymentProcessingIconController')
+					+DropdownButtonInner(t('paymentProcessing.toggle'), undefined, 'fa-spin fa-paypal', '$parent.navbar.dismissAction();toggle()', 'processing.processing > 0 || (tour.show === true && tour.section === "' + constants.tourStates.GENERAL.name + '" && tour.subSection === "' + constants.tourStates.GENERAL.authed.PAYMENT_PROCESSING + '")', undefined, undefined, undefined, undefined, undefined, undefined, 'navHideExpanded', undefined, t('paymentProcessing.toggle'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.authed.PAYMENT_PROCESSING, true)
+				li
+					+DropdownButtonInner(t('current'), undefined, 'fa-home', 'navbar.dismissAction()', undefined, constants.states.CURRENT, 'active', '{reload: true}', undefined, undefined, undefined, 'navHideExpanded', undefined, t('current'))
+				li
+					+DropdownButtonInner(t('shared:notifications'), undefined, 'fa-bell', 'navbar.dismissAction()', undefined, constants.states.NOTIFICATIONS, 'active', '{reload: true}', '{highlightNotifications: notifications > 0}', undefined, 'notificationCount', 'navHideExpanded', undefined, t('shared:notifications')).pyNotificationsButton
+				li
+					+DropdownButtonInner(t('shared:messages'), undefined, 'fa-paper-plane', 'navbar.dismissAction()', undefined, constants.states.MESSAGES, 'active', '{reload: true}', '{highlightMessages: messages > 0}', undefined, 'messageCount', 'navHideExpanded', undefined, t('shared:messages')).pyMessagesButton
+				li
+					+DropdownButtonInner(t('shared:feed'), undefined, 'fa-bookmark', 'navbar.dismissAction()', undefined, constants.states.FEED, 'active', '{reload: true}', '{highlightFeed: feed > 0}', undefined, 'feedCount', 'navHideExpanded', undefined, t('shared:feed')).pyFeedButton
+				li
+					+DropdownButtonInner(t('settings'), undefined, 'fa-cogs', 'navbar.dismissAction()', undefined, constants.states.SETTINGS, 'active', '{reload: true}', undefined, undefined, undefined, 'navHideExpanded', undefined, t('settings'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.SETTINGS, false)
+				li(ng-controller='LogoutController')
+					+DropdownButtonInner(t('logout'), undefined, 'fa-sign-out', '$parent.navbar.dismissAction();logout()', undefined, undefined, undefined, undefined, undefined, undefined, undefined, 'navHideExpanded', undefined, t('logout'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.AUTHENTICATION, false)
+		div(ng-hide='authenticated').ng-hide.navbar-right
+			ul(role='menu', class!=attributes.class).nav.navbar-nav.navbar-right
+				li(ng-controller='TourAvailableIconController')
+					+DropdownButtonInner(t('tour:toggle'), undefined, 'fa-spin fa-bus', '$parent.navbar.dismissAction();toggle()', 'tour.enabled && tour.available', undefined, undefined, undefined, undefined, undefined, undefined, 'navHideExpanded', undefined, t('tour:toggle'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.TOUR_AVAILABLE, false)
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.ACTION_BAR, false).navHideCollapsed
+				li(ng-controller='LoginController')
+					+DropdownButtonInner(t('login'), undefined, 'fa-sign-in', '$parent.navbar.dismissAction();openLogin()', undefined, undefined, undefined, undefined, '{active: loginData.open}', undefined, undefined, 'navHideExpanded', undefined, t('login'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.AUTHENTICATION, false)
+				li(ng-controller='RegisterController')
+					+DropdownButtonInner(t('register'), undefined, 'fa-key', '$parent.navbar.dismissAction();openRegister()', undefined, undefined, undefined, undefined, '{active: registerData.open}', undefined, undefined, 'navHideExpanded', undefined, t('register'))
+				li
+					+DropdownButtonInner(t('settings'), undefined, 'fa-cogs', 'navbar.dismissAction()', undefined, constants.states.SETTINGS, 'active', '{reload: true}', undefined, undefined, undefined, 'navHideExpanded', undefined, t('settings'))
+					+TourSection(constants.tourStates.GENERAL.name, constants.tourStates.GENERAL.unauthed.SETTINGS, false)
+	div(ng-hide='loaded.account && (!authenticated || show)').pyActionMenu.ng-hide.tooltip-container
+		div.navbar-right
+			ul(role='menu', class!=attributes.class).nav.navbar-nav
+				li
+					+Icon().fa-fw.fa-3x.fa-spin.fa-spinner

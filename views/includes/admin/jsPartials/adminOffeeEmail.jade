@@ -1,0 +1,18 @@
+mixin AdminOffeeEmail(iter)
+	+AdminOnly
+		div(ng-controller='AdminOffeeEmailController').pyOffee.col-xs-12.col-md-12
+			div(ng-init='init(' + iter + ')')
+				div(ng-hide='disabled').pageItem
+					div.row
+						div.col-xs-12
+							span.pull-left
+								div
+									span= t('to')
+										+EmailReference('offee.target')
+								div
+									span= t('from')
+										+UserReference('offee.source')
+							+ValueSummary('tally.value', t('tallyTooltips.offer.coins')).pull-right
+						div.col-xs-12
+							span.pull-left
+								+SubButton(t('withdraw'), undefined, 'fa-times', 'withdraw()', undefined, undefined, undefined, undefined, undefined, 'disabled')

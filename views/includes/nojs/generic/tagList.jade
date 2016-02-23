@@ -1,0 +1,4 @@
+mixin NJTagList(tags)
+	div(class!=attributes.class).pyTagList
+		each tag in tags
+			+NJTagReference(tag)

@@ -1,0 +1,27 @@
+mixin Footer
+	div
+		span.text-center
+			ul.list-inline
+				li
+					+Link(constants.states.WELCOME, 'active', '{reload: true}')
+						span= t('welcome')
+				li
+					+TermsLink()
+						span= t('terms')
+				li
+					+TermsLink(constants.termsSections.STANDARDS)
+						span= t('rules')
+				li
+					+TermsLink(constants.termsSections.PRIVACY)
+						span= t('privacy')
+				li
+					+Link(constants.states.CAREERS, 'active', '{reload: true}')
+						span= t('careers')
+				li
+					+Link(constants.states.SUPPORT, 'active', '{reload: true}')
+						span= t('support')
+				li
+					+Link(constants.states.HELP, 'active', '{reload: true}')
+						span= t('help')
+			div
+				span!= t('footer.acceptance', constants.premadeLinks)

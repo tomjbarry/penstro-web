@@ -1,0 +1,16 @@
+mixin NavButton(caption, sref, srefActive, srefOptions, count)
+	//- dont use srefActive
+	- var href = constants.values.VOID_ACTION;
+	if sref
+		- href = undefined;
+	a(type='button', href=href, class!=attributes.class, ui-sref=sref, ui-sref-opts=srefOptions, role='button', aria-label=caption).btn.pyButton.pyNavButton.hidden-print
+		+ButtonInner(caption, undefined, undefined, count, 'NAV')
+			if block
+				block
+	//-	
+		span.pyButtonInner.text-center
+			if count
+				span.pull-left
+					span(ng-bind=count).badge
+			if caption
+				span.menu-space= caption

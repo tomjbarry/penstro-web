@@ -1,0 +1,36 @@
+mixin CreateComment
+	div(ng-controller='CreateCommentController').pyCreateComment
+		form(name=constants.forms.CREATE_COMMENT, action=constants.values.VOID_ACTION)
+			div.row
+				//-div.col-xs-12
+					label
+						strong.form-title= t('create.comment.generic')
+					+HelpLink(constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.CREATE, 'left').pull-right
+				div.col-xs-12
+					+ReadRules
+				div.col-xs-12
+					+SubAlert('alert')
+				//-span.col-xs-12
+					hr
+				+InputBuffer().col-md-10
+				+CollapsedButton('optionalCollapsed', true).col-xs-12.col-md-2
+				div.col-xs-12.col-md-12
+					div.row
+						+Collapsed('optionalCollapsed')
+							//-
+								div.col-xs-12.col-md-6
+									+FormInput('commentBacker', t('commentOptions.backer'), constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.BACKER, 'text', 'backer', 'errors.backer', t('commentOptions.backerPlaceholder'), undefined, undefined, undefined, 'cost <= 0', t('shared:symbols.username'))
+										+ListSelect(t('listSelectOptions.backer.button'), t('listSelectOptions.backer.title'), constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.BACKER, t('listSelectOptions.backer.empty'), t('listSelectOptions.backer.username'), 'source.username', t('listSelectOptions.backer.value'), 'value')
+							+InputBuffer().col-md-3
+							div.col-xs-8.col-md-4
+								+FormInput('commentCost', t('commentOptions.cost'), constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.COST, 'number', 'cost', 'errors.cost', undefined, undefined, constants.values.STEP_COINS, constants.values.COMMENT_MIN, undefined, undefined, t('shared:symbols.coins'))
+							div.col-xs-3.col-md-2
+								+FormInput('commentWarning', t('commentOptions.warning'), constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.WARNING, 'checkbox', 'warning', 'errors.warning')
+							+InputBuffer().col-md-3
+				div.col-xs-12
+					+FormContentPreview('commentContent', t('commentOptions.content'), 'content', 'errors.content', t('commentOptions.contentPlaceholder'), constants.forms.CREATE_COMMENT, 'preview', 'showPreview')
+				//-span.col-xs-12
+					hr
+				div.col-xs-12
+					span.pull-right
+						+ActionButton(t('commentOptions.submit'), undefined, undefined, 'createComment()', undefined, undefined, undefined, undefined, '{disabled: commentLoading}').btn-xs

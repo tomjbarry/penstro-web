@@ -1,0 +1,1 @@
+START cmd.exe /k "cd C:\Program Files (x86)\pyweb && deploy.bat"

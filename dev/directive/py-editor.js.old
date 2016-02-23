@@ -1,0 +1,771 @@
+define(['./module', 'jquery', 'angular', 'js/util/i18n', 'js/util/extra-templates', 'js/constants/values', 'js/constants/regexes'],
+	function(directive, $, ng, i18n, templates, values, regexes) {
+	'use strict';
+	
+	directive.directive('pyEditor', ['$compile', '$timeout', '$window', '$modal', 'ModalInterface', function($compile, $timeout, $window, $modal, ModalInterface) {
+		var nextId = 0;
+		var minRepeat = 5;
+		
+		return {
+			restrict: 'A',
+			replace: true,
+			template: "<div class='pyEditor'></div>",
+			link: function(scope, iElement, attrs) {
+				var id = attrs.id;
+				var model = attrs.pyEditor;
+				var dirtyForm = attrs.dirtyForm;
+				
+				scope.labels = {};
+				scope.tooltips = {};
+				scope.dropdownText = false;
+				scope.dropdownAlign = false;
+				scope.dropdownLayout = false;
+				scope.dropdownLinks = false;
+				
+				i18n(function(t) {
+					var add = function(s) {
+						scope.labels[s] = t('shared:editorButtons.' + s);
+					};
+					add('bold');
+					add('italic');
+					add('code');
+					add('quote');
+					
+					add('alignCenter');
+					add('alignLeft');
+					add('alignRight');
+					add('alignJustify');
+					
+					add('section');
+					add('paragraph');
+					add('ul');
+					add('ol');
+					add('indent');
+					add('lineBreak');
+					add('pageBreak');
+					
+					add('user');
+					add('tag');
+					add('link');
+					add('image');
+					
+					scope.tooltips.text = t('shared:editorButtons.tooltips.text');
+					scope.tooltips.align = t('shared:editorButtons.tooltips.align');
+					scope.tooltips.layout = t('shared:editorButtons.tooltips.layout');
+					scope.tooltips.links = t('shared:editorButtons.tooltips.links');
+				});
+				
+				// scope appears to be created on first element, so encase all in a div for the scope, but model is already set to parent?
+				var buttonSpacer = "<span class='buttonspacer'></span>";
+				/*
+				var newElement = $compile(
+						"<div class='row'>" +
+							"<div class='pyEditorButtonRow col-xs-12'>" +
+								"<div class='row'>" +
+									buttonGroup +
+										templates.editorButton('bold()', 'fa-bold') +
+										templates.editorButton('italic()', 'fa-italic') +
+										templates.editorButton('blockquote()', 'fa-quote-left') +
+										templates.editorButton('codeblock()', 'fa-code') +
+									"</span>" +
+									buttonGroup +
+										templates.editorButton('header1()', 'fa-angle-double-up') +
+										templates.editorButton('header2()', 'fa-angle-up') +
+										templates.editorButton('unorderedList()', 'fa-list-ul') +
+										templates.editorButton('orderedList()', 'fa-list-ol') +
+										templates.editorButton('lineBreak()', 'fa-ellipsis-h') +
+									"</span>" +
+									buttonGroup +
+										templates.editorButton('user()', 'fa-user') +
+										templates.editorButton('tag()', 'fa-tag') +
+										templates.editorButton('link()', 'fa-external-link') +
+										templates.editorButton('image()', 'fa-image') +
+									"</span>" +
+								"</div>" +
+							"</div>" +
+							"<textarea ng-change='modelChangeDirtyForm()' ng-model='" + model + "' class='col-xs-12' rows='" + values.TEXTAREA_ROWS + "' cols='" + values.TEXTAREA_COLS + "'></textarea>" +
+						"</div>"
+				)(scope);*/
+				var newElement = $compile(
+						"<div class='row'>" +
+							"<div class='pyEditorButtonRow col-xs-12'>" +
+								templates.editorButtonDropdownOuter('dropdownText', 'fa-font', 'tooltips.text',
+										templates.editorButtonDropdownInner('dropdownText = false;bold()', 'fa-bold', 'labels.bold') +
+										templates.editorButtonDropdownInner('dropdownText = false;italic()', 'fa-italic', 'labels.italic') +
+										templates.editorButtonDropdownInner('dropdownText = false;blockquote()', 'fa-quote-left', 'labels.quote') +
+										templates.editorButtonDropdownInner('dropdownText = false;codeblock()', 'fa-code', 'labels.code')
+								) +
+								templates.editorButtonDropdownOuter('dropdownAlign', 'fa-align-center', 'tooltips.align',
+										templates.editorButtonDropdownInner('dropdownAlign = false;alignCenter()', 'fa-align-center', 'labels.alignCenter') +
+										templates.editorButtonDropdownInner('dropdownAlign = false;alignLeft()', 'fa-align-left', 'labels.alignLeft') +
+										templates.editorButtonDropdownInner('dropdownAlign = false;alignRight()', 'fa-align-right', 'labels.alignRight') +
+										templates.editorButtonDropdownInner('dropdownAlign = false;alignJustify()', 'fa-align-justify', 'labels.alignJustify')
+								) +
+								templates.editorButtonDropdownOuter('dropdownFormat', 'fa-paragraph', 'tooltips.format',
+										templates.editorButtonDropdownInner('dropdownFormat = false;header1()', 'fa-angle-double-up', 'labels.section') +
+										templates.editorButtonDropdownInner('dropdownFormat = false;header2()', 'fa-angle-up', 'labels.paragraph') +
+										templates.editorButtonDropdownInner('dropdownFormat = false;unorderedList()', 'fa-list-ul', 'labels.ul') +
+										templates.editorButtonDropdownInner('dropdownFormat = false;orderedList()', 'fa-list-ol', 'labels.ol') +
+										templates.editorButtonDropdownInner('dropdownFormat = false;indent()', 'fa-indent', 'labels.indent') +
+										templates.editorButtonDropdownInner('dropdownFormat = false;lineBreak()', 'fa-ellipsis-v', 'labels.lineBreak') +
+										templates.editorButtonDropdownInner('dropdownFormat = false;pageBreak()', 'fa-ellipsis-h', 'labels.pageBreak')
+								) +
+								templates.editorButtonDropdownOuter('dropdownLinks', 'fa-link', 'tooltips.links',
+										templates.editorButtonDropdownInner('dropdownText = false;user()', 'fa-user', 'labels.user') +
+										templates.editorButtonDropdownInner('dropdownText = false;tag()', 'fa-tag', 'labels.tag') +
+										templates.editorButtonDropdownInner('dropdownText = false;link()', 'fa-external-link', 'labels.link') +
+										templates.editorButtonDropdownInner('dropdownText = false;image()', 'fa-image', 'labels.image')
+								) +
+							"</div>" +
+							"<textarea ng-change='modelChangeDirtyForm()' ng-model='" + model + "' class='col-xs-12' rows='" + values.TEXTAREA_ROWS + "' cols='" + values.TEXTAREA_COLS + "'></textarea>" +
+						"</div>"
+				)(scope);
+				
+				var jqEle = newElement.find('textarea');
+				var e = jqEle[0];
+				if(typeof(e) !== 'undefined' && typeof(e.value) === 'undefined') {
+					e.value = '';
+				}
+				if(typeof(id) !== 'undefined') {
+					jqEle.attrs('id', id);
+				}
+				iElement.html(newElement);
+				
+				scope.modelChangeDirtyForm = function() {
+					if(typeof(dirtyForm) !== 'undefined') {
+						scope[dirtyForm].$dirty = true;
+						scope[dirtyForm].$pristine = false;
+					}
+				};
+				
+				var getStartAndEnd = function() {
+					e.focus();
+					var start = 0, end = 0, normalizedValue, range, textInputRange, len, endRange;
+					
+					if(typeof e.selectionStart === "number" && typeof e.selectionEnd === "number") {
+						start = e.selectionStart;
+						end = e.selectionEnd;
+					} else {
+						range = $window.document.selection.createRange();
+						if(range && range.parentElement() === e) {
+							len = e.value.length;
+							normalizedValue = e.value.replace(/\r\n/g, "\n");
+							
+							// Create a working TextRange that lives only in the input
+							textInputRange = e.createTextRange();
+							textInputRange.moveToBookmark(range.getBookmark());
+							
+							// Check if the start and end of the selection are at the very end of the input,
+							// since moveStart/moveEnd doesn't return what we want in those cases
+							endRange = e.createTextRange();
+							endRange.collapse(false);
+							
+							if(textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+								start = end = len;
+							} else {
+								start = -textInputRange.moveStart("character", -len);
+								start += normalizedValue.slice(0, start).split("\n").length - 1;
+								
+								if(textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+									end = len;
+								} else {
+									end = -textInputRange.moveEnd("character", -len);
+									end += normalizedValue.slice(0, end).split("\n").length - 1;
+								}
+							}
+						}
+					}
+					
+					return {start: start, end: end};
+				};
+				
+				var setSelection = function(start, end) {
+					if(typeof(end) === 'undefined') {
+						end = start;
+					}
+					
+					if(e.setSelectionRange) {
+						e.focus();
+						e.setSelectionRange(start, end);
+					} else if (e.createTextRange) {
+						var range = e.createTextRange();
+						range.collapse(true);
+						range.moveEnd('character', end);
+						range.moveStart('character', start);
+						range.select();
+					}
+				};
+				/*
+				var insert = function(strStart, strEnd, pre, post, repeat) {
+					var sne = getStartAndEnd();
+					var start = sne.start;
+					var end = sne.end;
+					var text, selectedText;
+					var mirror = false;
+					var selectAll = true;
+					if(typeof(strEnd) !== 'undefined') {
+						mirror = true;
+					}
+					if(start !== end) {
+						// check if it has str already, otherwise add it
+						selectedText = e.value.substring(start, end);
+						if(selectedText.length >= strStart.length && selectedText.substring(0, strStart.length) === strStart) {
+							// possible match here, check if it is mirrored too
+							if(mirror) {
+								if(selectedText.length >= (strStart.length + strEnd.length) && selectedText.substring(selectedText.length - strEnd.length, selectedText.length) === strEnd) {
+									selectedText = selectedText.substring(strStart.length, selectedText.length - strEnd.length);
+									strStart = '';
+									strEnd = '';
+								}
+								// else do not toggle off, instead add
+							} else {
+								selectedText = selectedText.substring(strStart.length, selectedText.length);
+								strStart = '';
+								strEnd = '';
+							}
+						}
+					} else {
+						selectedText = '';
+						selectAll = false;
+					}
+					text = e.value.substring(0, start) + strStart + selectedText;
+					if(mirror) {
+						text = text + strEnd;
+					}
+					text = text + e.value.substring(end, e.value.length);
+					e.value = text;
+					end = end + strStart.length;
+					if(mirror) {
+						// once more because it's mirrored
+						end = end + strEnd.length;
+					}
+					if(!selectAll) {
+						start = start + strStart.length;
+						end = start;
+					}
+					setSelection(start, end);
+				};*/
+				
+				var isTrimmableCharacter = function(c) {
+					if(typeof(c) === 'undefined') {
+						return false;
+					}
+					return (c === ' ' || c === '\t' || c === '\r' || c === '\n');
+				};
+				
+				var getNewlineCharacter = function() {
+					// '\r\n' on opera/ie8? test this, although \n should insert the same, the selection may be off by 1
+					return '\n';
+				};
+				
+				var getNewlineCount = function() {
+					// '\r\n' on opera/ie8? test this, although \n should insert the same, the selection may be off by 1
+					return 1;
+				};
+				
+				// trim, but return numbers instead
+				var getCorrectedStartAndEnd = function() {
+					var sne = getStartAndEnd();
+					var start = sne.start;
+					var end = sne.end;
+					var original = e.value;
+					if(typeof(original) === 'undefined') {
+						original = '';
+					}
+					var text = original.substring(start, end);
+					var i;
+					for(i = 0; i < text.length; i++) {
+						if(isTrimmableCharacter(text[i])) {
+							start = start + 1;
+						} else {
+							break;
+						}
+					}
+					if(start < end) {
+						text = text.substring(start, text.length);
+						var j;
+						for(i = 0; i < text.length; i++) {
+							j = text.length - 1 - i;
+							if(isTrimmableCharacter(text[j])) {
+								end = end - 1;
+							} else {
+								break;
+							}
+						}
+					}
+					return {start: start, end: end};
+				};
+				
+				var insert = function(start, end, strStart, strEnd, newLines, count) {
+					if(typeof(start) === 'undefined') {
+						start = 0;
+					}
+					if(typeof(end) === 'undefined') {
+						end = 0;
+					}
+					var first, last;
+					if(typeof(newLines) === 'undefined') {
+						newLines = 0;
+					}
+					var original = e.value;
+					if(typeof(original) === 'undefined') {
+						original = '';
+					}
+					
+					var beforeText = original.substring(0, start);
+					var afterText = original.substring(end, original.length);
+					if(typeof(strEnd) === 'undefined') {
+						strEnd = '';
+					}
+					if(typeof(strStart) === 'undefined') {
+						strStart = '';
+					}
+					
+					var selectedText = '';
+					var resultText = '';
+					var select = false;
+					if(start !== end) {
+						select = true;
+						selectedText = original.substring(start, end);
+						// if we are gonna allow toggling off, check it here, but it's a crap feature
+					}
+					// split on newlines
+					var selected = selectedText.split(/\r\n|\r|\n/g);
+					var len = minRepeat;
+					var hasCount = false;
+					if(typeof(count) !== 'undefined') {
+						hasCount = true;
+					}
+					var countPrefix = '';
+					var nl = '';
+					var i, iCount;
+					for(i = 0; i < newLines; i++) {
+						nl = nl + getNewlineCharacter();
+					}
+					var trimmed = '';
+					if(selected.length === 1) {
+						if(hasCount) {
+							// use this instead of tostring for performance in FF and chrome, is this fully cross browser
+							countPrefix = '' + count;
+						}
+						resultText = resultText + countPrefix + strStart;
+						first = beforeText.length + resultText.length;
+						resultText = resultText + selected[0];
+						last = beforeText.length + resultText.length;
+						resultText = resultText + strEnd;
+					}	else if(selected.length > 1) {
+						iCount = 0;
+						for(i = 0; i < selected.length; i++) {
+							trimmed = $.trim(selected[i]);
+							if(typeof(trimmed) !== 'undefined' && trimmed.length !== 0) {
+								if(hasCount) {
+									// use this instead of tostring for performance in FF and chrome, is this fully cross browser
+									countPrefix = '' + (iCount + count);
+									iCount++;
+								}
+								resultText = resultText + countPrefix + strStart;
+								if(typeof(first) === 'undefined') {
+									first = beforeText.length + resultText.length;
+								}
+							}
+							resultText = resultText + selected[i];
+							if(typeof(trimmed) !== 'undefined' && trimmed.length !== 0) {
+								if(typeof(last) === undefined) {
+									last = beforeText.length + resultText.length;
+								}
+								resultText = resultText + strEnd;
+							}
+							if(i < (selected.length - 1)) {
+								resultText = resultText + nl;
+							}
+						}
+					}
+					if(typeof(first) === 'undefined') {
+						first = start;
+					}
+					if(typeof(last) === 'undefined') {
+						last = end;
+					}
+					
+					var text = beforeText;
+					start = text.length;
+					text = text + resultText;
+					end = text.length;
+					text = text + afterText;
+					
+					return {start: start, first: first, end: end, last: last, select: select, text: text, resultText: resultText};
+				};
+				
+				var insertAround = function(strStart, strEnd, newLines, count) {
+					var sne = getStartAndEnd();
+					var start = sne.start;
+					var end = sne.end;
+					return insert(start, end, strStart, strEnd, newLines, count);
+				};
+				
+				var setText = function(text) {
+					if(typeof(text) === 'undefined') {
+						text = '';
+					}
+					scope[model] = text;
+					// necessary so the cursor position is correct when the model changes
+					e.value = text;
+				};
+				
+				var eventText = function(text) {
+					if(typeof(e.dispatchEvent) !== 'undefined' && typeof($window.document.createEvent) !== 'undefined') {
+						var event = $window.document.createEvent('TextEvent');
+						if(typeof(event) !== 'undefined' && typeof(event.initTextEvent) !== 'undefined') {
+							// extra arguments for IE
+							try {
+								event.initTextEvent('textInput', true, true, null, text);
+								e.dispatchEvent(event);
+								return true;
+							} catch(e) {
+								return false;
+							}
+						}
+					}
+					return false;
+				};
+				
+				var handleResult = function(result) {
+					$timeout(function() {
+						if(!eventText(result.resultText)) {
+							// handle last case, messes up undo/redo but what else can we do?
+							setText(result.text);
+						}
+						
+						if(result.select) {
+							setSelection(result.end);
+						} else {
+							setSelection(result.first);
+						}
+					});
+				};
+				
+				var ensureNewlines = function(result, pre, post) {
+					var start = result.start;
+					var end = result.end;
+					
+					if(typeof(pre) === 'undefined') {
+						pre = 0;
+					}
+					if(typeof(post) === 'undefined') {
+						post = 0;
+					}
+					
+					var beforeText = result.text.substring(0, start);
+					var afterText = result.text.substring(end, result.text.length);
+					var i, j, pad;
+					var needsPre = pre;
+					// find out the number of newlines it needs beforehand
+					if(pre > 0) {
+						pad = 0;
+						for(i = 0; i < beforeText.length; i++) {
+							j = beforeText.length - 1 - i;
+							if(isTrimmableCharacter(beforeText[j])) {
+								pad++;
+								if(beforeText[j] === '\n') {
+									needsPre--;
+								}
+								if(needsPre <= 0) {
+									break;
+								}
+							} else {
+								break;
+							}
+						}
+					}
+					var needsPost = post;
+					if(post > 0) {
+						pad = 0;
+						for(i = 0; i < afterText.length; i++) {
+							if(isTrimmableCharacter(afterText[i])) {
+								pad++;
+								if(afterText[i] === '\n') {
+									needsPost--;
+								}
+								if(needsPost <= 0) {
+									break;
+								}
+							} else {
+								break;
+							}
+						}
+					}
+					if(needsPre < 0) {
+						needsPre = 0;
+					}
+					if(needsPost < 0) {
+						needsPost = 0;
+					}
+					if(needsPre > 0 || needsPost > 0) {
+						var beforeNewlines = '';
+						for(i = 0; i < needsPre; i++) {
+							beforeNewlines = beforeNewlines + getNewlineCharacter();
+						}
+						var afterNewlines = '';
+						for(i = 0; i < needsPost; i++) {
+							afterNewlines = afterNewlines + getNewlineCharacter();
+						}
+						
+						result.start = beforeText.length;
+						result.end = beforeText.length + result.resultText.length + ((needsPre + needsPost) * getNewlineCount());
+						result.first = result.first + (needsPre * getNewlineCount());
+						result.last = result.last + (needsPre * getNewlineCount());
+						result.resultText = beforeNewlines + result.resultText + afterNewlines;
+						result.text = beforeText + result.resultText + afterText;
+					}
+					
+					return result;
+				};
+				
+				scope.alignCenter = function() {
+					var result = insertAround('%[' + regexes.ALIGN_CENTER_START_STRING + ']', '%[' + regexes.ALIGN_CENTER_END_STRING + ']', 1);
+					handleResult(result);
+				};
+				
+				scope.alignLeft = function() {
+					var result = insertAround('%[' + regexes.ALIGN_LEFT_START_STRING + ']', '%[' + regexes.ALIGN_LEFT_END_STRING + ']', 1);
+					handleResult(result);
+				};
+				
+				scope.alignRight = function() {
+					var result = insertAround('%[' + regexes.ALIGN_RIGHT_START_STRING + ']', '%[' + regexes.ALIGN_RIGHT_END_STRING + ']', 1);
+					handleResult(result);
+				};
+				
+				scope.alignJustify = function() {
+					var result = insertAround('%[' + regexes.ALIGN_JUSTIFY_START_STRING + ']', '%[' + regexes.ALIGN_JUSTIFY_END_STRING + ']', 1);
+					handleResult(result);
+				};
+				
+				scope.bold = function() {
+					var result = insertAround('<strong>', '</strong>', 1);
+					handleResult(result);
+				};
+				
+				scope.italic = function() {
+					var result = insertAround('<em>', '</em>', 1);
+					handleResult(result);
+				};
+				
+				scope.codeblock = function() {
+					var result = insertAround('`', '`', 1);
+					handleResult(result);
+				};
+				
+				scope.blockquote = function() {
+					var result = insertAround('> ', '', 1);
+					result = ensureNewlines(result, 1, 1);
+					handleResult(result);
+				};
+				
+				scope.header1 = function() {
+					var result = insertAround('## ', ' ##', 1);
+					result = ensureNewlines(result, 1, 1);
+					handleResult(result);
+				};
+				
+				scope.header2 = function() {
+					var result = insertAround('', '\n=====', 2);
+					result = ensureNewlines(result, 1, 1);
+					handleResult(result);
+				};
+				
+				scope.unorderedList = function() {
+					var result = insertAround('- ', '', 1);
+					result = ensureNewlines(result, 2, 1);
+					handleResult(result);
+				};
+				
+				scope.orderedList = function() {
+					var result = insertAround('. ', '', 1, 1);
+					result = ensureNewlines(result, 2, 1);
+					handleResult(result);
+				};
+				
+				scope.indent = function() {
+					var sne = getStartAndEnd();
+					var result = insert(sne.start, sne.end, '&ensp;', '', 1);
+					result = ensureNewlines(result, 0, 0);
+					result.first = result.end;
+					result.last = result.end;
+					handleResult(result);
+				};
+				
+				scope.lineBreak = function() {
+					var sne = getStartAndEnd();
+					var result = insert(sne.start, sne.end, '<br>', '', 1);
+					result = ensureNewlines(result, 0, 0);
+					result.first = result.end;
+					result.last = result.end;
+					handleResult(result);
+				};
+				
+				scope.pageBreak = function() {
+					var sne = getStartAndEnd();
+					var result = insert(sne.start, sne.end, '\n----------\n', '', 1);
+					result = ensureNewlines(result, 2, 1);
+					result.first = result.end;
+					result.last = result.end;
+					handleResult(result);
+				};
+				
+				scope.user = function() {
+					var result = insertAround('@[', ']', 1);
+					handleResult(result);
+				};
+				
+				scope.tag = function() {
+					var result = insertAround('#[', ']', 1);
+					handleResult(result);
+				};
+				
+				var handleLinkResult = function(sne, url, pre, post) {
+					var result = insert(sne.start, sne.end, pre, post, 1);
+					
+					if(typeof(url) !== 'undefined') {
+						if(url.lastIndexOf('http://', 0) !== 0 && url.lastIndexOf('https://', 0) !== 0) {
+							url = 'http://' + url;
+						}
+					}
+					
+					var addedText = '(' + url + ')';
+					var before = result.text.substring(0, result.end);
+					var after = result.text.substring(result.end, result.text.length);
+					result.resultText = result.resultText + addedText;
+					result.end = result.end + addedText.length;
+					result.text = before + addedText + after;
+					
+					result = ensureNewlines(result, 1, 1);
+					handleResult(result);
+					// add link and reference as footnote
+				};
+				
+				var linkData = {open: false};
+				scope.linkData = linkData;
+				var LinkModalCtrl = function($scope, $modalInstance) {
+					$scope.linkData = linkData;
+					linkData.url = '';
+					$scope.submit = function() {
+						$modalInstance.close(true);
+						handleLinkResult(linkData.sne, linkData.url, '[', ']');
+					};
+					$scope.cancel = function() {
+						$modalInstance.dismiss('cancel');
+					};
+				};
+				
+				scope.link = function() {
+					var sne = getStartAndEnd();
+					linkData.sne = sne;
+					var p = $modal.open({
+						templateUrl: 'editorLinkModal',
+						controller: ModalInterface.controller(LinkModalCtrl),
+						backdrop: false
+					});
+					p.result.then(function() {
+							linkData.open = false;
+						}, function() {
+							linkData.open = false;
+					});
+					p.opened.then(function() {
+							linkData.open = true;
+						}, function() {
+							linkData.open = false;
+					});
+				};
+				
+				var handleImageResult = function(d) {
+					var alt = '';
+					var height = '';
+					var width = '';
+					if(typeof(d.alt) !== 'undefined') {
+						alt = d.alt;
+					}
+					if(typeof(d.height) !== 'undefined') {
+						height = d.height;
+					}
+					if(typeof(d.width) !== 'undefined') {
+						width = d.width;
+					}
+					
+					if(typeof(d.url) !== 'undefined') {
+						if(d.url.lastIndexOf('http://', 0) !== 0 && d.url.lastIndexOf('https://', 0) !== 0) {
+							d.url = 'https://' + d.url;
+						}
+					}
+					
+					var post = '<img itemprop="image" src="' + d.url + '" alt="' + alt + '" width="' + width + '" height="' + height + '">';
+					var sne = getStartAndEnd();
+					var result = insert(sne.start, sne.end, '', post, 1);
+					result = ensureNewlines(result, 1, 1);
+					result.first = result.end;
+					result.last = result.end;
+					handleResult(result);
+				};
+				
+				var imageData = {open: false};
+				scope.imageData = imageData;
+				var ImageModalCtrl = function($scope, $modalInstance) {
+					$scope.imageData = imageData;
+					imageData.url = '';
+					imageData.alt = '';
+					imageData.width = '';
+					imageData.height = '';
+					imageData.warning = '';
+					$scope.optionalCollapsed = true;
+					$scope.submit = function() {
+						imageData.warning = '';
+						/*if(typeof(imageData.url) !== 'undefined' && imageData.url.lastIndexOf('https://', 0) === 0) {
+							$modalInstance.close(true);
+							handleImageResult(imageData);
+						} else {
+							i18n(function(t) {
+								imageData.warning = t('validation:editor.image.https');
+							});
+						}*/
+						// this will frustrate so many users! just do it
+						$modalInstance.close(true);
+						handleImageResult(imageData);
+					};
+					$scope.cancel = function() {
+						$modalInstance.dismiss('cancel');
+					};
+				};
+				
+				scope.image = function() {
+					var sne = getStartAndEnd();
+					imageData.sne = sne;
+					var p = $modal.open({
+						templateUrl: 'editorImageModal',
+						controller: ModalInterface.controller(ImageModalCtrl),
+						backdrop: false
+					});
+					p.result.then(function() {
+							imageData.open = false;
+						}, function() {
+							imageData.open = false;
+					});
+					p.opened.then(function() {
+							imageData.open = true;
+						}, function() {
+							imageData.open = false;
+					});
+				};
+				scope.$watch('imageData.url', function(value) {
+					if(imageData.open && typeof(imageData.url) !== 'undefined' && imageData.url.length > 0 && imageData.url.lastIndexOf('https://', 0) !== 0) {
+						i18n(function(t) {
+							imageData.warning = t('validation:editor.image.https');
+						});
+					} else {
+						imageData.warning = '';
+					}
+				});
+			}
+		};
+	}]);
+	
+});

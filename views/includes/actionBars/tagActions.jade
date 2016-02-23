@@ -1,0 +1,3 @@
+mixin TagActions
+	div(ng-controller='TagActionsController').pyTagActions
+		+ActionButton(t('socialShare'), undefined, 'fa-share', 'openShare()', undefined, undefined, undefined, undefined, '{active: socialData.open}').pySocialShareButton.btn-xs

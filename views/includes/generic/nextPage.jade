@@ -1,0 +1,4 @@
+mixin NextPage(condition, onClick)
+	div.pyNextPage.row.text-center
+		button(ng-show=condition, ng-click=onClick, aria-label=t('pageable.next')).btn.ng-hide.col-xs-12.btn-xs
+			span= t('pageable.next')

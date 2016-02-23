@@ -1,0 +1,31 @@
+mixin ContentColumn
+	div(ng-controller='ContentColumnController').pyContentColumn
+		//-+ContentLoader
+			//-div.hidden-xs.pySidebar
+			//-	span(ng-show='loaded.hasSubNav', ui-view='subNav').pySubNavView.ng-hide
+			//-div(ng-class="{'col-sm-6': loaded.hasSubNav, 'col-md-6': loaded.hasSubNav, 'col-lg-8': loaded.hasSubNav}").col-xs-12
+		div
+			+Payment
+			+AppreciationResponse
+			div(id=constants.viewIds.CONTENT, role='main')
+				//-div(ng-show='loaded.hasInfo').ng-hide.row
+					div.col-xs-12
+						+Loader('loaded.info')
+							div(ui-view='info').gradient
+					hr.pageableHr.invisible.col-md-12
+				div.row
+					div(ui-view='info').gradient
+				div.row
+					div.col-xs-12
+						div(ui-view=constants.partials.ROOT).gradient
+				//-div(ng-show='loaded.hasSingle').ng-hide.row
+					div.col-xs-12
+						+Loader('loaded.single')
+							div(ui-view=constants.partials.SINGLE).gradient
+				//-div(ui-view='pageLoader').ng-hide
+				//-div.row
+					hr.pageableHr.invisible.col-md-12
+				//-div.row
+				//-	div.col-xs-12
+				//-		div(ui-view=constants.partials.PAGEABLE)
+				//-+Pageable

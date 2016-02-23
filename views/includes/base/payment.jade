@@ -1,0 +1,38 @@
+mixin Payment
+	div(ng-controller='PaymentController').pyPayment
+		//- just used to preload the images from paypal
+		img(src=constants.imgUrls.PAYMENT_LABEL, alt=t('imgAlts.hidden')).hide.ng-hide
+		img(src=constants.imgUrls.PAYMENT_BUTTON, alt=t('imgAlts.hidden')).hide.ng-hide
+		script(type='text/ng-template')#paymentModal
+			+Modal
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('paymentOptions.title')
+							span.pull-right
+								+PaymentImage
+								+HelpLink(constants.helpTopics.PAYMENT.name, constants.helpTopics.PAYMENT.sections.PAYMENT, 'left').pull-right
+				div.modal-body
+					div.row
+						div.col-xs-12
+							p!= t('paymentOptions.info', constants.premadeLinks)
+						div.col-xs-12
+							p= t('paymentOptions.prompt')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								a(ng-href='{{paymentData.paymentUrl}}', target='_blank', payment-modal-link, ng-click='pay()', aria-label=t('imgAlts.paymentButton'))#paypalRedirect
+									img(src=constants.imgUrls.PAYMENT_BUTTON, alt=t('imgAlts.paymentButton'))
+				//-form(action='{{paymentUrl}}', target='PPDGFrame').standard
+					input(id='type',type='hidden',name='expType',value='mini')
+					input(id='paykey',type='hidden',name='paykey',value='{{paykey}}')
+					input(id='submitBtn',type='image', src=constants.imgUrls.PAYMENT_BUTTON, alt=t('purchaseCurrency')).right
+				//-a(ng-href='{{paymentUrl}}', target='_blank')#paypalRedirect
+					img(src=constants.imgUrls.PAYMENT_BUTTON)
+				//-script.
+					var returned = function() {};
+					var dgFlowMini = new PAYPAL.apps.DGFlowMini({trigger: 'submitBtn', expType: 'mini', callbackFunction: returned});
+				//-iframe(name='paymentUrl', ng-src='{{iframeUrl}}', width=constants.values.PAYMENT_WIDTH, height=constants.values.PAYMENT_HEIGHT, frameBorder=constants.values.PAYMENT_BORDER)#iframePayment

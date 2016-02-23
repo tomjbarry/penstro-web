@@ -1,0 +1,55 @@
+mixin CreatePosting
+	div.pyCreatePosting
+		//- dont hide on unauthenticated, as it might have logged them out and they need to stay for other reasons
+		//-div(ng-show='authenticated').ng-hide
+		+Form#form.col-xs-12
+			form(name=constants.forms.CREATE_POSTING, action=constants.values.VOID_ACTION)
+				div.row
+					div.col-xs-12
+						label
+							strong.form-title= t('create.posting')
+						+HelpLink(constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.CREATE, 'left').pull-right
+					div.col-xs-12
+						+ReadRules
+					div.col-xs-12
+						+SubAlert('alert')
+					span.col-xs-12
+						hr
+					div.col-xs-12.col-md-9
+						+FormInput('postingTitle', t('postingOptions.title'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.TITLE, 'text', 'title', 'errors.title', t('postingOptions.titlePlaceholder'))
+					+InputBuffer().col-md-1
+					+CollapsedButton('optionalCollapsed', true).col-xs-12.col-md-2
+					div.col-xs-12.col-md-12
+						+Collapsed('optionalCollapsed')
+							//-div.row
+								span.col-xs-12.col-md-6
+									+FormInput('postingBacker', t('postingOptions.backer'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.BACKER, 'text', 'backer', 'errors.backer', t('postingOptions.backerPlaceholder'), undefined, undefined, undefined, 'cost <= 0', t('shared:symbols.username'))
+										+ListSelect(t('listSelectOptions.backer.button'), t('listSelectOptions.backer.title'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.BACKER, t('listSelectOptions.backer.empty'), t('listSelectOptions.backer.username'), 'source.username', t('listSelectOptions.backer.value'), 'value')
+							div.row
+								+InputBuffer().col-md-2
+								span.col-xs-12.col-md-4
+									+FormInput('postingCost', t('postingOptions.cost'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.COST, 'number', 'cost', 'errors.cost', undefined, undefined, constants.values.STEP_COINS, constants.values.POSTING_MIN, undefined, undefined, t('shared:symbols.coins'))
+								+InputBuffer().col-md-2
+								span.col-xs-12.col-md-2
+									+FormInput('postingWarning', t('postingOptions.warning'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.WARNING, 'checkbox', 'warning', 'errors.warning')
+								+InputBuffer().col-md-2
+							div.row
+								span.col-xs-12.col-md-5
+									+FormInput('postingImage', t('postingOptions.imageLink'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.IMAGE, 'text', 'imageLink', 'errors.imageLink')
+								+InputBuffer().col-md-1
+								span.col-xs-5.col-md-3
+									+FormInput('postingImageWidth', t('postingOptions.imageWidth'), undefined, undefined, 'number', 'imageWidth', 'errors.imageWidth', undefined, undefined, constants.values.IMAGE_STEP, constants.values.IMAGE_MIN)
+								span.col-xs-5.col-md-3
+									+FormInput('postingImageHeight', t('postingOptions.imageHeight'), undefined, undefined, 'number', 'imageHeight', 'errors.imageHeight', undefined, undefined, constants.values.IMAGE_STEP, constants.values.IMAGE_MIN)
+							div.row
+								span.col-xs-12
+									+FormInput('preview', t('postingOptions.preview'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.PREVIEW, 'text', 'preview', 'errors.preview')
+					div.col-xs-12.col-md-12
+						+FormInput('postingTags', t('postingOptions.tags'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.TAGS, 'text', 'tags', 'errors.tags', t('postingOptions.tagsPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.tag'))
+					div.col-xs-12
+						+FormContentPreview('postingContent', t('postingOptions.content'), 'content', 'errors.content', t('postingOptions.contentPlaceholder'), constants.forms.CREATE_POSTING, 'contentPreview', 'showPreview')
+					span.col-xs-12
+						hr
+					div.col-xs-12
+						span.pull-right
+							button(type='button', ng-click='createPosting()', ng-class='{disabled: postingLoading}', aria-label=t('postingOptions.submit')).btn= t('postingOptions.submit')

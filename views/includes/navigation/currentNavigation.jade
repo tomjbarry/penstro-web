@@ -1,0 +1,9 @@
+mixin CurrentNavigation
+	div(ng-controller='CurrentNavigationController').btn-group.pyUserNavigation
+		+NavButton(t('shared:activity'), constants.states.CURRENT, 'active', '{reload: true}')
+		+NavButton(t('shared:replies'), constants.states.CURRENT_REPLIES, 'active', '{reload: true}', 'navigation.replyCount').pyCommentButton
+		//- (default) +NavButton(t('shared:activity'), constants.states.CURRENT_ACTIVITY, 'active', '{reload: true}')
+		+NavButton(t('shared:followees'), constants.states.FOLLOWEES, 'active', '{reload: true}', 'navigation.followeeCount').pyUserButton
+		+NavButton(t('shared:followers'), constants.states.FOLLOWERS, 'active', '{reload: true}', 'navigation.followerCount').pyUserButton
+		+NavButton(t('shared:authoredPostings'), constants.states.CURRENT_POSTINGS, 'active', '{reload: true}', 'navigation.postingCount').pyPostingButton
+		+NavButton(t('shared:authoredComments'), constants.states.CURRENT_COMMENTS, 'active', '{reload: true}', 'navigation.commentCount').pyCommentButton

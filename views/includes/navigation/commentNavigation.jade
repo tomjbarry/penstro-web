@@ -1,0 +1,4 @@
+mixin CommentNavigation
+	div(ng-controller='CommentNavigationController').btn-group.pyCommentNavigation
+		+NavButton(t('shared:replies'), constants.states.COMMENTS_ID + '({' + constants.pathVariables.COMMENT + ': navigation.comment})', 'active', '{reload: true}', 'navigation.replyCount').pyCommentButton
+		//- (default) +NavButton(t('shared:replies'), constants.states.COMMENTS_ID_REPLIES + '({' + constants.pathVariables.COMMENT + ': navigation.comment})', 'active', '{reload: true}')

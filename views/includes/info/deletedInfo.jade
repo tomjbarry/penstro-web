@@ -1,0 +1,6 @@
+mixin DeletedInfo
+	+GenericInfoPage(t('accountDeleted'))
+		div.pyDeleted
+			+AuthenticationRequired('authenticated')
+				p= t('deleted')
+				button(ng-click='undelete()', aria-label=t('undelete')).btn= t('undelete')

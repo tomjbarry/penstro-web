@@ -1,0 +1,50 @@
+extends ../pageLayout
+
+block Partial
+	div(ng-controller='PageableController', id=constants.viewIds.PAGEABLE).pySubPageable
+		div(ng-show='pageable').ng-hide
+			div.row
+				div.col-xs-12.hidden-print
+					+TourSection(constants.tourStates.CONTENT.name, constants.tourStates.CONTENT.unauthed.CONTENT_SELECT, false)
+						div(ng-show='pageable.showMore && pageable.loaded.current').row.ng-hide
+							div.col-xs-12
+								span.py-pageable-more= t('pageable.showMore')
+							hr.col-xs-12
+						div.row
+							div.col-xs-12.col-md-6.pull-left
+								div(ng-show='alternatives').ng-hide
+									div(dropdown, is-open='alternativesOpen').btn-group.pyDropdownButton.pull-left
+										button(type='button', dropdown-toggle, aria-label="{{altActive}}").btn.btn-sm.dropdown-toggle
+											i(ng-show='altIcon', ng-class='altIcon', aria-hidden="true").fa.fa-fw
+											span(ng-bind='altActive')
+											span.menu-space
+											span
+												i.caret
+										ul(role='menu').dropdown-menu
+											li(ng-repeat='alt in alternatives')
+												+DropdownButtonInner(undefined, 'alt.label', undefined, 'alternativeClick($index)', undefined, undefined, undefined, undefined, '{active: alt.active}', undefined, undefined, undefined, 'alt.icon')
+								div(ng-show='pageable.timeSort').ng-hide
+									div(ng-show='pageable.timeSort && !pageable.timeRepliesSort').ng-hide
+										+TourSection(constants.tourStates.CONTENT.name, constants.tourStates.CONTENT.unauthed.TIME_SELECT, false)
+											+TimeSelect(false)
+									div(ng-show='pageable.timeSort && pageable.timeRepliesSort').ng-hide
+										+TimeSelect(true)
+							div(ng-show='pageable.search').col-xs-12.col-md-6.ng-hide.pull-right
+								+Search('pageable.search.search()', 'pageable.search.model', 'pageable.search.alert', 'searchSymbol', 'searchLabel', 'pageable.search.disabled').pull-right
+			div.pyPageableContent.row
+				+TourSection(constants.tourStates.CONTENT.name, constants.tourStates.CONTENT.unauthed.CONTENT, false)
+				+Loader('pageable.loaded.current')
+					div.col-xs-12.hidden-print
+						+PreviousPage('pageable.loaded.current && pageable.hasPrevious()', 'onPrevious()')
+					div(ng-show='pageable.page && pageable.page.length').col-xs-12.ng-hide
+						div.row
+							span(ng-repeat='pageItem in pageable.page track by $index')
+								//-span(ng-class="{pageEven: $even, pageOdd: $odd, 'pageItem-{{$index}}': true, 'pageView-{{pageItem.view.substring(0, pageItem.view.length - 1)}}': true}")
+								span(ng-class="{'pageItem-{{$index}}':true}")
+									span(ng-controller='PageableItemController')
+										span(ui-view=constants.partials.SINGLE).gradient
+					span(ng-hide='pageable.page && pageable.page.length').ng-hide.col-xs-12
+						span(ng-hide='time').ng-hide= t('none')
+						span(ng-show='time').ng-hide= t('noneTime')
+					div.col-xs-12.hidden-print
+						+NextPage('pageable.loaded.current && pageable.hasNext()', 'onNext()')

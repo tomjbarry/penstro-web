@@ -1,0 +1,25 @@
+mixin NJTermsSection(id, title, o)
+	div.pyHelpSection.row
+		span.col-xs-12
+			h3(id='NJ' + id)= title
+		each ob in o
+			if ob.ty === 'p'
+				span.col-xs-12
+					each p in ob.v
+						p.text-tab.text-pad-left!= p
+			else if ob.ty === 'ol'
+				if ob.t
+					span.col-xs-12
+						strong= ob.t
+				span.col-xs-12
+					ol
+						each ol in ob.v
+							li!= ol
+			else if ob.ty === 'ul'
+				if ob.t
+					span.col-xs-12
+						strong= ob.t
+				span.col-xs-12
+					ul
+						each ul in ob.v
+							li!= ul

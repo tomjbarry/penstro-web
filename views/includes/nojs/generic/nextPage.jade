@@ -1,0 +1,4 @@
+mixin NJNextPage(number)
+	div.pyNextPage.row.text-center
+		- var pageQuery = utils.utils.addQuery(constants.params.PAGE, number, req.query);
+		+NJButton(utils.utils.constructQueryPathString(req.path, req.params, pageQuery), 'button', t('pageable.next')).col-xs-12

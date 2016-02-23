@@ -1,0 +1,20 @@
+mixin ConversationPreview(iter)
+	div(ng-controller='ConversationPreviewController').pyConversationPreview
+		div.pySingle.col-xs-12.col-md-12
+			div.row
+				div.col-xs-12
+					+UserReference('conversationUser')
+			//-
+				div.col-xs-12.col-md-6
+					span= t('to')
+						+UserReference('conversation.target')
+				div.col-xs-12.col-md-6
+					span= t('from')
+						+UserReference('conversation.author')
+			div.row
+				div.col-xs-12
+					+Timestamp('lastMessage', 'lastMessageCalendar')
+			div.row
+				div.col-xs-12
+					+Link(constants.states.USERS_ID_MESSAGES + '({' + constants.pathVariables.USER + ': conversationUsername})', undefined, '{reload: true}')
+						+MessagePreviewContent('conversation.preview', true)

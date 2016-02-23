@@ -1,0 +1,5 @@
+mixin EventReference(bind, link, click)
+	a(ng-show='click', ng-click='click()', href=constants.values.VOID_ACTION).ng-hide
+		span(ng-bind=bind)
+	a(ng-hide='click', ng-href='{{' + link + '}}').ng-hide
+		span(ng-bind=bind)

@@ -1,0 +1,10 @@
+mixin FollowInfo()
+	div(ng-controller='FollowInfoController').pyFollowInfo
+		div.pySingle.col-xs-12
+			span.pull-left
+				+UserReference('info.username', 'clickUser()')
+			span.pull-right
+				+Timestamp('timeSince', 'calendar')
+		div(ng-show='subData.single').col-xs-12
+			div.row
+				div(ui-view=constants.partials.SUB_SINGLE)

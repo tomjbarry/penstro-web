@@ -1,0 +1,15 @@
+mixin AppreciationSummary(bind, appreciationTooltip, placement, click, small)
+	- if(typeof(placement) === 'undefined') {placement = 'bottom';}
+	- var addClass; if(small) {addClass = 'pyAppreciationSmall';}
+	span(class!=attributes.class)
+		span(class!=addClass, ng-show=bind + ' >= 0').ng-hide.pyAppreciation
+			if click
+				a(href=constants.values.VOID_ACTION, ng-click=click)
+					span(tooltip-placement=placement, tooltip=appreciationTooltip, data-container='body').fancy
+						//-span= t('shared:symbols.currency')
+						span(ng-bind=bind)
+			else
+				span(tooltip-placement=placement, tooltip=appreciationTooltip, data-container='body').fancy
+					//-span= t('shared:symbols.currency')
+					span(ng-bind=bind)
+					

@@ -1,0 +1,19 @@
+mixin Alerts
+	div.col-xs-1.col-md-2.col-lg-3
+	div.col-xs-10.col-md-8.col-lg-6
+		div.row
+			div(ng-controller='AlertsController', id=constants.viewIds.ALERTS).col-xs-12.center-block.no-float.text-center.pyAlerts
+				//- TODO: REMOVE THIS
+				//-+BetaAlert
+				div(role='alert').alert.alert-danger.alert-dismissable.deprecatedBrowser
+					span= t('deprecatedBrowser')
+					button(type='button', data-dismiss='alert').close &times;
+				+TourAvailable
+				+CacheDelayWaiting
+				+PaymentProcessing
+				alert(ng-repeat='n in alerts.notifications', type='{{n.type}}', close='close($index)')
+					a(ng-href='{{n.link}}', ng-show='n.link').ng-hide
+						span(ng-show='n.message', ng-bind='n.message').ng-hide
+					span(ng-hide='n.link').ng-hide
+						span(ng-show='n.message', ng-bind='n.message').ng-hide
+	div.col-xs-1.col-md-2.col-lg-3

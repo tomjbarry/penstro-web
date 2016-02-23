@@ -1,0 +1,225 @@
+.nojsOnly {
+	.pyNavBar {
+		margin-top: -@py-margin-top;
+		margin-right: -@py-margin-horizontal;
+		margin-left: -@py-margin-horizontal;
+		.navbar-right {
+			float: right !important;
+			float: right;
+		}
+		.navbar-header {
+			float: left;
+		}
+	}
+	.nav > li {
+		display: inline-block;
+	}
+	.pyHelp .nav > li {
+		display: block;
+	}
+	.pyTerms .nav > li {
+		display: block;
+	}
+}
+
+.navbar .container {
+	padding-right: @py-navbar-container-padding-hor;
+	padding-left: @py-navbar-container-padding-hor;
+}
+
+.navHideExpanded {
+	@media (min-width: @grid-float-breakpoint) {
+		display: none;
+	}
+}
+.navHideCollapsed {
+	display: none;
+	@media (min-width: @grid-float-breakpoint) {
+		display: inherit;
+	}
+}
+
+/*
+.brandScale {
+	img {
+		display: inline;
+	}
+}
+
+@media (max-width: @py-screen-navbar-brand-scale) {
+	.brandScale {
+		img {
+			display: none;
+		}
+		background: url(@py-screen-navbar-brand-scale-img) no-repeat left center;
+		width: @py-screen-navbar-brand-scale-width;
+		height: @py-screen-navbar-brand-scale-height;
+		background-size: contain;
+	}
+}*/
+
+.brandScale {
+	width: @py-screen-navbar-brand-scale-width;
+	height: @py-screen-navbar-brand-scale-height;
+	background-size: contain;
+}
+
+.pyPurchaseButton .badge {
+	background-color: @py-coins-color;
+}
+
+.pyNotificationsButton .badge {
+	background-color: @py-notifications-color;
+}
+
+.pyMessagesButton .badge {
+	background-color: @py-messages-color;
+}
+
+.pyFeedButton .badge {
+	background-color: @py-feed-color;
+}
+
+.pyPostingButton .badge {
+	background-color: @py-content-posting-color;
+}
+
+.pyCommentButton .badge {
+	background-color: @py-content-comment-color;
+}
+
+.pyUserButton .badge {
+	background-color: @py-content-user-color;
+}
+
+.menu-space {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.pyButtonInner i {
+	font-size: @py-button-size;
+}
+
+.pyMenu .pyButtonInner i {
+	font-size: @py-menu-button-size;
+}
+
+.pyActionButton .pyButtonInner i {
+	font-size: @py-action-button-size;
+}
+
+.pyDropdownButton i {
+	font-size: @py-action-button-size;
+}
+
+.pyMiniButton .pyButtonInner i {
+	font-size: @py-mini-button-size;
+}
+
+.pySubNavView ul {
+	list-style: none;
+	padding: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.pyMenu .pyMenuCollapsed {
+	display: none;
+}
+
+.pyMenu a i {
+	color: @py-navbar-color;
+}
+.pyMenu a:hover {
+	background-color: @py-navbar-background-color-hover;
+	i {
+		color: @py-navbar-color;
+	}
+}
+
+.pyMenu .navbar-brand {
+	color: @py-navbar-color;
+	img {
+		max-height: @py-navbar-min-height;
+	}
+}
+
+.pyMenu .navbar-toggle {
+	color: @py-navbar-color;
+}
+
+.pyContentColumn a.pyDropdownButtonInner {
+	font-size: @py-button-dropdown-font-size;
+}
+
+a.pyDropdownButtonInner {
+	cursor: pointer;
+}
+
+.pyMenu a.pyDropdownButtonInner:hover,
+.pyMenu a.pyDropdownButtonInner:focus {
+	-webkit-box-shadow: @py-button-hover-box-shadow;
+	box-shadow: @py-button-hover-box-shadow;
+	background-color: @py-navbar-background-color-hover;
+	i {
+		color: @py-navbar-color;
+	}
+}
+
+.pyMenu a.pyDropdownButtonInner:active {
+	-webkit-box-shadow: @py-button-active-box-shadow;
+	box-shadow: @py-button-active-box-shadow;
+}
+
+.pyMenu .pyDropdownButtonInner span {
+	color: @py-navbar-color;
+}
+
+.pyMenu .pyDropdownButtonInner .badge {
+	color: @py-badge-color;
+}
+
+nav.navbar .navbar-header,
+a.navbar-brand .navbar-header {
+	min-height: @py-navbar-min-height;
+	max-height: @py-navbar-max-height;
+	overflow: hidden;
+}
+
+// social menu stuff
+.pySocialButton {
+	display: table-cell;
+}
+
+.btn.pySocialFacebook {
+	background-color: @py-social-button-color-facebook;
+}
+.btn.pySocialFacebook:hover,
+.btn.pySocialFacebook:focus {
+	background-color: @py-social-button-color-facebook;
+}
+
+.btn.pySocialGooglePlus {
+	background-color: @py-social-button-color-google-plus;
+}
+.btn.pySocialGooglePlus:hover,
+.btn.pySocialGooglePlus:focus {
+	background-color: @py-social-button-color-google-plus;
+}
+
+.btn.pySocialTwitter {
+	background-color: @py-social-button-color-twitter;
+}
+.btn.pySocialTwitter:hover,
+.btn.pySocialTwitter:focus {
+	background-color: @py-social-button-color-twitter;
+}
+
+.btn.pySocialReddit {
+	background-color: @py-social-button-color-reddit;
+}
+.btn.pySocialReddit:hover,
+.btn.pySocialReddit:focus {
+	background-color: @py-social-button-color-reddit;
+}

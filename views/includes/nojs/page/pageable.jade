@@ -1,0 +1,30 @@
+mixin NJPageable(mxnName, pageable, title, time)
+	div.pyPageable
+		if title || time
+			div.row
+				span.col-xs-12.col-md-6
+					if title
+						+NJTitle(title).pageableTitle
+				span.col-xs-12.col-md-6
+					if time
+						span.pull-right
+							+NJTimeSelect
+		if pageable
+			div.pyPageableContent.row
+				if pageable.first === false && pageable.number > 0
+					span.col-xs-12
+						+NJPreviousPage(pageable.number - 1)
+				if pageable.content
+					span.col-xs-12
+						div.row
+							- var evenCount = 0
+							each val in pageable.content
+								- evenCount++
+								div(class="#{(evenCount % 2) === 0 ? 'pageEven' : 'pageOdd'}").col-xs-12
+									+#{mxnName}(val)
+									hr.pageableHr.invisible.col-md-12.hidden-xs.hidden-sm
+							else
+								span= t('none')
+				if pageable.last === false
+					span.col-xs-12
+						+NJNextPage(pageable.number + 1)

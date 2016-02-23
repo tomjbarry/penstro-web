@@ -1,0 +1,15 @@
+mixin TourAvailable
+	//-
+		div(ng-controller='TourAvailableController').pyTourAvailable
+			div(ng-show='show && tour.enabled && tour.available', role='alert').alert.alert-pyTourAvailable.ng-hide
+				button(type='button', ng-click='close()').close
+					span &times;
+					span.sr-only= t('close')
+				div
+					span= t('tour:alert')
+					span &nbsp
+					a(type='button', ng-click='begin()', role='button', aria-label=t('tour:begin')).btn
+						+Icon().fa-fw.fa-2x.fa-play
+				div
+					a(type='button', ng-click='finish()', role='button', aria-label=t('tour:finish')).btn
+						span= t('tour:finish')

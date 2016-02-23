@@ -1,0 +1,11 @@
+mixin CacheDelayWaiting
+	div(ng-controller='CacheDelayController').pyCacheDelayWaiting
+		div(ng-show='show && waiting.waiting > 0', role='alert').alert.alert-pyCacheDelayWaiting.ng-hide
+			button(type='button', ng-click='close()').close
+				span &times;
+				span.sr-only= t('close')
+			+Icon().fa-fw.fa-2x.fa-spin.fa-spinner
+			span &nbsp
+			span= t('cacheDelay.alert')
+			span &nbsp
+			+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.CACHE_DELAY, 'left')

@@ -1,0 +1,9 @@
+mixin GenericHelpLink(topic, section, notTabbable)
+	- var tabIndex; if(notTabbable) {tabIndex = '-1';}
+	- var topicString, sectionString;
+	- if(typeof(topic) !== 'undefined') {topicString = '"' + topic + '"';}
+	- var sectionParam = '';
+	- if(typeof(section) !== 'undefined') {sectionString = '"' + section + '"';sectionParam = ', ' + constants.params.HELP_SECTION + ': "' + section + '"';}
+	span(class!=attributes.class).hidden-print
+		a(href=utils.utils.constructHelpLink(topic, section), tabindex=tabIndex).pyLink.pyHelpLink
+			block

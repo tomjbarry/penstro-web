@@ -1,0 +1,10 @@
+mixin WarningSimple(show)
+	div.pyWarning
+		div(ng-show=show).well.ng-hide
+			div.row
+				div.col-xs-12
+					+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.WARNING, 'left').pull-right
+				div.col-xs-12
+					p= t('warningOptions.warn')
+		div(ng-hide=show).ng-hide
+			block

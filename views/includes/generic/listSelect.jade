@@ -1,0 +1,53 @@
+mixin ListSelect(button, title, helpTopic, helpSection, empty, column1Label, column1Path, column2Label, column2Path)
+	div
+	//-
+		div(ng-controller='ListSelectController').pyListSelect
+			button(type='button', ng-click='open()', class!=attributes.class, aria-label=button).btn= button
+			script(type='text/ng-template')#listSelectModal
+				+Modal
+					div.modal-header
+						div.row
+							div.col-xs-12
+								strong= title
+								if helpTopic
+									+HelpLink(helpTopic, helpSection, 'left').pull-right
+					div.modal-body
+						div.row
+							div.col-xs-12
+								+SubAlert('selectData.alert')
+							div.col-xs-12
+								+Loader('!selectData.loading')
+									div.pyListSelectContent.row
+										div.col-xs-12
+											+PreviousPage('allowPrevious', 'onPrevious()')
+										div.col-xs-12
+											div(ng-show='page && page.length').col-xs-12.ng-hide
+												div.row
+													span(ng-repeat='pageItem in page')
+														span(ng-class='{pageEven: $even, pageOdd: $odd}')
+															div.col-xs-12
+																div.row
+																	span.col-xs-6.col-md-8.col-lg-10
+																		if column1Label
+																			label.pull-left= column1Label
+																		if column2Label
+																			label.pull-right= column2Label
+																div.row
+																	span.col-xs-6.col-md-8.col-lg-10
+																		if column1Path
+																			//- hover label
+																			span(ng-bind='pageItem.' + column1Path).pull-left
+																		if column2Path
+																			//- hover label
+																			span(ng-bind='pageItem.' + column2Path).pull-right
+																	span.col-xs-6.col-md-4.col-lg-2
+																		span.pull-right
+																			button(type='button', ng-click='select(pageItem)', aria-label=t('listSelectOptions.select')).btn= t('listSelectOptions.select')
+											span(ng-hide='page && page.length').ng-hide= empty
+										div.col-xs-12
+											+PreviousPage('allowNext', 'onNext()')
+					div.modal-footer
+						div.row
+							div.col-xs-12
+								span.pull-left
+									button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')

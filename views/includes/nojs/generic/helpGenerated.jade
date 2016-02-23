@@ -1,0 +1,9 @@
+mixin NJHelpGenerated(topic, sectionMap)
+	div#pyNJHelp.row.pyHelpGenerated
+		- var key, section;
+		span.pyHelp.col-xs-12
+			+NJHelpTopic(topic)
+				if sectionMap
+					each section, key in sectionMap
+						+NJHelpSection(topic, section)
+	

@@ -1,0 +1,7 @@
+mixin CollapsedButton(collapsed, right)
+	- var pull;
+	- if(right) {pull = 'pull-right';}
+	span(ng-show=collapsed, class!=attributes.class).ng-hide
+		+SubButton(undefined, undefined, 'fa-plus', collapsed + ' = false')(class=pull)
+	span(ng-hide=collapsed, class!=attributes.class).ng-hide
+		+SubButton(undefined, undefined, 'fa-minus', collapsed + ' = true')(class=pull)

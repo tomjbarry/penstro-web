@@ -1,0 +1,5 @@
+mixin Title(bind, header)
+	if header
+		h1(ng-bind=bind, class!=attributes.class).title.inline
+	else
+		h2(ng-bind=bind, class!=attributes.class).title.inline

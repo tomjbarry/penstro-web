@@ -1,0 +1,15 @@
+mixin NJNavbar
+	div.pyNavBar.pyMenu
+		nav(role='navigation', id='NJ' + constants.viewIds.NAVBAR).navbar.navbar-default
+			div.container
+				- var actionId = 'NJaction'
+				div.navbar-header
+					span
+						+NJLink(constants.viewUrls.DEFAULT).navbar-brand.brandScale
+							//-span
+								img(src=constants.imgUrls.MONEY_THUMB)
+								span= t('titles:app')
+							//-img(src=constants.imgUrls.BRAND, alt=t('imgAlts.brand'))
+							img(src=constants.imgUrls.BRAND_SMALL, alt=t('imgAlts.brand'))
+				div(id=actionId)
+					+NJBasicNavigation(true)

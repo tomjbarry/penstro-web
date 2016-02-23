@@ -1,0 +1,4 @@
+mixin SocialButton(icon, url, tooltip)
+	+ActionButton(undefined, undefined, icon, 'share("' + url + '")', undefined, undefined, undefined, undefined, undefined, undefined, undefined, tooltip, undefined, undefined)(class!=attributes.class,id!=attributes.id).pySocialButton
+	//-a(id!=attributes.id, class!=attributes.class, ng-click='share("' + url + '")', tooltip=tooltip, tooltip-placement='bottom', role='button').hidden-print
+		+ButtonInner(undefined, undefined, icon, undefined, undefined, undefined, undefined, undefined, undefined)

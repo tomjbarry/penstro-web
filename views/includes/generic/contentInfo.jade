@@ -1,0 +1,8 @@
+mixin ContentInfo(bind)
+	if bind
+		span.pyContentInfo
+			span(ng-show=bind + '.warning').ng-hide.label.label-danger= t('contentInfo.warning')
+			span(ng-show=bind + '.removed').ng-hide.label.label-primary= t('contentInfo.removed')
+			span(ng-show=bind + '.flagged').ng-hide.label.label-warning= t('contentInfo.flagged')
+			span(ng-show=bind + '.disabled').ng-hide.label.label-default= t('contentInfo.disabled')
+			span(ng-show=bind + '.archived').ng-hide.label.label-success= t('contentInfo.archived')

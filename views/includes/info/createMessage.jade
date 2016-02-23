@@ -1,0 +1,44 @@
+mixin CreateMessage
+	div.pyCreateMessage
+		div(ng-show='authenticated').ng-hide
+			+Form#form.col-xs-12
+				form(name=constants.forms.CREATE_MESSAGE, ng-submit='createMessage()', action=constants.values.VOID_ACTION)
+					div.row
+						div.col-xs-12
+							label
+								strong.form-title= t('create.message')
+							+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.MESSAGE, 'left').pull-right
+						div.col-xs-12
+							+ReadRules
+					div.row
+						div.col-xs-12
+							+SubAlert('alert')
+							+ActionButton(t('flag'), undefined, 'fa-flag', 'openFlag()', undefined, undefined, undefined, undefined, '{active: flagData.open}', 'flagData.loading').btn-xs.pull-right
+					div.row
+						div.col-xs-12
+							+FormContent('message', undefined, 'message', 'errors.message', t('messageOptions.messagePlaceholder'))
+					div.row
+						div.col-xs-12
+							span.pull-left
+								+ActionButton(undefined, undefined, 'fa-refresh', 'toggleAutoRefresh()', undefined, undefined, undefined, undefined, '{active: refresh}').btn-xs
+							span.pull-right
+								button(type='submit', ng-class='{disabled: messageLoading}', aria-label=t('messageOptions.submit')).btn.btn-xs= t('messageOptions.submit')
+	script(type='text/ng-template')#flagModal
+		+Modal
+			div.modal-header
+				div.row
+					div.col-xs-12
+						strong= t('flag')
+						+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.MESSAGE_FLAG, 'left').pull-right
+			div.modal-body
+				div.row
+					+Loader('!flagData.loading')
+						span.col-xs-12
+							span= t('flagOptions.message')
+			div.modal-footer
+				div.row
+					div.col-xs-12
+						span.pull-left
+							button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+						span.pull-right
+							button(type='button', ng-click='submit()', aria-label=t('flag')).btn= t('flag')

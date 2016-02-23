@@ -1,0 +1,160 @@
+mixin JavascriptSection
+	script(src=constants.resources.jsRequire)
+	span#fallbackRequireScript
+	- var pyScriptLocation = constants.resources.jsPyMin; if(utils.mode.dev) {pyScriptLocation = constants.resources.jsPy;}
+	- var pyScriptAdminLocation = constants.resources.jsBlankAdmin;
+	- var pyScriptAdminJs = constants.resources.js;
+	- if(utils.mode.admin) {pyScriptAdminLocation = adminConstants.resources.jsAdminRoutes; pyScriptAdminJs = adminConstants.resources.jsAdmin; if(!utils.mode.dev) {pyScriptLocation = adminConstants.resources.jsPyMin;}}
+	<!--[if lt IE 9]>
+	script.
+		window.cancelScripting = true;
+	<![endif]-->
+	//- this is for ie 9 to enable cors. cannot reproduce this locally
+	script.
+		try {
+			window.pyErrorText = "";
+			window.pyShowError = function(e, cause) {
+			}
+			var run = function() {
+				// necessary for paypal
+				var dgFlowMini;
+				
+				var scriptErrorConfirmation = function() {
+					var refresh = confirm("#{tLoadError}");
+					if(refresh) {
+						window.location.reload();
+					}
+				};
+				
+				var loadScript = function(url, callback) {
+					var script = document.createElement('script');
+					script.type = 'text/javascript';
+					if(script.readyState) {
+						script.onreadystatechange = function() {
+							if(script.readyState === 'loaded' || script.readyState === 'complete') {
+								script.onreadystatechange = null;
+								callback();
+							}
+						};
+					} else {
+						script.onload = function() {
+							callback();
+						};
+					}
+					script.src = url;
+					document.getElementsByTagName('head')[0].appendChild(script);
+				}
+				
+				window.pyInitialize = function() {
+					if(typeof(require) === 'undefined' || typeof(define) === 'undefined') {
+						scriptErrorConfirmation();
+					}
+					define('modernizr', function() {return window.Modernizr;});
+					window.pyJsPartials = function() {return !{jsPartials.stringifiedPartials}};
+					window.pyGetClientConfig = function() {return !{config.getFrontEndConfigStringified(utils.mode.admin)};};
+					window.pyGetI18nData = function() {return !{JSON.stringify(i18nUtil.getData())}};
+					var hasError = false;
+					require.onError = function(err) {
+						if(!hasError) {
+							hasError = true;
+							if(err.requireType === 'scripterror') {
+								scriptErrorConfirmation();
+							}
+						}
+					};
+					require.config({
+						baseUrl: "/",
+						paths: {
+							"adminRoutes": "#{pyScriptAdminLocation}",
+							"admin-js": "#{pyScriptAdminJs}",
+							"config": "#{constants.resources.jsBlankDef}",
+							"js": "#{constants.resources.js}",
+							"libs": "#{constants.resources.jsLibs}",
+							"jquery": ["#{constants.resources.jsJquery}", "#{constants.resources.fallback.jsJquery}"],
+							"bootstrap": ["#{constants.resources.jsBootstrap}", "#{constants.resources.fallback.jsBootstrap}"],
+							"angular": ["#{constants.resources.jsAngular}", "#{constants.resources.fallback.jsAngular}"],
+							"angular-sanitize": ["#{constants.resources.jsAngularSanitize}", "#{constants.resources.fallback.jsAngularSanitize}"],
+							"angular-ui-router": ["#{constants.resources.jsAngularUiRouter}", "#{constants.resources.fallback.jsAngularUiRouter}"],
+							"angular-ui-bootstrap": ["#{constants.resources.jsAngularUiBootstrap}", "#{constants.resources.fallback.jsAngularUiBootstrap}"],
+							"jquery-cookie": ["#{constants.resources.jsJqueryCookie}", "#{constants.resources.fallback.jsJqueryCookie}"],
+							"i18next": ["#{constants.resources.jsI18next}", "#{constants.resources.fallback.jsI18next}"],
+							"moment": ["#{constants.resources.jsMoment}", "#{constants.resources.fallback.jsMoment}"],
+							"zxcvbn": ["#{constants.resources.jsZxcvbn}", "#{constants.resources.fallback.jsZxcvbn}"],
+							"showdown": ["#{constants.resources.jsShowdown}", "#{constants.resources.fallback.jsShowdown}"],
+							"angulartics": ["#{constants.resources.jsAngulartics}", "#{constants.resources.fallback.jsAngulartics}"],
+							"angularticsClicky": ["#{constants.resources.jsAngularticsClicky}", "#{constants.resources.fallback.jsAngularticsClicky}"],
+							"payment": ["#{constants.resources.jsPayPal}", "#{constants.resources.fallback.jsPayPal}"]
+							//"rangy-core": ["#{constants.resources.jsRangyCore}", "#{constants.resources.fallback.jsRangyCore}"],
+							//"rangy-selectionsaverestore": ["#{constants.resources.jsRangySelectionsaverestore}", "#{constants.resources.fallback.jsRangySelectionsaverestore}"],
+							//"rangy-classapplier": ["#{constants.resources.jsRangyClassapplier}", "#{constants.resources.fallback.jsRangyClassapplier}"],
+							//"rangy-highlighter": ["#{constants.resources.jsRangyHighlighter}", "#{constants.resources.fallback.jsRangyHighlighter}"],
+							//"rangy-serializer": ["#{constants.resources.jsRangySerializer}", "#{constants.resources.fallback.jsRangySerializer}"],
+							//"rangy-textrange": ["#{constants.resources.jsRangyTextrange}", "#{constants.resources.fallback.jsRangyTextrange}"],
+							//"wysihtml": "#{constants.resources.jsWYSIHtml}"
+						},
+						shim: {
+							"bootstrap": {"deps": ["jquery"]},
+							"angular": {"exports": "angular"},
+							"angular-sanitize": {"deps": ["angular"]},
+							"angular-ui-router": {"deps": ["angular"]},
+							"angular-ui-bootstrap": {"deps": ["angular","jquery"]},
+							"angulartics": {"deps": ["angular","jquery"]},
+							"angularticsClicky": {"deps": ["angular","jquery","angulartics"]},
+							"jquery-cookie": {"deps": ["jquery"]},
+							"i18next": {"deps": ["jquery"]}
+							//"wysihtml": {"deps": ["rangy-core", "rangy-selectionsaverestore", "rangy-classapplier", "rangy-highlighter", "rangy-serializer", "rangy-textrange", "js/deps/rangy-global"]}
+						},
+						waitSeconds: #{constants.values.SCRIPT_TIMEOUT}
+					});
+					
+					require(["#{pyScriptLocation}", "jquery"], function(py, $) {
+						require(["js/main"], function(main) {
+							(function($){
+								var links = {};
+								$("link[css-fallback]").each(function(index, link) {
+									links[link.href] = link;
+								});
+								
+								$.each(document.styleSheets, function(index, sheet) {
+									if(links[sheet.href]) {
+										var rules = sheet.rules ? sheet.rules : sheet.cssRules;
+										if(rules.length === 0) {
+											link = $(links[sheet.href]);
+											link.attr("href", link.attr("css-fallback"));
+										}
+									}
+								});
+								
+							})($);
+						});
+					});
+				};
+				if(typeof(define) !== 'undefined' && typeof(require) !== 'undefined') {
+					window.pyInitialize();
+				} else {
+					loadScript("#{constants.resources.fallback.jsRequire}", function() {window.pyInitialize();});
+				}
+			};
+			if(!window.cancelScripting) {
+				run();
+			}
+		} catch(e) {
+			//window.pyShowError(e);
+			throw e;
+		}
+	if !utils.mode.dev
+		a(title="Web Analytics", href="http://clicky.com/#{constants.values.CLICKY_ID}").ng-hide
+			img(alt="Web Analytics", src="//static.getclicky.com/media/links/badge.gif", border="0").ng-hide
+		script(type="text/javascript").
+			var clicky_site_ids = clicky_site_ids || [];
+			clicky_site_ids.push(#{constants.values.CLICKY_ID});
+			(function() {
+				var s = document.createElement('script');
+				s.type = 'text/javascript';
+				s.async = true;
+				s.src = '//static.getclicky.com/js';
+				( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+			})();
+		noscript
+			p
+				img(alt="Clicky", width="1", height="1", src="//in.getclicky.com/#{constants.values.CLICKY_ID}ns.gif").ng-hide

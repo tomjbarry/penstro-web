@@ -1,0 +1,19 @@
+mixin EditComment
+	div(ng-controller='EditCommentController').pyEditComment
+		div(ng-hide='show').row
+			div.col-xs-12
+				+ActionButton(t('edit.comment'), undefined, 'fa-eraser', 'open()', 'authenticated && currentUsername === pscope.comment.author.username').btn-xs
+		div(ng-show='authenticated && currentUsername === pscope.comment.author.username && show').ng-hide
+			form(name=constants.forms.EDIT_COMMENT, action=constants.values.VOID_ACTION)
+				div.row
+					div.col-xs-12
+						+SubAlert('alert')
+				div.row
+					div.col-xs-12
+						+FormContentPreview('commentEdit', t('commentEditOptions.content'), 'content', 'errors.content', t('commentEditOptions.contentPlaceholder'), constants.forms.EDIT_COMMENT, 'contentPreview', 'showPreview')
+				div.row
+					div.col-xs-12
+						span.pull-left
+							+ActionButton(t('cancel'), undefined, undefined, 'cancel()').btn-xs
+						span.pull-right
+							+ActionButton(t('commentEditOptions.submit'), undefined, undefined, 'editComment()', undefined, undefined, undefined, undefined, '{disabled: commentLoading}').btn-xs

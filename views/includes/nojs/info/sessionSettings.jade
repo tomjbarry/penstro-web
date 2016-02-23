@@ -1,0 +1,41 @@
+mixin NJSessionSettings
+	div.pySettings.pySessionSettings
+		+Form#sessionForm
+			form(method="GET", action=constants.viewUrls.SETTINGS)
+				- var paramLanguage = paramUtil.constructLanguage(req);
+				if typeof(paramLanguage) === 'undefined' || paramLanguage === ''
+					- paramLanguage = constants.languageSettings.DEFAULT_LANGUAGE
+				- var paramInterfaceLanguage = paramUtil.constructInterfaceLanguage(req);
+				if typeof(paramInterfaceLanguage) === 'undefined' || paramInterfaceLanguage === ''
+					- paramInterfaceLanguage = constants.languageSettings.DEFAULT_LANGUAGE;
+				div.row
+					div.col-xs-12
+						label
+							strong.form-title= t('settings')
+				div.row
+					div.col-xs-12.col-md-4
+						+NJFormSelect(constants.languageSettings.LANGUAGES, constants.params.LANGUAGE, 'sessionLanguageSelect', t('settingsOptions.language'), paramLanguage)
+					+InputBuffer().col-md-4
+					div.col-xs-12.col-md-4
+						+NJFormSelect(constants.languageSettings.INTERFACE_LANGUAGES, constants.params.INTERFACE_LANGUAGE, 'sessionInterfaceLanguageSelect', t('settingsOptions.interfaceLanguage'), paramInterfaceLanguage)
+				div.row
+					div.col-xs-12
+						div.formInput.row
+							span.col-xs-12
+								label(for='sessionWarning')= t('settingsOptions.warning')
+							span.col-xs-12
+								div.row
+									- var onChecked, offChecked;
+									if paramUtil.toBoolean(paramUtil.constructWarning(req))
+										- onChecked = 'checked';
+									else
+										- offChecked = 'checked';
+									span.col-xs-6
+										label(for='warningRadioFalse')= t('settingsOptions.denyWarning')
+										input(type='radio', name=constants.params.WARNING, value='false', id='warningRadioFalse', checked=offChecked).form-control
+									span.col-xs-6
+										label(for='warningRadioTrue')= t('settingsOptions.allowWarning')
+										input(type='radio', name=constants.params.WARNING, value='true', id='warningRadioTrue', checked=onChecked).form-control
+				div.row
+					div.col-xs-12
+						input(type='submit', value=t('settingsOptions.submit'), aria-label=t('settingsOptions.submit')).btn.pull-right

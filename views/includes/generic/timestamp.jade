@@ -1,0 +1,5 @@
+mixin Timestamp(bind, title)
+	- var titleBind;
+	- if (typeof(title) !== 'undefined') {titleBind = '{{' + title + '}}';}
+	span(ng-show=bind).ng-hide
+		time(title=titleBind, ng-bind=bind).pyTimestamp

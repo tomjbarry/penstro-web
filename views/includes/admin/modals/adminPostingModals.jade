@@ -1,0 +1,61 @@
+mixin AdminPostingModals
+	script(type='text/ng-template')#updateTallyModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('updateTallyOptions.title')
+				div.modal-body
+					div.row
+						+Loader('!tallyData.loading')
+							div.col-xs-12
+								+SubAlert('tallyData.alert')
+							div.col-xs-6
+								+TallySummary('scope.tally')
+							div.col-xs-6
+								div.row
+									div.col-xs-12
+										+FormInput('updateTallyAppreciation', t('updateTallyOptions.appreciation'), undefined, undefined, 'number', 'tallyData.appreciation', 'tallyData.errors.appreciation', undefined, undefined, constants.values.STEP_CURRENCY, undefined, undefined, t('shared:symbols.currency'))
+									div.col-xs-12
+										+FormInput('updateTallyPromotion', t('updateTallyOptions.promotion'), undefined, undefined, 'number', 'tallyData.promotion', 'tallyData.errors.promotion', undefined, undefined, constants.values.STEP_COINS, undefined, undefined, undefined, t('shared:symbols.coins'))
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: tallyData.loading}', aria-label=t('updateTallyOptions.submit')).btn= t('updateTallyOptions.submit')
+	script(type='text/ng-template')#adminPostingAppreciationModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('appreciation')
+							span.pull-right
+								+PaymentImage
+				div.modal-body
+					div.row
+						+Loader('!appreciationData.loading')
+							div.col-xs-12
+								+SubAlert('appreciationData.alert')
+							+CollapsedButton('optionalCollapsed', true).col-xs-12
+							div.col-xs-12
+								div.row
+									+Collapsed('optionalCollapsed')
+										div.col-xs-12
+											+FormInput('appreciationTags', t('appreciationOptions.tags'), undefined, undefined, 'text', 'appreciationData.tags', 'appreciationData.errors.tags', t('appreciationOptions.tagsPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.tag'))
+										div.col-xs-12
+											+FormInput('appreciationWarning', t('appreciationOptions.warning'), undefined, undefined, 'checkbox', 'appreciationData.warning', 'appreciationData.errors.warning')
+							div.col-xs-12
+								+FormInput('target', t('appreciationOptions.target'), undefined, undefined, 'text', 'appreciationData.target', 'appreciationData.errors.target')
+							div.col-xs-12
+								+FormInput('appreciationAppreciation', t('appreciationOptions.appreciation'), undefined, undefined, 'number', 'appreciationData.appreciation', 'appreciationData.errors.appreciation', undefined, 'appreciationData.open', constants.values.STEP_CURRENCY, constants.values.APPRECIATION_MIN, undefined, t('shared:symbols.currency'))
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: appreciationData.loading}', aria-label=t('appreciationOptions.submit')).btn= t('appreciationOptions.submit')

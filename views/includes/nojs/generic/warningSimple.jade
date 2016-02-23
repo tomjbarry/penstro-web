@@ -1,0 +1,12 @@
+mixin NJWarningSimple(show)
+	div.pyWarning
+		if show
+			div.well.ng-hide
+				div.row
+					div.col-xs-12
+						+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.WARNING, 'left').pull-right
+					div.col-xs-12
+						p= t('warningOptions.warn')
+		else
+			div
+				block

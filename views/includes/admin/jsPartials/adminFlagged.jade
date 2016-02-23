@@ -1,0 +1,19 @@
+mixin AdminFlagged(iter)
+	+AdminOnly
+		div(ng-controller='AdminFlaggedController').pyFlagged
+			div.pySingle.col-xs-12.col-md-12
+				div.row
+					span.col-xs-12.col-sm-8
+						div.row
+							span.col-xs-12
+								i(ng-class="{pyUsernameReference: type === 'u', 'fa-user': type === 'u', pyPostingReference: type === 'p', 'fa-newspaper-o': type === 'p', pyCommentReference: type === 'c', 'fa-comment-o': type === 'c'}", aria-hidden="true").fa.fa-fw.fa-2x
+								span &nbsp;
+								a(ng-bind='target', ng-class="{pyUsernameReference: type === 'u', pyPostingReference: type === 'p', pyCommentReference: type === 'c'}", ng-href='{{targetLink}}').fs-2.fancy
+							span.col-xs-12.col-sm-6
+								span(ng-bind='info.value')
+								span &nbsp;/&nbsp;
+								span(ng-bind='info.total')
+							span.col-xs-12.col-sm-6
+								span(ng-bind='reason')
+					span.col-xs-12.col-sm-4
+						+ActionButton(t('remove'), undefined, 'fa-remove', 'remove()').pull-right

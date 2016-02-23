@@ -1,0 +1,14 @@
+doctype html
+
+include includes/generic/genericErrorPage
+include includes/generic/genericInfoPage
+
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		link(rel='stylesheet', type='text/css', href=constants.resources.cssBase, css-fallback=constants.resources.fallback.cssBase)
+	body#body
+		div.container
+			+GenericErrorPage('ERROR', 'Server Error! Please try again. If this problem persists, please contact Penstro support.', 'fa-refresh fa-spin')

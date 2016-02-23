@@ -1,0 +1,72 @@
+mixin HeadSection
+	head(itemtype=constants.richSnippets.ITEMTYPES.WEBSITE, itemscope)
+		base(href=constants.webapp.URL + '/')
+		//- favicons
+		link(rel='shortcut icon', href=constants.imgUrls.FAVICON_SHORTCUT)
+		meta(name='msapplication-TileColor', content=constants.values.MS_TILE_COLOR)
+		meta(name='msapplication-TileImage', content=constants.imgUrls.FAVICON144)
+		//- these are optional for the obsessive
+			//-link(rel='apple-touch-icon-precomposed', sizes='152', href=constants.imgUrls.FAVICON152)
+			//-link(rel='apple-touch-icon-precomposed', sizes='144', href=constants.imgUrls.FAVICON144)
+			//-link(rel='apple-touch-icon-precomposed', sizes='120', href=constants.imgUrls.FAVICON120)
+			//-link(rel='apple-touch-icon-precomposed', sizes='72', href=constants.imgUrls.FAVICON72)
+			//-link(rel='apple-touch-icon-precomposed', sizes='57', href=constants.imgUrls.FAVICON57)
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		- var title = req.title; if(typeof(req.titleTranslate) !== 'undefined' && req.titleTranslate) {title = t('titles:' + req.title, req.titleArgs);}
+		- var convertedTitle = utils.utils.createFullTitle(t('titles:app'), title, t('titles:sep'))
+		title(ng-bind='title.fullTitle', itemprop='name')= convertedTitle
+		link(rel='canonical', itemprop='url', href=constants.webapp.URL + req.url)
+		meta(name='title', content=convertedTitle)
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(property='og:title', content=convertedTitle)
+		meta(property='og:url', content=constants.webapp.URL + req.url)
+		meta(property='og:site_name', content=t('app.name'))
+		meta(property='og:locale', content=t('lang.loc'))
+		block HeadMetas
+		link(rel='stylesheet', type='text/css', href=constants.resources.cssBase, css-fallback=constants.resources.fallback.cssBase)
+		//- both of these normalizr and bootstrap are included in the app.css which contains both
+			//- link(rel='stylesheet', href=constants.resources.cssNormalizr)
+			//- link(rel='stylesheet', href=constants.resources.cssBootstrap)
+			//-link(rel='stylesheet', href=constants.resources.cssFontAwesome, css-fallback=constants.resources.fallback.cssFontAwesome)
+		
+		<!--[if gte IE 9]>
+		style: |.gradient { filter: none; }
+		<![endif]-->
+		//-
+			<!--[if lt IE 9]>
+			//-link(rel='stylesheet', type='text/css', href=constants.resources.cssDeprecated)
+			//-script(src=constants.resources.jsES5Shim)
+			//-script(src=constants.resources.jsES5Sham)
+			<![endif]-->
+			<!--[if lt IE 8]>
+			//-script(src=constants.resources.jsJson)
+			<![endif]-->
+			
+		//- used before other scripts only for debugging
+			//-script(src="http://ie.microsoft.com/testdrive/HTML5/CompatInspector/inspector.js")
+		//- used for debugging for windows mobile
+			//- script(src='http://192.168.1.112:8080/target/target-script-min.js#anonymous')
+		<!--[if IE 9]>
+		script(src=constants.resources.jsXdomain)
+		script.
+			xdomain.slaves({"#{constants.api.getPublicBaseUrl()}":"#{constants.apiUrls.CORS_PROXY_HTML}"});
+			xhook.addWithCredentials = false;
+		<![endif-->
+		- var pyBrowserFixesLocation = constants.resources.jsBrowserFixesMin; if(utils.mode.dev) {pyBrowserFixesLocation = constants.resources.jsBrowserFixes;}
+		script(src=pyBrowserFixesLocation)
+		//- no need to use respond.js, as we do not support ie6-8
+		<!--[if IE 8]>
+		script(src=constants.resources.jsRespond)
+		<![endif]-->
+		script(src=constants.resources.jsModernizr)
+		//- fonts here
+			//- or just load them directly from css!
+			//- link(rel='stylesheet', href=constants.resources.fontTitles, css-fallback=constants.resources.fallback.fontTitles)
+		script.
+			window["#{constants.values.RECAPTCHA_ONLOAD}"] = function() {
+				if(typeof(window["#{constants.values.RECAPTCHA_CALLBACK}"]) !== 'undefined') {
+					window["#{constants.values.RECAPTCHA_CALLBACK}"]();
+				}
+			};
+		script(src=constants.resources.jsRecaptcha, async, defer)

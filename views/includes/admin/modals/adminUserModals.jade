@@ -1,0 +1,158 @@
+mixin AdminUserModals
+	script(type='text/ng-template')#changeUsernameModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.changeUsername')
+				div.modal-body
+					div.row
+						+Loader('!usernameData.loading')
+							div.col-xs-12
+								+SubAlert('usernameData.alert')
+							div.col-xs-12
+								+FormInput('changeUsername', t('modUserOptions.changeUsername'), undefined, undefined, 'text', 'usernameData.newUsername', 'usernameData.errors.username', undefined, 'usernameData.open', undefined, undefined, undefined, t('shared:symbols.username'))
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: usernameData.loading}', aria-label=t('modUserOptions.changeUsername')).btn= t('modUserOptions.changeUsername')
+	script(type='text/ng-template')#adminChangePasswordModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.changePassword')
+				div.modal-body
+					div.row
+						+Loader('!passwordData.loading')
+							div.col-xs-12
+								+SubAlert('passwordData.alert')
+							div.col-xs-12
+								+FormInput('changePassword', t('modUserOptions.changePassword'), undefined, undefined, 'password', 'passwordData.password', 'passwordData.errors.password', undefined, 'passwordData.open')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: passwordData.loading}', aria-label=t('modUserOptions.changePassword')).btn= t('modUserOptions.changePassword')
+	script(type='text/ng-template')#changeEmailModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.changeEmail')
+				div.modal-body
+					div.row
+						+Loader('!emailData.loading')
+							div.col-xs-12
+								+SubAlert('emailData.alert')
+							div.col-xs-12
+								+FormInput('changeEmail', t('modUserOptions.changeEmail'), undefined, undefined, 'email', 'emailData.newEmail', 'emailData.errors.email', undefined, 'emailData.open')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: emailData.loading}', aria-label=t('modUserOptions.changeEmail')).btn= t('modUserOptions.changeEmail')
+	script(type='text/ng-template')#lockUserModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.lock')
+				div.modal-body
+					div.row
+						+Loader('!lockData.loading')
+							div.col-xs-12
+								+SubAlert('lockData.alert')
+							div.col-xs-6
+								+FormInput('suspensions', t('modUserOptions.suspensions'), undefined, undefined, 'number', 'lockData.suspensions', 'lockData.errors.suspensions', undefined, undefined, constants.values.STEP_SUSPENSIONS)
+							div.col-xs-6
+								+FormSelect('lockDuration', t('modUserOptions.lockDuration'), undefined, undefined, 'duration for duration in lockData.durations', 'lockData.lockDuration', 'lockData.errors.lockedUntil')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: balanceData.loading}', aria-label=t('modUserOptions.lock')).btn= t('modUserOptions.lock')
+	script(type='text/ng-template')#addBalanceModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.coins')
+				div.modal-body
+					div.row
+						+Loader('!balanceData.loading')
+							div.col-xs-12
+								+SubAlert('balanceData.alert')
+							div.col-xs-6
+								span.pyValue
+									span.fancy
+										span(ng-bind='balanceData.balance')
+										span &nbsp;
+										span= t('shared:symbols.coins')
+							div.col-xs-6
+								+FormInput('addCoins', t('modUserOptions.coins'), undefined, undefined, 'number', 'balanceData.amount', 'balanceData.errors.amount', undefined, undefined, constants.values.STEP_COINS, undefined, undefined, undefined, t('shared:symbols.coins'))
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: balanceData.loading}', aria-label=t('updateTallyOptions.submit')).btn= t('updateTallyOptions.submit')
+	script(type='text/ng-template')#changeRolesModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.changeRoles')
+				div.modal-body
+					div.row
+						+Loader('!rolesData.loading')
+							div.col-xs-12
+								+SubAlert('rolesData.alert')
+							div.col-xs-12
+								+FormInput('changeRoles', t('modUserOptions.changeRoles'), undefined, undefined, 'text', 'rolesData.roles', 'rolesData.errors.roles')
+							div.col-xs-12
+								+FormInput('changeOverrideRoles', t('modUserOptions.changeOverrideRoles'), undefined, undefined, 'text', 'rolesData.overrideRoles', 'rolesData.errors.overrideRoles')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: rolesData.loading}', aria-label=t('modUserOptions.changeRoles')).btn= t('modUserOptions.changeRoles')
+	script(type='text/ng-template')#changePendingActionsModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('modUserOptions.changePendingActions')
+				div.modal-body
+					div.row
+						+Loader('!pendingActionsData.loading')
+							div.col-xs-12
+								+SubAlert('pendingActionsData.alert')
+							div.col-xs-12
+								+FormInput('changePendingActions', t('modUserOptions.changePendingActions'), undefined, undefined, 'text', 'pendingActionsData.pendingActions', 'pendingActionsData.errors.pendingActions')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: pendingActionsData.loading}', aria-label=t('modUserOptions.changePendingActions')).btn= t('modUserOptions.changePendingActions')

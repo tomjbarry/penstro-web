@@ -1,0 +1,23 @@
+mixin AdminUser
+	+AdminOnly
+		div(ng-controller='UserController').pyUser
+			div.pySingle.col-xs-12
+				div.row
+					span.col-xs-12
+						div.row
+							div.col-xs-12
+								+AppreciationSummary('tally.appreciation', t('tallyTooltips.user.currency'), undefined, 'openStatistics()')
+								span.pyUsernameReference
+									+TitleIcon('fa-user')
+									+UserTitle('user.username')
+								span.pull-right
+									+HelpLink(constants.helpTopics.USERS.name, undefined, 'left')
+						div.row
+							div.col-xs-12
+								+ContentInfo('user')
+				div.row
+					div.col-xs-12
+						+AdminUserActions
+					div.col-xs-12
+						span.pull-right
+							+ActionButton(t('normalView'), undefined, 'fa-anchor', undefined, undefined, constants.states.USERS_ID + '({' + constants.pathVariables.USER + ': user.username.username})', 'active', '{reload: true}')

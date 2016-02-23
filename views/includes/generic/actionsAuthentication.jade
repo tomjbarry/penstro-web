@@ -1,0 +1,10 @@
+mixin ActionsAuthentication(bind)
+	span(ng-show=bind, class!=attributes.class).ng-hide
+		block
+	span(ng-hide=bind, class!=attributes.class).ng-hide
+	//-
+		div(ng-hide=bind).pyActionsAuthentication.ng-hide.text-center
+			div
+				+Icon().fa-lock.fa-4x
+			br
+			span= t('actionsAuthenticated')

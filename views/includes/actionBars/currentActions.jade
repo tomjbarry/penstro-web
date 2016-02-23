@@ -1,0 +1,28 @@
+mixin CurrentActions
+	div(ng-controller='CurrentActionsController').pyCurrentActions
+		+ActionsAuthentication('authenticated')
+			//-
+				+DropdownButton(undefined, 'fa-ellipsis-h', 'optionalOpen').btn-xs
+					ul(role='menu').dropdown-menu
+						//-
+							li
+								+DropdownButtonInner(t('create.offer'), undefined, 'fa-gift', 'openOffer()', undefined, undefined, undefined, undefined, '{active: offerData.open}', 'offerData.loading')
+							li
+								+DropdownButtonInner(t('create.emailOffer'), undefined, 'fa-envelope-square', 'openEmailOffer()', undefined, undefined, undefined, undefined, '{active: emailOfferData.open}', 'emailOfferData.loading')
+						//-
+							li
+								+DropdownButtonInner(t('shared:offers'), undefined, 'fa-bank', undefined, undefined, constants.states.OFFERS, 'active', '{reload: true}')
+							li
+								+DropdownButtonInner(t('shared:offees'), undefined, 'fa-gift', undefined, undefined, constants.states.OFFEES, 'active', '{reload: true}')
+							li
+								+DropdownButtonInner(t('shared:emailOffees'), undefined, 'fa-gift', undefined, undefined, constants.states.EMAIL_OFFEES, 'active', '{reload: true}')
+							li
+								+DropdownButtonInner(t('shared:backers'), undefined, 'fa-bank', undefined, undefined, constants.states.BACKERS, 'active', '{reload: true}')
+							li
+								+DropdownButtonInner(t('shared:backees'), undefined, 'fa-gift', undefined, undefined, constants.states.BACKEES, 'active', '{reload: true}')
+			//-+TourSection(constants.tourStates.CURRENT.name, constants.tourStates.CURRENT.authed.MORE, true).pyTourLeft
+			//-+ActionButton(t('appreciationResponse'), undefined, 'fa-trophy', undefined, undefined, constants.states.CURRENT_APPRECIATION_RESPONSE, 'active', '{reload: true}').btn-xs
+			//-+TourSection(constants.tourStates.CURRENT.name, constants.tourStates.CURRENT.authed.APPRECIATION_RESPONSE, true).pyTourLeft
+			+ActionButton(t('actionsOther'), undefined, 'fa-user', undefined, undefined, constants.states.USERS_ID + '({' + constants.pathVariables.USER + ': current.username.username})', 'active', '{reload: true}').btn-xs
+			+TourSection(constants.tourStates.CURRENT.name, constants.tourStates.CURRENT.authed.VIEW_USER, true).pyTourLeft
+		+ActionButton(t('socialShare'), undefined, 'fa-share', 'openShare()', undefined, undefined, undefined, undefined, '{active: socialData.open}').pySocialShareButton.btn-xs

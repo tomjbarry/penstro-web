@@ -1,0 +1,12 @@
+mixin BetaAlert
+	span
+	//-div(ng-controller='BetaAlertController').pyBetaAlert
+		div(ng-show='show', role='alert').alert.alert-pyBetaAlert.ng-hide
+			button(type='button', ng-click='close()').close
+				span &times;
+				span.sr-only= t('close')
+			+Icon().fa-fw.fa-2x.fa-exclamation-triangle.pull-left
+			+Icon().fa-fw.fa-2x.fa-exclamation-triangle.pull-right
+			span &nbsp
+			span= t('betaAlert')
+			span &nbsp

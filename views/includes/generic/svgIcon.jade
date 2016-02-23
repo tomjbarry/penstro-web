@@ -1,0 +1,10 @@
+mixin SvgIcon(url, fallbackUrl)
+	- var onerror
+	if fallbackUrl
+		- onerror = "this.onerror=null; this.src='" + fallbackUrl + "'"
+		img(xlink:href=url, src=fallbackUrl, onerror=onerror, alt=t('imgAlts.post')).svgIcon
+	else
+		img(src=url, alt=t('imgAlts.post')).svgIcon
+	//-object(type='image/svg+xml', data=url, class!=attributes.class).svgIcon
+		//-if fallbackIcon
+		//-	i(class!=fallbackIcon, aria-hidden="true").fa

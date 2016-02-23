@@ -1,0 +1,8 @@
+mixin HelpSidebarTopic(topic)
+	//- title and overview should be pre-translated
+	- if(typeof(topic) === 'undefined') {topic = 'default';}
+	ul(role='tablist').nav.nav-pills.nav-stacked.pyHelpSidebarTopic
+		li.pyHelpSidebarSection
+			a(href='#' + topic, prevent-default='', scroll-to=topic)= t('titles:helpTopics.' + topic)
+		if block
+			block

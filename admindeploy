@@ -1,0 +1,5 @@
+export NODE_ENV=production
+export NODE_SUB_ENV=admin
+node r.js -o inline.build.js
+node r.js -o app.admin.build.js
+node main.js

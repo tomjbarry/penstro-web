@@ -1,0 +1,5 @@
+mixin NJActivityLink(username)
+	if username
+		- var pathVars = {}
+		- pathVars[constants.pathVariables.USER] = username
+		//- (default) a(href=utils.utils.formatUrl(constants.viewUrls.USERS_ID_ACTIVITY, pathVars))= t('shared:activity')

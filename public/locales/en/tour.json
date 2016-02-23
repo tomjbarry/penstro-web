@@ -1,0 +1,224 @@
+{
+	"alert":"There is a tour available for this page! Hit the play button to continue.",
+	"finish":"Exit tour",
+	"begin":"Begin tour",
+	"toggle":"Tour Available",
+	"GENERAL":{
+		"u":{
+			"brand":{
+				"t":"Penstro",
+				"tx":"This is our brand! Click this at any time to return to the main page."
+			},
+			"actionBar":{
+				"t":"Action Bar",
+				"tx":"The action bar contains all actions for a logged in user. On mobile devices, you must click this button to expand."
+			},
+			"tourAvailable":{
+				"t":"Tour available!",
+				"tx":"When there is a tour available on a page you visit, click this button to begin. Once you've finished, it won't show again unless you re-take the tour."
+			},
+			"settings":{
+				"t":"Settings",
+				"tx":"The settings page alters the behavior of your session, and if you are logged in, changes are saved to your account."
+			},
+			"authentication":{
+				"t":"Logging in/Logging out",
+				"tx":"Click here to log in or log out. We recommend that you log in or register before continuing the tour."
+			}
+		},
+		"a":{
+			"createPosting":{
+				"t":"Creating a post!",
+				"tx":"If you have something to say, don't just share it. Take some time to think it over, then take some more to present it properly. Once it's polished, click here to create a post and share it with the rest of us!"
+			},
+			"paymentProcessing":{
+				"t":"Processing payments",
+				"tx":"After making a purchase, it takes a couple minutes to confirm your order. Feel free to browse while this is in progress."
+			},
+			"cacheDelay":{
+				"t":"Awaiting confirmation notification",
+				"tx":"Certain actions take a few moments to process. We'll update you when the results are finished, but in the meantime you can keep browsing."
+			}
+		}
+	},
+	"CONTENT":{
+		"u":{
+			"contentSelect":{
+				"t":"Select content type",
+				"tx":"Select what type of content you want to see here."
+			},
+			"timeSelect":{
+				"t":"Time span",
+				"tx":"Only content that is active within the selected time span will be shown."
+			},
+			"content":{
+				"t":"Content",
+				"tx":"Here is where the content is! Find something that catches your eye and start reading!"
+			}
+		}
+	},
+	"POSTING":{
+		"u":{
+			"title":{
+				"t":"Post title",
+				"tx":"This is the title of the article. The icon lets you know that you're looking at a post."
+			},
+			"author":{
+				"t":"Author",
+				"tx":"The author of the post is shown here. If you like what they've created, you might like to go to their page and follow them."
+			},
+			"tags":{
+				"t":"Tags",
+				"tx":"Posts can be tagged up to 5 times. The most relevant tags at any time are displayed here. These may change based on which tags are promoted."
+			},
+			"appreciation":{
+				"t":"Tip",
+				"tx":"The total amount of donations that the author has received for this post is shown here as the tip. Click it to see more statistics for this article."
+			},
+			"help":{
+				"t":"Help",
+				"tx":"More information about posts can be found by clicking this icon."
+			}
+		},
+		"a":{
+			"appreciate":{
+				"t":"Tip",
+				"tx":"Tip this author by donating to them! A small cut of this is applied as a promotion, raising this post's rank."
+			},
+			"promote":{
+				"t":"Promote",
+				"tx":"Promote this post directly, raising its rank so that more people may see it!"
+			},
+			"more":{
+				"t":"More actions",
+				"tx":"More actions, such as reporting the post for a violation, can be found by clicking here."
+			},
+			"comment":{
+				"t":"Comment",
+				"tx":"Contribute to the discussion by leaving a comment."
+			}
+		}
+	},
+	"COMMENT":{
+		"u":{
+			"author":{
+				"t":"Author",
+				"tx":"The author of the comment is shown here with the time it was created."
+			},
+			"context":{
+				"t":"Context",
+				"tx":"The context gives you the option of viewing the post, user, tag, or parent comment that this comment is replying to."
+			},
+			"appreciation":{
+				"t":"Tip",
+				"tx":"The total amount of donations that the author has received for this comment is shown here as the tip. Click it to see more statistics for this comment."
+			},
+			"help":{
+				"t":"Help",
+				"tx":"More information about comments can be found by clicking this icon."
+			}
+		},
+		"a":{
+			"appreciate":{
+				"t":"Tip",
+				"tx":"Tip this author by donating to them! A small cut of this is applied as a promotion, raising this comment's rank."
+			},
+			"promote":{
+				"t":"Promote",
+				"tx":"Promote this comment directly, raising its rank so that more people may see it!"
+			},
+			"more":{
+				"t":"More actions",
+				"tx":"More actions, such as reporting the comment for a violation, can be found by clicking here."
+			},
+			"comment":{
+				"t":"Comment",
+				"tx":"Contribute to the discussion by leaving a comment."
+			}
+		}
+	},
+	"TAG":{
+		"u":{
+			"tag":{
+				"t":"Tag",
+				"tx":"The name of the tag is displayed here. The icon makes it obvious that you're looking at a tag."
+			},
+			"promotion":{
+				"t":"Promotion",
+				"tx":"The total amount that users have tipped posts with this tag is shown here. Click it to see more statistics for this tag."
+			},
+			"help":{
+				"t":"Help",
+				"tx":"More information about tags can be found by clicking this icon."
+			}
+		},
+		"a":{
+			"comment":{
+				"t":"Comment",
+				"tx":"Contribute to the discussion by leaving a comment."
+			}
+		}
+	},
+	"USER":{
+		"u":{
+			"username":{
+				"t":"Username",
+				"tx":"The user's name is displayed here. The icon makes it obvious that you're looking at a user."
+			},
+			"appreciation":{
+				"t":"Tip",
+				"tx":"The total amount that users have tipped posts and comments by this user. Click it to see more statistics for this user."
+			},
+			"help":{
+				"t":"Help",
+				"tx":"More information about users can be found by clicking this icon."
+			}
+		},
+		"a":{
+			"follow":{
+				"t":"Follow",
+				"tx":"If you like this user's content, you should follow them. All their activity will appear in your feed."
+			},
+			"message":{
+				"t":"Message",
+				"tx":"You can message any user, but be sure to be polite, thoughtful, and professional. If you simply want to congratulate or compliment their work, try leaving a comment instead."
+			},
+			"more":{
+				"t":"More",
+				"tx":"More actions, including backing this user or reporting their bio for a violation, can be found by clicking here."
+			},
+			"comment":{
+				"t":"Comment",
+				"tx":"Contribute to the discussion by leaving a comment."
+			}
+		}
+	},
+	"CURRENT":{
+		"a":{
+			"appreciation":{
+				"t":"Tip",
+				"tx":"The total amount that users have tipped your posts and comments. Click it to see more statistics."
+			},
+			"description":{
+				"t":"Description",
+				"tx":"This is your bio. Fill it out and make it creative, but be careful what you write. All information shown here is visible to all other users."
+			},
+			"appreciationResponse":{
+				"t":"Tip response",
+				"tx":"Show your supporters your gratitude! Fill this out with your customized thank you, and anyone who donates will see this."
+			},
+			"viewUser":{
+				"t":"View user",
+				"tx":"View your profile as others see it."
+			},
+			"more":{
+				"t":"More",
+				"tx":"More actions, such as backing other users, can be found by clicking here."
+			},
+			"comment":{
+				"t":"Comment",
+				"tx":"You can comment on your own profile the same as if you were viewing it as another user."
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+mixin Offer(iter)
+	div(ng-controller='OfferController').pyOffer.col-xs-12.col-md-12
+		div(ng-init='init(' + iter + ')')
+			div(ng-hide='disabled').pageItem
+				div.row
+					div.col-xs-12
+						span.pull-left
+							div
+								span= t('to')
+									+UserReference('self')
+							div
+								span= t('from')
+									+UserReference('offer.source')
+						+ValueSummary('tally.value', t('tallyTooltips.offer.coins')).pull-right
+					div.col-xs-12
+						span.pull-left
+							+SubButton(t('deny'), undefined, 'fa-times', 'deny()', undefined, undefined, undefined, undefined, undefined, 'disabled')
+						span.pull-right
+							+SubButton(t('accept'), undefined, 'fa-check', 'accept()', undefined, undefined, undefined, undefined, undefined, 'disabled')

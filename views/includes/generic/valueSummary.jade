@@ -1,0 +1,15 @@
+mixin ValueSummary(bind, valueTooltip, placement, click)
+	- if(typeof(placement) === 'undefined') {placement = 'bottom';}
+	span(class!=attributes.class)
+		span(ng-show=bind + ' >= 0').ng-hide.pyValue
+			if click
+				a(href=constants.values.VOID_ACTION, ng-click=click)
+					span(tooltip-placement=placement, tooltip=valueTooltip, data-container='body').fancy.pull-right
+						span(ng-bind=bind)
+						span &nbsp
+						span= t('shared:symbols.coins')
+			else
+				span(tooltip-placement=placement, tooltip=valueTooltip, data-container='body').fancy.pull-right
+					span(ng-bind=bind)
+					span &nbsp
+					span= t('shared:symbols.coins')

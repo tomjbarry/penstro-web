@@ -1,0 +1,11 @@
+mixin PaymentProcessing
+	div(ng-controller='PaymentProcessingController').pyPaymentProcessing
+		div(ng-show='show && processing.processing > 0', role='alert').alert.alert-pyPaymentProcessing.ng-hide
+			button(type='button', ng-click='close()').close
+				span &times;
+				span.sr-only= t('close')
+			+Icon().fa-fw.fa-2x.fa-spin.fa-paypal
+			span &nbsp
+			span= t('paymentProcessing.alert')
+			span &nbsp
+			+HelpLink(constants.helpTopics.PAYMENT.name, constants.helpTopics.PAYMENT.sections.PROCESSING, 'left')

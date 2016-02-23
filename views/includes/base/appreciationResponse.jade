@@ -1,0 +1,21 @@
+mixin AppreciationResponse
+	div(ng-controller='AppreciationResponseController')
+		script(type='text/ng-template')#appreciationResponseModal
+			+Modal
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong(ng-bind='title')
+							+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.APPRECIATION_RESPONSE, 'left').pull-right
+				div.modal-body
+					div.row
+						div.col-xs-12
+							+WarningSimple('hideExplicit')
+								+AppreciationResponseContent('response', false)
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								+SubButton(t('shared:user'), undefined, 'fa-user', 'close()', undefined, constants.states.USERS_ID + '({' + constants.pathVariables.USER + ': username})', 'active', '{reload: true}')
+							span.pull-right
+								+SubButton(t('close'), undefined, 'fa-circle-o', 'close()', undefined)

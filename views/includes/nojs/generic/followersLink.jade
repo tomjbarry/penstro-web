@@ -1,0 +1,5 @@
+mixin NJFollowersLink(username, count)
+	if username && typeof(count) !== 'undefined'
+		- var pathVars = {}
+		- pathVars[constants.pathVariables.USER] = username
+		a(href=utils.utils.formatUrl(constants.viewUrls.USERS_ID_FOLLOWERS, pathVars))= t('shared:followersCount', {count: count})

@@ -1,0 +1,125 @@
+mixin AdminUserActions
+	div(ng-controller='AdminUserActionsController').pyUserActions
+		div.row
+			span.col-xs-12
+				span.pull-right
+					+ActionButton(undefined, undefined, 'fa-refresh', 'refresh()').pyRefreshButton
+		div.row
+			span.col-xs-12
+				accordion(close-others="true")
+					accordion-group(heading=t('modUserOptions.actions'), is-open='status.actions')
+						div.row
+							span.col-xs-12
+								dl.dl-horizontal
+									dt= t('modUserOptions.email')
+									dd(ng-bind='getCurrent("email")')
+									dt= t('modUserOptions.paymentId')
+									dd(ng-bind='getCurrent("paymentId")')
+									dt= t('modUserOptions.notificationCount')
+									dd(ng-bind='getCurrent("notificationCount")')
+									dt= t('modUserOptions.feedCount')
+									dd(ng-bind='getCurrent("feedCount")')
+									dt= t('modUserOptions.loginFailureCount')
+									dd(ng-bind='getCurrent("loginFailureCount")')
+							span.col-xs-12
+								+ActionButton(t('modUserOptions.changeUsername'), undefined, 'fa-at', 'openChangeUsername()', undefined, undefined, undefined, undefined, '{active: usernameData.open}', 'usernameData.loading').pyUpdateUsernameButton
+								+ActionButton(t('modUserOptions.changePassword'), undefined, 'fa-asterisk', 'openChangePassword()', undefined, undefined, undefined, undefined, '{active: passwordData.open}', 'passwordData.loading').pyUpdatePasswordButton
+								+ActionButton(t('modUserOptions.changeEmail'), undefined, 'fa-laptop', 'openChangeEmail()', undefined, undefined, undefined, undefined, '{active: emailData.open}', 'emailData.loading').pyUpdateEmailButton
+								+ActionButton(t('modUserOptions.changeEmailRequest'), undefined, 'fa-mail-forward', 'onChangeEmailRequest()', undefined, undefined, undefined, undefined, undefined, '!status.emailRequest').pyEmailChangeRequestButton
+								+ActionButton(t('modUserOptions.changePaymentRequest'), undefined, 'fa-usd', 'onChangePaymentRequest()', undefined, undefined, undefined, undefined, undefined, '!status.paymentRequest').pyPaymentChangeRequestButton
+								+ActionButton(t('modUserOptions.resetSettings'), undefined, 'fa-cogs', 'onResetSettings()', undefined, undefined, undefined, undefined, undefined, '!status.resetSettings').pyResetSettingsButton
+								+ActionButton(t('modUserOptions.clearLoginFailures'), undefined, 'fa-times', 'onClearLoginFailures()', undefined, undefined, undefined, undefined, undefined, '!status.clearLoginFailures').pyClearLoginFailuresButton
+								+ActionButton(t('modUserOptions.lock'), undefined, 'fa-lock', 'openLockUser()', undefined, undefined, undefined, undefined, '{active: lockData.open}', 'lockData.loading').pyFlagButton
+								+ActionButton(t('modUserOptions.unlock'), undefined, 'fa-unlock', 'onUnlock()', undefined, undefined, undefined, undefined, undefined, '!status.lock').pyFlagButton
+								+ActionButton(t('modUserOptions.addBalance'), undefined, 'fa-money', 'openAddBalance()', undefined, undefined, undefined, undefined, '{active: balanceData.open}', 'balanceData.loading').pyUpdateTallyButton
+					accordion-group(heading=t('modUserOptions.roles'), is-open='status.roles')
+						div.row
+							span.col-xs-12
+								strong= t('modUserOptions.roles')
+							span.col-xs-12
+								ul.list-inline
+									li(ng-repeat='role in getRoles("roles")')
+										span(ng-bind='role')
+						div.row
+							span.col-xs-12
+								strong= t('modUserOptions.overrideRoles')
+							span.col-xs-12
+								ul.list-inline
+									li(ng-repeat='role in getRoles("overrideRoles")')
+										span(ng-bind='role')
+						div.row
+							+ActionButton(t('modUserOptions.changeRoles'), undefined, 'fa-filter', 'openChangeRoles()', undefined, undefined, undefined, undefined, '{active: rolesData.open}', 'rolesData.loading').pyChangeRolesButton
+					accordion-group(heading=t('modUserOptions.pendingActions'), is-open='status.pendingActions')
+						div.row
+							span.col-xs-12
+								strong= t('modUserOptions.pendingActions')
+							span.col-xs-12
+								ul.list-inline
+									li(ng-repeat='pendingAction in getCurrent("pendingActions")')
+										span(ng-bind='pendingAction')
+						div.row
+							+ActionButton(t('modUserOptions.changePendingActions'), undefined, 'fa-filter', 'openChangePendingActions()', undefined, undefined, undefined, undefined, '{active: pendingActionsData.open}', 'pendingActionsData.loading').pyChangePendingActionsButton
+					accordion-group(heading=t('modUserOptions.description'), is-open='status.description')
+						div.row
+							div.col-xs-12
+								strong= t('description')
+							div.col-xs-12
+								div(ng-show='descriptionData.open').ng-hide
+									form(name=constants.forms.EDIT_PROFILE_A, action=constants.values.VOID_ACTION)
+										div.row
+											div.col-xs-12
+												+Loader('!descriptionData.loading')
+													div.row
+														div.col-xs-12
+															+SubAlert('descriptionData.alert')
+														div.col-xs-12.col-md-1
+															+FormInput('descriptionWarning', t('descriptionOptions.warning'), undefined, undefined, 'checkbox', 'descriptionData.warning')
+														+InputBuffer().col-md-11
+														div.col-xs-12
+															+FormContentPreview('description', t('descriptionOptions.description'), 'descriptionData.description', 'descriptionData.errors.description', t('descriptionOptions.descriptionPlaceholder'), constants.forms.EDIT_PROFILE_A, 'descriptionPreview', 'showDescriptionPreview')
+										div.row
+											div.col-xs-12
+												span.pull-left
+													button(type='button', ng-click='cancelDescription()', aria-label=t('cancel')).btn= t('cancel')
+												span.pull-right
+													button(type='button', ng-class='{disabled: descriptionData.loading}', ng-click='updateDescription()', aria-label=t('descriptionOptions.submit')).btn= t('descriptionOptions.submit')
+								div(ng-hide='descriptionData.open').ng-hide
+									div.row
+										div.col-xs-12
+											span.pull-left
+												button(type='button', ng-click='editDescription()', aria-label=t('descriptionOptions.open')).btn= t('descriptionOptions.open')
+									div.row
+										div.col-xs-12
+											+ProfileContent('pscope.user.description', true)
+					accordion-group(heading=t('modUserOptions.appreciationResponse'), is-open='status.appreciationResponse')
+						div.row
+							div.col-xs-12
+								strong= t('appreciationResponse')
+						div.col-xs-12
+							div(ng-show='appreciationResponseData.open').ng-hide
+								form(name=constants.forms.EDIT_APPRECIATION_RESPONSE_A, action=constants.values.VOID_ACTION)
+									div.row
+										div.col-xs-12
+											+Loader('!appreciationResponseData.loading')
+												div.row
+													div.col-xs-12
+														+SubAlert('appreciationResponseData.alert')
+													div.col-xs-12.col-md-1
+														+FormInput('appreciationResponseWarning', t('appreciationResponseOptions.warning'), undefined, undefined, 'checkbox', 'appreciationResponseData.warning')
+													+InputBuffer().col-md-11
+													div.col-xs-12
+														+FormContentPreview('appreciationResponse', t('appreciationResponseOptions.appreciationResponse'), 'appreciationResponseData.appreciationResponse', 'appreciationResponseData.errors.appreciationResponse', t('appreciationResponseOptions.appreciationResponsePlaceholder'), constants.forms.EDIT_APPRECIATION_RESPONSE_A, 'responsePreview', 'showResponsePreview')
+									div.row
+										div.col-xs-12
+											span.pull-left
+												button(type='button', ng-click='cancelAppreciationResponse()', aria-label=t('cancel')).btn= t('cancel')
+											span.pull-right
+												button(type='button', ng-class='{disabled: appreciationResponseData.loading}', ng-click='updateAppreciationResponse()').btn= t('appreciationResponseOptions.submit')
+							div(ng-hide='appreciationResponseData.open').ng-hide
+								div.row
+									div.col-xs-12
+										+AppreciationResponseContent('pscope.user.appreciationResponse', true)
+								div.row
+									div.col-xs-12
+										span.pull-left
+											button(type='button', ng-click='editAppreciationResponse()', aria-label=t('descriptionOptions.open')).btn= t('descriptionOptions.open')

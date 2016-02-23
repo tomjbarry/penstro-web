@@ -1,0 +1,13 @@
+mixin AdminPostingActions
+	div(ng-controller='AdminPostingActionsController').pyPostingActions
+		+ActionButton(t('enable'), undefined, 'fa-eye', 'onEnable()', 'pscope.posting.disabled', undefined, undefined, undefined, undefined, '!status.enable').pyEnableButton
+		+ActionButton(t('disable'), undefined, 'fa-eye-slash', 'onDisable()', '!pscope.posting.disabled', undefined, undefined, undefined, undefined, '!status.enable').pyEnableButton
+		+ActionButton(t('remove'), undefined, 'fa-times', 'onRemove()', '!pscope.posting.removed && !pscope.posting.disabled', undefined, undefined, undefined, undefined, '!status.remove').pyRemoveButton
+		+ActionButton(t('unremove'), undefined, 'fa-plus', 'onUnremove()', 'pscope.posting.removed && !pscope.posting.disabled', undefined, undefined, undefined, undefined, '!status.remove').pyRemoveButton
+		+ActionButton(t('warn'), undefined, 'fa-exclamation', 'onWarning()', '!pscope.posting.warning', undefined, undefined, undefined, undefined, '!status.warning').pyWarningButton
+		+ActionButton(t('unwarn'), undefined, 'fa-exclamation-triangle', 'onUnwarning()', 'pscope.posting.warning', undefined, undefined, undefined, undefined, '!status.warning').pyWarningButton
+		+ActionButton(t('flag'), undefined, 'fa-flag', 'onFlag()', '!pscope.posting.flagged', undefined, undefined, undefined, undefined, '!status.flag').pyFlagButton
+		+ActionButton(t('unflag'), undefined, 'fa-flag-checkered', 'onUnflag()', 'pscope.posting.flagged', undefined, undefined, undefined, undefined, '!status.flag').pyFlagButton
+		+ActionButton(t('updateTally'), undefined, 'fa-money', 'openUpdateTally()', undefined, undefined, undefined, undefined, '{active: tallyData.open}', 'tallyData.loading').pyUpdateTallyButton
+		+PromoteDisabled('pscope.posting.canAppreciate', t('actionDisabled.posting'))
+			+ActionButton(t('appreciation'), undefined, 'fa-usd', 'openAppreciation()', undefined, undefined, undefined, undefined, '{active: appreciationData.open}', 'appreciationData.loading || !pscope.posting.canAppreciate').pyAppreciateButton

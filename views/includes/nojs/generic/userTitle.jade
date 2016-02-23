@@ -1,0 +1,3 @@
+mixin NJUserTitle(username, header)
+	+NJRemoved(!(username && username.exists && username.username))
+		+NJTitle(username.username, header)

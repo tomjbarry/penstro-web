@@ -1,0 +1,283 @@
+{
+	"errors":{
+		"balance":"Not enough funds!",
+		"finance":"There was a problem processing the transaction.",
+		"notAllowed":"The action is not allowed!",
+		"external":"There was a problem connecting with a 3rd party service. Please try again later.",
+		"exists":"Already exists!",
+		"notFound":"Not found!"
+	},
+	"single":{
+		"notAllowed":"This content has been hidden!",
+		"notFound":"Not found!",
+		"error":{
+			"user":"Could not load user!",
+			"sub":"Could not load!"
+		}
+	},
+	"navigation":{
+		"self":{
+			"messages":"Why would you want to message yourself? Go make some friends!"
+		}
+	},
+	"editor":{
+		"markdownWarning":"It seems that your browser cannot support the full featured editor! We've provided a simple editor with Markdown for your convenience. Make sure to preview your work!"
+	},
+	"purchaseCurrency":{
+		"inProgress":"The payment is currently in progress. It may take a few minutes for verification of the payment status.",
+		"error":"Error while setting up purchase options. No transaction has taken place.",
+		"check":"The purchase was successful! The Pennies will be available after a few minutes for verification.",
+		"success":"The purchase was successful!"
+	},
+	"payment":{
+		"apiError":"There was an error while checking the status of the payment. It may take a few minutes for verification of the payment status.",
+		"inProgress":"A payment is already in progress!"
+	},
+	"paymentId":{
+		"recommended":"You should link your PayPal account, or you won't be able to recieve Tips!"
+	},
+	"emailToken":{
+		"error":"Error sending the email!",
+		"link":{
+			"error":"Error reading the token.",
+			"invalid":"The token is invalid or it has expired. Please try requesting this action again.",
+			"confirmation":"Email confirmed!",
+			"delete":"Account scheduled for deletion."
+		},
+		"resetPassword":"You have requested a password reset. Check your email for more information.",
+		"emailChange":"You have requested to change your email. Check your email for more information.",
+		"paymentIdChange":"You have requested to change your PayPal ID linked with your account. Check your account email for more information.",
+		"confirmation":"A confirmation email has been sent! Check your email for more information.",
+		"confirmationError":"Your email has already been confirmed.",
+		"delete":"An email has been sent to confirm you want to delete your account. Check your email for more information.",
+		"login":"You must be logged in! Please log in, and you will be redirected automatically."
+	},
+	"settingsEmail":{
+		"error":"Error changing email!",
+		"success":"Email changed! You must still confirm this email address.",
+		"required":"Your email is not yet confirmed. If you have already done this, then our messages are likely being marked as spam. Please reconfirm your email address."
+	},
+	"password":{
+		"locked":"Too many attempts! Try again in a few minutes.",
+		"change":{
+			"error":"Error while changing password."
+		}
+	},
+	"follow":{
+		"unfollowUser":"Unfollowed __user__.",
+		"followLimit":"Following too many users! Remove some users and try again.",
+		"followError":"Cannot follow this user!",
+		"unfollowError":"Error unfollowing this user!"
+	},
+	"block":{
+		"unblockUser":"Unblocked __user__.",
+		"blockLimit":"Blocking too many users! Remove some users and try again.",
+		"blockError":"Cannot block this user!",
+		"unblockError":"Error unblocking this user!"
+	},
+	"offer":{
+		"success":"Offer to back was made successfully!",
+		"acceptUserCount":"Accepted offer from user __user__ for __count__!",
+		"withdrawSuccess":"Successfully withdrew offer.",
+		"withdrawError":"Failed to withdraw offer.",
+		"denySuccess":"Successfully denied offer.",
+		"denyError":"Failed to deny offer.",
+		"acceptError":"Failed to accept offer.",
+		"createError":"Failed to make offer."
+	},
+	"backer":{
+		"withdrawSuccess":"Successfully withdrew backing.",
+		"withdrawError":"Failed to withdraw backing.",
+		"cancelSuccess":"Successfully cancelled backing.",
+		"cancelError":"Failed to cancel backing."
+	},
+	"apiError":"There was an error making the request!",
+	"user":{
+		"repliesError":"Failed to retrieve replies!",
+		"currentError":"Failed to retrieve current user information!",
+		"settingsResetError":"Failed to reset user settings.",
+		"settingsError":"Failed to retrieve user settings! Default values will be used.",
+		"settingsChangeError":"Failed to change user settings! Try again later.",
+		"settingsSuccess":"Settings updated.",
+		"passwordChangeSuccess":"Password changed!",
+		"balanceError":"Failed to retrieve balance! This is a temporary error, please try again later",
+		"rolesSetError":"Failed to retrieve user permissions!",
+		"subscriptionError":"Failed to retrieve followed users!"
+	},
+	"register":{
+		"success":"Account successfully created!",
+		"invalid":{
+			"username":"Invalid username!",
+			"password":"Invalid password!",
+			"email":"Invalid email!"
+		},
+		"error":"Could not register user!"
+	},
+	"login":{
+		"invalid":"Invalid username or password!",
+		"locked":"The maximum number of login attempts for this account have been reached. For security reasons, logging in to this account is temporarily disabled. Please wait a few minutes before trying again."
+	},
+	"logout":{
+		"error":"Error while attempting to log the user out! Try relogging in again and repeating the action to ensure secure log out.",
+		"success":"User was securely logged out! Thank you, come again!"
+	},
+	"authenticationRequired":"You must be logged in to access this content!",
+	"authenticationNotAllowed":"This page is not needed by users already logged in!",
+	"noToken":"There was an authentication error! Try refreshing the page.",
+	"theft":"You have been idle for too long or someone else has logged in to this account. Please try logging in again.",
+	"expired":"You have been idle for too long and the session has timed out. Please try logging in again.",
+	"locked":"Your account has been temporarily suspended.",
+	"featureDisabled":"This feature has been disabled.",
+	"denied":"You do not have the required privileges to use this feature.",
+	"deniedUnauthenticated":"You must be logged in to use this feature!",
+	"pageable":{
+		"error":{
+			"previous":"Could not retrieve the previous page!",
+			"next":"Could not retrieve the next page!",
+			"refresh":"Error refreshing content!"
+		}
+	},
+	"flagged":{
+		"postingSuccess":"The post has been reported.",
+		"commentSuccess":"The comment has been reported.",
+		"userSuccess":"The user has been reported.",
+		"userError":"Could not report user!",
+		"postingError":"Could not report post!",
+		"commentError":"Could not report comment!"
+	},
+	"message":{
+		"notAllowed":"You are not allowed to message this user.",
+		"error":"The message could not be sent at this time."
+	},
+	"description":{
+		"descriptionError":"Could not update description!"
+	},
+	"appreciationResponse":{
+		"updateError":"Could not update tip response!",
+		"getError":"Could not retrieve tip response!"
+	},
+	"posting":{
+		"createError":"There was an error while creating the post!",
+		"editError":"There was an error while submitting the edit!",
+		"editNotAllowed":"You must be the author of the post!",
+		"success":"Post successful!",
+		"enable":{
+			"error":"Could not enable posting."
+		},
+		"disable":{
+			"error":"Could not disable posting."
+		},
+		"promote":{
+			"notAllowed":"Promotion is currently disabled for this post.",
+			"success":"Promotion added!"
+		},
+		"appreciate":{
+			"notAllowed":"Tips are currently disabled for this post.",
+			"paymentTarget":"The author has not linked an account to receive funds.",
+			"success":"Tip added!"
+		}
+	},
+	"comment":{
+		"createError":"There was an error while creating the reply!",
+		"editError":"There was an error while submitting the edit!",
+		"editNotAllowed":"You must be the author of the comment!",
+		"success":"Reply successful!",
+		"notAllowed":{
+			"posting":"Commenting on this post has been disabled.",
+			"comment":"Commenting on this comment has been disabled.",
+			"tag":"Commenting on this tag has been disabled.",
+			"user":"This user has disabled commenting."
+		},
+		"enable":{
+			"error":"Could not enable posting."
+		},
+		"disable":{
+			"error":"Could not disable posting."
+		},
+		"promote":{
+			"notAllowed":"Promotion is currently disabled for this post.",
+			"success":"Promotion added!"
+		},
+		"appreciate":{
+			"notAllowed":"Tips are currently disabled for this post.",
+			"paymentTarget":"The author has not linked an account to receive funds.",
+			"success":"Tip added!"
+		}
+	},
+	"role":{
+		"admin":"You must be a moderator to access this content!"
+	},
+	"overrideRole":{
+		"unlinked":"You must have a linked PayPal ID!",
+		"unconfirmed":"You must first confirm your email!",
+		"unaccepted":"You must accept the Terms of Service!",
+		"deleted":"This account is scheduled for deletion!"
+	},
+	"deleted":{
+		"error":"There was an error undeleting your account! Try contacting the site administration to ensure that your account is not deleted.",
+		"apiError":"There was a problem making the request. Please try again later. If this problem persists, contact the site administration to ensure that your account is not deleted.",
+		"notAllowed":"Your account is not scheduled for deletion!",
+		"success":"Welcome back!"
+	},
+	"appreciation":{
+		"error":"Could not tip!",
+		"success":"Tip received! Changes will be visible in just a moment."
+	},
+	"promotion":{
+		"error":"Could not promote!",
+		"notAllowed":"Promotion is not allowed for this content.",
+		"success":"Promotion received! Changes will be visible in just a moment."
+	},
+	"terms":{
+		"error":"There was an error accepting the Terms of Service!"
+	},
+	"pageableErrors":{
+		"postings":"Could not load postings!",
+		"comments":"Could not load comments!",
+		"tags":"Could not load tags!",
+		"users":"Could not load users!",
+		"activity":"Could not load activity!",
+		"notifications":"Could not load notifications!",
+		"feed":"Could not load feed!",
+		"messages":"Could not load messages!",
+		"sub":"Could not load data!"
+	},
+	"modComment":{
+		"enable":"Error setting enable status!",
+		"remove":"Error setting remove status!",
+		"warning":"Error setting warning status!",
+		"flag":"Error setting flag status!",
+		"updateTally":"Error updating tally!"
+	},
+	"modPosting":{
+		"enable":"Error setting enable status!",
+		"remove":"Error setting remove status!",
+		"warning":"Error setting warning status!",
+		"flag":"Error setting flag status!",
+		"updateTally":"Error updating tally!"
+	},
+	"modTag":{
+		"lock":"Error setting lock status!"
+	},
+	"modUser":{
+		"balanceError":"Error adding pennies!",
+		"usernameError":"Error changing username!",
+		"passwordError":"Error changing password!",
+		"emailError":"Error changing email!",
+		"lockError":"Error suspending user!",
+		"rolesError":"Error changing user roles!",
+		"pendingActionsError":"Error changing user pending actions!",
+		"emailRequest":"Error sending email request!",
+		"paymentRequest":"Error sendnig payment request!",
+		"resetSettings":"Error resetting user settings!",
+		"clearLoginFailures":"Error clearing login failures!",
+		"lock":"Error setting user lock status!"
+	},
+	"modRestricted":{
+		"createError":"Error creating restriction!",
+		"removeError":"Error removing restriction!"
+	},
+	"modFlagged":{
+		"removeError":"Error removing flag data!"
+	}
+}

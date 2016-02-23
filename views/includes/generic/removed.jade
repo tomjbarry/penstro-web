@@ -1,0 +1,5 @@
+mixin Removed(condition)
+	span(ng-hide=condition).ng-hide
+		block
+	span(ng-show=condition).ng-hide
+		strong= t('removed')

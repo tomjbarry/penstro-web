@@ -1,0 +1,21 @@
+mixin NJTimeSelect
+	- var paramTime = paramUtil.constructTime(req)
+	- var timeParams = {}
+	- timeParams[constants.paramValues.TIME_OPTION_HOUR] = ''
+	- timeParams[constants.paramValues.TIME_OPTION_DAY] = ''
+	- timeParams[constants.paramValues.TIME_OPTION_MONTH] = ''
+	- timeParams[constants.paramValues.TIME_OPTION_YEAR] = ''
+	if typeof(paramTime) === 'undefined' || paramTime === ''
+		- timeParams[constants.defaults.TIME] = 'active'
+	else
+		- timeParams[paramTime] = 'active'
+	+NJIcon('fa-clock-o fa-2x')
+	div.btn-group
+		- var hourQuery = utils.utils.addQuery(constants.params.TIME, constants.paramValues.TIME_OPTION_HOUR, {});
+		- var dayQuery = utils.utils.addQuery(constants.params.TIME, constants.paramValues.TIME_OPTION_DAY, {});
+		- var monthQuery = utils.utils.addQuery(constants.params.TIME, constants.paramValues.TIME_OPTION_MONTH, {});
+		- var yearQuery = utils.utils.addQuery(constants.params.TIME, constants.paramValues.TIME_OPTION_YEAR, {});
+		+NJButton(utils.utils.constructQueryPathString(req.path, req.params, hourQuery), 'button', t('shared:lastTimeOption.hour'))(class!=timeParams[constants.paramValues.TIME_OPTION_HOUR]).lastTimeOptionHour
+		+NJButton(utils.utils.constructQueryPathString(req.path, req.params, dayQuery), 'button', t('shared:lastTimeOption.day'))(class!=timeParams[constants.paramValues.TIME_OPTION_DAY]).lastTimeOptionDay
+		+NJButton(utils.utils.constructQueryPathString(req.path, req.params, monthQuery), 'button', t('shared:lastTimeOption.month'))(class!=timeParams[constants.paramValues.TIME_OPTION_MONTH]).lastTimeOptionMonth
+		+NJButton(utils.utils.constructQueryPathString(req.path, req.params, yearQuery), 'button', t('shared:lastTimeOption.year'))(class!=timeParams[constants.paramValues.TIME_OPTION_YEAR]).lastTimeOptionYear

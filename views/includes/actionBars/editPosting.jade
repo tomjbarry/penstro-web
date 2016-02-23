@@ -1,0 +1,38 @@
+mixin EditPosting
+	div(ng-controller='EditPostingController').pyEditPosting
+		div(ng-hide='show').row
+			div.col-xs-12
+				+ActionButton(t('edit.posting'), undefined, 'fa-eraser', 'open()', 'authenticated && currentUsername === pscope.posting.author.username').btn-xs
+		div(ng-show='authenticated && currentUsername === pscope.posting.author.username && show').ng-hide
+			form(name=constants.forms.EDIT_POSTING, action=constants.values.VOID_ACTION)
+				//-div.row
+					div.col-xs-12
+						label
+							strong.form-title= t('edit.posting')
+							+HelpLink(constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.EDIT, 'left').pull-right
+				div.row
+					div.col-xs-12
+						+SubAlert('alert')
+				div.row
+					span.col-xs-12.col-md-9
+						+FormInput('postingTitle', t('postingEditOptions.title'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.TITLE, 'text', 'title', 'errors.title', t('postingEditOptions.titlePlaceholder'))
+				div.row
+					span.col-xs-12.col-md-5
+						+FormInput('postingImage', t('postingEditOptions.imageLink'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.IMAGE, 'text', 'imageLink', 'errors.imageLink', undefined, undefined, constants.values.IMAGE_STEP, constants.values.IMAGE_MIN)
+					+InputBuffer().col-md-1
+					span.col-xs-5.col-md-3
+						+FormInput('postingImageWidth', t('postingEditOptions.imageWidth'), undefined, undefined, 'number', 'imageWidth', 'errors.imageWidth', undefined, undefined, constants.values.IMAGE_STEP, constants.values.IMAGE_MIN)
+					span.col-xs-5.col-md-3
+						+FormInput('postingImageHeight', t('postingEditOptions.imageHeight'), undefined, undefined, 'number', 'imageHeight', 'errors.imageHeight', undefined, undefined, constants.values.IMAGE_STEP, constants.values.IMAGE_MIN)
+				div.row
+					span.col-xs-12
+						+FormInput('preview', t('postingEditOptions.preview'), constants.helpTopics.POSTINGS.name, constants.helpTopics.POSTINGS.sections.PREVIEW, 'text', 'preview', 'errors.preview')
+				div.row
+					div.col-xs-12
+						+FormContentPreview('postingEdit', t('postingEditOptions.content'), 'content', 'errors.content', t('postingEditOptions.contentPlaceholder'), constants.forms.EDIT_POSTING, 'contentPreview', 'showPreview')
+				div.row
+					div.col-xs-12
+						span.pull-left
+							+ActionButton(t('cancel'), undefined, undefined, 'cancel()').btn-xs
+						span.pull-right
+							+ActionButton(t('postingEditOptions.submit'), undefined, undefined, 'editPosting()', undefined, undefined, undefined, undefined, '{disabled: postingLoading}').btn-xs

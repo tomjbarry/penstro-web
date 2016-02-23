@@ -1,0 +1,101 @@
+mixin CommentModals
+	script(type='text/ng-template')#commentPromotionModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('promotion')
+							+HelpLink(constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.PROMOTE, 'left').pull-right
+				div.modal-body
+					div.row
+						+Loader('!promotionData.loading')
+							div.col-xs-12
+								+SubAlert('promotionData.alert')
+								span(ng-show='promotionData.showPurchaseLink').pull-right.ng-hide
+									+ActionButton(t('purchaseCurrency'), undefined, 'fa-usd', 'openPurchase()')
+							+CollapsedButton('optionalCollapsed', true).col-xs-12
+							div.col-xs-12
+								div.row
+									+Collapsed('optionalCollapsed')
+										div.col-xs-12
+											+FormInput('promotionWarning', t('promotionOptions.warning'), undefined, undefined, 'checkbox', 'promotionData.warning', 'promotionData.errors.warning')
+							div.col-xs-12
+								+FormInput('promotionPromotion', t('promotionOptions.promotion'), undefined, undefined, 'number', 'promotionData.promotion', 'promotionData.errors.promotion', undefined, 'promotionData.open', constants.values.STEP_COINS, constants.values.PROMOTION_MIN, undefined, undefined, t('shared:symbols.coins'))
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: promotionData.loading}', aria-label=t('promotionOptions.submit')).btn= t('promotionOptions.submit')
+	script(type='text/ng-template')#commentAppreciationModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('appreciation')
+							span.pull-right
+								+PaymentImage
+								+HelpLink(constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.APPRECIATE, 'left').pull-right
+				div.modal-body
+					div.row
+						+Loader('!appreciationData.loading')
+							div.col-xs-12
+								+SubAlert('appreciationData.alert')
+							+CollapsedButton('optionalCollapsed', true).col-xs-12
+							div.col-xs-12
+								div.row
+									+Collapsed('optionalCollapsed')
+										div.col-xs-12
+											+FormInput('appreciationWarning', t('appreciationOptions.warning'), undefined, undefined, 'checkbox', 'appreciationData.warning', 'appreciationData.errors.warning')
+							div.col-xs-12
+								+FormInput('appreciationAppreciation', t('appreciationOptions.appreciation'), undefined, undefined, 'number', 'appreciationData.appreciation', 'appreciationData.errors.appreciation', undefined, 'appreciationData.open', constants.values.STEP_CURRENCY, constants.values.APPRECIATION_MIN, undefined, t('shared:symbols.currency'))
+							div.col-xs-12
+								strong= t('appreciationOptions.alt')
+							div.col-xs-12
+								+FormInput('appreciationAppreciationAlt', t('appreciationOptions.appreciationAlt'), undefined, undefined, 'number', 'appreciationData.appreciationAlt', undefined, undefined, undefined, constants.values.STEP_CURRENCY, undefined, undefined, t('shared:symbols.currency'))
+							div.col-xs-12
+								+Total('sinceAction >= 0', 'total', 'amount', 'fee', 'tax', 'author')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: appreciationData.loading}', aria-label=t('appreciationOptions.submit')).btn= t('appreciationOptions.submit')
+	script(type='text/ng-template')#commentFlagModal
+		+Modal
+			div.modal-header
+				div.row
+					div.col-xs-12
+						strong= t('flag')
+						+HelpLink(constants.helpTopics.COMMENTS.name, constants.helpTopics.COMMENTS.sections.FLAG, 'left').pull-right
+			div.modal-body
+				div.row
+					+Loader('!flagData.loading')
+						span.col-xs-12
+							span.fs-2= t('flagOptions.comment')
+							div.row
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.plagiarism.overview')
+										+ActionButton(t('flagOptions.reasons.plagiarism.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_PLAGIARISM + "')").pull-right
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.violation.overview')
+										+ActionButton(t('flagOptions.reasons.violation.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_VIOLATION + "')").pull-right
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.spam.overview')
+										+ActionButton(t('flagOptions.reasons.spam.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_SPAM + "')").pull-right
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.illicit.overview')
+										+ActionButton(t('flagOptions.reasons.illicit.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_ILLICIT + "')").pull-right
+			div.modal-footer
+				div.row
+					div.col-xs-12
+						span.pull-left
+							button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')

@@ -1,0 +1,16 @@
+mixin TimeSelect(asReplies)
+	//-span= t('lastTime')
+	- var controller = 'TimeSelectController'
+	if(asReplies)
+		- controller = 'TimeRepliesSelectController'
+	div(ng-controller=controller)
+		+DropdownButton(undefined, 'fa-clock-o', 'optionalOpen', undefined, undefined, 'timeLabel').btn-sm
+			ul(role='menu').dropdown-menu
+				li
+					+DropdownButtonInner(t('shared:lastTimeOption.hour'), undefined, undefined, 'onChange("' + constants.paramValues.TIME_OPTION_HOUR + '")', undefined, undefined, undefined, undefined, '{active: time["' + constants.paramValues.TIME_OPTION_HOUR + '"]}').lastTimeOptionHour
+				li
+					+DropdownButtonInner(t('shared:lastTimeOption.day'), undefined, undefined, 'onChange("' + constants.paramValues.TIME_OPTION_DAY + '")', undefined, undefined, undefined, undefined, '{active: time["' + constants.paramValues.TIME_OPTION_DAY + '"]}').lastTimeOptionDay
+				li
+					+DropdownButtonInner(t('shared:lastTimeOption.month'), undefined, undefined, 'onChange("' + constants.paramValues.TIME_OPTION_MONTH + '")', undefined, undefined, undefined, undefined, '{active: time["' + constants.paramValues.TIME_OPTION_MONTH + '"]}').lastTimeOptionMonth
+				li
+					+DropdownButtonInner(t('shared:lastTimeOption.year'), undefined, undefined, 'onChange("' + constants.paramValues.TIME_OPTION_YEAR + '")', undefined, undefined, undefined, undefined, '{active: time["' + constants.paramValues.TIME_OPTION_YEAR + '"]}').lastTimeOptionYear

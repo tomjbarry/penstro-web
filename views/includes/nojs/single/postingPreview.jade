@@ -1,0 +1,28 @@
+mixin NJPostingPreview(preview)
+	if preview
+		- var hideExplicit = preview.warning && !paramUtil.toBoolean(paramUtil.constructWarning(req));
+		- var pathVars = {}; pathVars[constants.pathVariables.POSTING] = preview.id; pathVars[constants.pathVariables.TITLE] = utils.utils.getEncodedTitle(preview.title);
+		- var postingLink = utils.utils.formatUrl(constants.viewUrls.POSTINGS_ID_TITLE, pathVars);
+		+NJPreview
+			div.row
+				span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+					div.row
+						div.col-xs-12
+							+NJLink(postingLink).pyPostingReference
+								+TitleIcon('fa-newspaper-o')
+								+NJRemoved(preview.removed)
+									if preview.title
+										+NJTitle(preview.title).posting-title
+					div.row
+						div.col-xs-12.col-md-6
+							+NJAuthorReference(preview.author)
+							span &nbsp
+							+NJTimestamp(preview.created)
+						if preview.tags && preview.tags.length > 0
+							div.col-xs-12.col-md-6
+								+NJTagList(preview.tags).pull-right
+					div.row
+						div.col-xs-12
+							+NJContentInfo(preview)
+				span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					+NJAppreciationSummary(preview.tally.appreciation)

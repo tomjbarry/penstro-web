@@ -1,0 +1,5 @@
+mixin NJFolloweesLink(username)
+	if username
+		- var pathVars = {}
+		- pathVars[constants.pathVariables.USER] = username
+		a(href=utils.utils.formatUrl(constants.viewUrls.USERS_ID_FOLLOWEES, pathVars))= t('shared:followees')

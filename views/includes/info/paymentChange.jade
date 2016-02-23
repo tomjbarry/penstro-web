@@ -1,0 +1,23 @@
+mixin PaymentChange
+	div.pyPaymentChange
+		+Form#form.col-xs-12
+			+AuthenticationRequired('authenticated')
+				form(name=constants.forms.PAYMENT_CHANGE, ng-submit='changePayment()', action=constants.values.VOID_ACTION)
+					div.row
+						div.col-xs-12
+							label
+								strong.form-title= t('emailTokenLinksOptions.paymentChange.paymentChange')
+							+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.PAYMENT, 'left').pull-right
+					div.row
+						div.col-xs-12
+							+SubAlert('alert')
+					div.row
+						div.col-xs-12
+							+FormInput('paymentId', t('emailTokenLinksOptions.paymentChange.paymentId'), undefined, undefined, 'email', 'paymentId', 'errors.paymentId', t('emailTokenLinksOptions.paymentChange.paymentIdPlaceholder'))
+					div.row
+						div.col-xs-12
+							+FormInput('password', t('emailTokenLinksOptions.paymentChange.password'), undefined, undefined, 'password', 'password', 'errors.password', t('emailTokenLinksOptions.paymentChange.passwordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+					div.row
+						div.col-xs-12
+							span.pull-right
+								button(type='submit', ng-class='{disabled: paymentLoading}', aria-label=t('emailTokenLinksOptions.paymentChange.submit')).btn= t('emailTokenLinksOptions.paymentChange.submit')

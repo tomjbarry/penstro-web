@@ -1,0 +1,24 @@
+mixin ContentLoader
+	div(ng-show='true').ng-hide
+		block
+	//-
+		div(ng-controller='ContentLoaderController')
+			- var l = 'loaded.info !== ' + constants.values.LOADED_FAILED + ' && loaded.single !== ' + constants.values.LOADED_FAILED + ' && loaded.page.current !== ' + constants.values.LOADED_FAILED
+			div(ng-show=l)
+				div(ng-show='true').ng-hide
+					+Loader('loaded.content')
+						block
+					div.text-center
+						//-span(ng-hide='true').loader-text.fs-3.fancy= t('loaderSteps.initial')
+						//-span(ng-hide='loaded.content || loaded.count.loaded').loader-text.fs-3.fancy.ng-hide= t('loaderSteps.loading')
+						span(ng-hide='loaded.content || !loaded.count.loaded').loader-text.fs-3.fancy.ng-hide= t('loaderSteps.halfway')
+				//-progressbar(ng-hide='loaded.content', value='loaded.count.percentage').progress-striped.active
+			div(ng-hide=l).ng-hide
+				div.pyFailed.text-center
+					//- img(src=constants.imgUrls.LOADED_FAILED).pyFailedImage
+					+GenericErrorPage(t('errorOptions.loadFailure.title'),t('errorOptions.loadFailure.overview'),'fa-frown-o')
+					//-
+						h3
+							+Icon().fa-3x.fa-frown-o.pull-left
+							span= t('loadFailed')
+							+Icon().fa-3x.fa-frown-o.pull-right

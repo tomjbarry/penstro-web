@@ -1,0 +1,3 @@
+mixin NJUserReference(wrapper)
+	+NJRemoved(wrapper && wrapper.exists && wrapper.username)
+		+NJUsernameReference(wrapper.username)

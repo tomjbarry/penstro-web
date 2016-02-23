@@ -1,0 +1,5 @@
+mixin TagNavigation
+	div(ng-controller='TagNavigationController').btn-group.pyTagNavigation
+		+NavButton(t('shared:taggedPostings'), constants.states.TAGS_ID + '({' + constants.pathVariables.TAG + ': navigation.tag})', 'active', '{reload: true}')
+		+NavButton(t('shared:replies'), constants.states.TAGS_ID_REPLIES + '({' + constants.pathVariables.TAG + ': navigation.tag})', 'active', '{reload: true}', 'navigation.replyCount').pyCommentButton
+		//- (default) +NavButton(t('shared:taggedPostings'), constants.states.TAGS_ID_POSTINGS + '({' + constants.pathVariables.TAG + ': navigation.tag})', 'active', '{reload: true}')

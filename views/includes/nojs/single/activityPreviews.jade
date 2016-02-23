@@ -1,0 +1,10 @@
+mixin NJActivityPreviews(preview)
+	if preview
+		+NJPreview
+			div.row
+				div.col-xs-12
+					+NJTimestamp(preview.occurred)
+			div.row
+				div.col-xs-12
+					+NJLink(utils.eventUtils.constructEventLink(preview))
+						span= utils.eventUtils.constructEventTitle(preview, t)

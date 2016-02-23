@@ -1,0 +1,5 @@
+mixin NJTitle(title, header)
+	if header
+		h1(class!=attributes.class, itemprop=attributes.itemprop).title.inline= title
+	else
+		h2(class!=attributes.class, itemprop=attributes.itemprop).title.inline= title

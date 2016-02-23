@@ -1,0 +1,7 @@
+extends ../singleLayout
+
+block Partial
+	div(ng-controller='SingleController')
+		div(ng-if='single.' + constants.chainedKeys.DATA + '.' + constants.chainedKeys.SINGLE)
+			//-+Loader('single.loaded["' + constants.chainedKeys.SINGLE + '"]')
+			div(ui-view='{{single.view}}')

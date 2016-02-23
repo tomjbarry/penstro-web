@@ -1,0 +1,30 @@
+mixin EditorImageModal
+	script(type='text/ng-template')#editorImageModal
+		+Modal
+			form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							strong= t('editor.imageOptions.title')
+							+HelpLink(constants.helpTopics.EDITOR.name, constants.helpTopics.EDITOR.sections.IMAGE, 'left').pull-right
+				div.modal-body
+					div.row
+						+CollapsedButton('optionalCollapsed').col-xs-12
+						div.col-xs-12.col-md-12
+							div.row
+								+Collapsed('optionalCollapsed')
+									div.col-xs-12
+										+FormInput('editorImageAlt', t('editor.imageOptions.alt'), undefined, undefined, 'text', 'imageData.alt', undefined, t('editor.imageOptions.altPlaceholder'))
+									div.col-xs-12
+										+FormInput('editorImageWidth', t('editor.imageOptions.width'), undefined, undefined, 'text', 'imageData.width', undefined, t('editor.imageOptions.widthPlaceholder'))
+									div.col-xs-12
+										+FormInput('editorImageHeight', t('editor.imageOptions.height'), undefined, undefined, 'text', 'imageData.height', undefined, t('editor.imageOptions.heightPlaceholder'))
+						div.col-xs-12
+							+FormInput('editorImageUrl', t('editor.imageOptions.url'), undefined, undefined, 'text', 'imageData.url', 'imageData.warning', t('editor.imageOptions.urlPlaceholder'), 'imageData.open')
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', aria-label=t('editor.imageOptions.submit')).btn= t('editor.imageOptions.submit')

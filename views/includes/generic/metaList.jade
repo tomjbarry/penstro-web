@@ -1,0 +1,8 @@
+mixin MetaList(m)
+	if m
+		if m.t
+			each og, key in m.t
+				meta(property=key, content=t(og))
+		if m.p
+			each og, key in m.p
+				meta(property=key, content=og)

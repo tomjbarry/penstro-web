@@ -1,0 +1,5 @@
+mixin TermsLink(section)
+	//- var name; if(typeof(section) !== 'undefined') {name = section.name;}
+	span(class!=attributes.class)
+		a(href=utils.utils.constructTermsLink(section), scroll-to=section).pyLink.pyTermsLink
+			block

@@ -1,0 +1,35 @@
+mixin AccountPage
+	+GenericInfoPage(t('signupOptions.title'))
+		div(ng-controller='AccountController').pyAboutPage
+			div.row
+				span.col-xs-12.col-md-5
+					div.row
+						span.col-xs-12.text-center
+							h2= t('signupOptions.subtitle')
+						span.col-xs-12
+							span.text-pad-left.fs-3= t('signupOptions.overview')
+				span.hidden-xs.hidden-sm.col-md-2
+				span.col-xs-12.col-md-5
+					div.row
+						span.col-xs-12
+							h2= t('signupOptions.why.title')
+						span.col-xs-12
+							ul.fs-2
+								li.padded-top-3.padded-bottom-3
+									span= t('signupOptions.why.list.one')
+								li.padded-top-3.padded-bottom-3
+									span= t('signupOptions.why.list.two')
+								li.padded-top-3.padded-bottom-3
+									span= t('signupOptions.why.list.three')
+				span.col-xs-12.col-md-12
+					div.row
+						span.col-xs-12.text-center
+							h2= t('signupOptions.prompt')
+						span.col-xs-12.text-center
+							em= t('signupOptions.try')
+			div.row
+				span.col-xs-12
+					span.pull-left
+						+ActionButton(t('login'), undefined, 'fa-sign-in', 'openLogin()', undefined, undefined, undefined, undefined, undefined, undefined, undefined, t('login'))
+					span.pull-right
+						+ActionButton(t('register'), undefined, 'fa-key', 'openRegister()', undefined, undefined, undefined, undefined, undefined, undefined, undefined, t('register'))

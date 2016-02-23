@@ -1,0 +1,58 @@
+mixin UserModals
+	//-
+		script(type='text/ng-template')#offerModal
+			+Modal
+				form(ng-submit='submit()', action=constants.values.VOID_ACTION)
+					div.modal-header
+						div.row
+							div.col-xs-12
+								strong= t('offer')
+								+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.BACK, 'left').pull-right
+					div.modal-body
+						div.row
+							+Loader('!offerData.loading')
+								div.col-xs-12
+									+SubAlert('offerData.alert')
+								div.col-xs-12
+									+FormInput('offerAmount', t('offerOptions.amount'), undefined, undefined, 'number', 'offerData.amount', 'offerData.errors.amount', undefined, 'offerData.open', constants.values.STEP_COINS, constants.values.OFFER_MIN, undefined, undefined, t('shared:symbols.coins'))
+					div.modal-footer
+						div.row
+							div.col-xs-12
+								span.pull-left
+									button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+								span.pull-right
+									button(type='submit', ng-class='{disabled: offerData.loading}', aria-label=t('offerOptions.submit')).btn= t('offerOptions.submit')
+	script(type='text/ng-template')#flagModal
+		+Modal
+			div.modal-header
+				div.row
+					div.col-xs-12
+						strong= t('flag')
+						+HelpLink(constants.helpTopics.USERS.name, constants.helpTopics.USERS.sections.FLAG, 'left').pull-right
+			div.modal-body
+				div.row
+					+Loader('!flagData.loading')
+						span.col-xs-12
+							span.fs-2= t('flagOptions.user')
+							div.row
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.plagiarism.overview')
+										+ActionButton(t('flagOptions.reasons.plagiarism.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_PLAGIARISM + "')").pull-right
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.violation.overview')
+										+ActionButton(t('flagOptions.reasons.violation.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_VIOLATION + "')").pull-right
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.spam.overview')
+										+ActionButton(t('flagOptions.reasons.spam.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_SPAM + "')").pull-right
+								span.col-xs-12
+									span
+										span= t('flagOptions.reasons.illicit.overview')
+										+ActionButton(t('flagOptions.reasons.illicit.title'), undefined, 'fa-flag', "submit('" + constants.paramValues.FLAG_REASON_ILLICIT + "')").pull-right
+			div.modal-footer
+				div.row
+					div.col-xs-12
+						span.pull-left
+							button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')

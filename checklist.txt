@@ -1,0 +1,16 @@
+SETUP:
+
+install nodejs
+install pm2
+
+CONFIG:
+check config.js
+
+DEPLOY:
+
+run ./deploy
+
+ON WINDOWS:
+set NODE_ENV to production
+run node r.js -o app.build.js
+node main.js > "LOG_FILENAME" 2>&1

@@ -1,0 +1,19 @@
+mixin Warning(show, decline)
+	div.pyWarning
+		div(ng-show=show).well.ng-hide
+			div.row
+				div.col-xs-12
+					strong= t('warningOptions.label')
+					+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.WARNING, 'left').pull-right
+			div.row
+				div.col-xs-12
+					p= t('warningOptions.prompt')
+			div(ng-controller='WarningController').row
+				div.col-xs-12
+					span.pull-left
+						//+SubButton(t('warningOptions.decline'), undefined, 'fa-times', undefined, undefined, decline, undefined, '{reload: true}')
+						+SubButton(t('settings'), undefined, 'fa-cogs', undefined, undefined, constants.states.SETTINGS, 'active', '{reload: true}').btn-xs
+					span.pull-right
+						+SubButton(t('warningOptions.accept'), undefined, 'fa-check', 'accept("' + show + '")').btn-xs
+		div(ng-hide=show).ng-hide
+			block

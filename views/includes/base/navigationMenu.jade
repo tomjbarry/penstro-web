@@ -1,0 +1,24 @@
+mixin NavigationMenu
+	ul(class!=attributes.class)
+		li
+			+DropdownButtonInner(t('shared:postings'), undefined, 'fa-book', 'navbar.dismissNavigation()', undefined, constants.states.POSTINGS, 'active', '{reload: true}')
+		li
+			+DropdownButtonInner(t('shared:tags'), undefined, 'fa-tags', 'navbar.dismissNavigation()', undefined, constants.states.TAGS, 'active', '{reload: true}')
+		li
+			+DropdownButtonInner(t('shared:users'), undefined, 'fa-users', 'navbar.dismissNavigation()', undefined, constants.states.USERS, 'active', '{reload: true}')
+		li
+			+DropdownButtonInner(t('shared:comments'), undefined, 'fa-comments', 'navbar.dismissNavigation()', undefined, constants.states.COMMENTS, 'active', '{reload: true}')
+	//-
+		div.pyNavigationMenu
+			ul.nav.navbar-nav
+				li
+					+MenuButton(t('shared:postings'), undefined, 'fa-book', 'navbar.dismissNavigation()', undefined, constants.states.POSTINGS, 'active', '{reload: true}')
+				li
+					+MenuButton(t('shared:tags'), undefined, 'fa-tags', 'navbar.dismissNavigation()', undefined, constants.states.TAGS, 'active', '{reload: true}')
+				li
+					+MenuButton(t('shared:users'), undefined, 'fa-users', 'navbar.dismissNavigation()', undefined, constants.states.USERS, 'active', '{reload: true}')
+				li
+					+MenuButton(t('shared:comments'), undefined, 'fa-comments', 'navbar.dismissNavigation()', undefined, constants.states.COMMENTS, 'active', '{reload: true}')
+				hr
+				li
+					+MenuButton(t('terms'), undefined, 'fa-laptop', 'navbar.dismissNavigation()', undefined, constants.states.TERMS, 'active', '{reload: true}')

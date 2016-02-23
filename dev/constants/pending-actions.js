@@ -1,0 +1,6 @@
+define([], function() {
+	return {
+		UNCONFIRMED_EMAIL: 'UNCONFIRMED_EMAIL',
+		UNLINKED_PAYMENT_ID: 'UNLINKED_PAYMENT_ID'
+	};
+});

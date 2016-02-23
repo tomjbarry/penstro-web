@@ -1,0 +1,12 @@
+mixin AdminBlocked(iter)
+	+AdminOnly
+		div(ng-controller='AdminBlockedController').pyBlockedInfo
+			div.pySingle.col-xs-12.col-md-4
+				span.pull-left
+					+UserReference('info.username')
+				span.pull-right
+					+Timestamp('timeSince', 'calendar')
+				div.row
+					div.col-xs-12
+						span.pull-left
+							+SubButton(t('unblock'), undefined, 'fa-times', 'unblock()', undefined, undefined, undefined, undefined, undefined, 'disabled')

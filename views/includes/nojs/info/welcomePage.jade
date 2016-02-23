@@ -1,0 +1,35 @@
+mixin NJWelcomePage
+	+GenericInfoPage(t('welcomeOptions.title'))
+		div.row
+			span.col-xs-12.col-md-5
+				div.row
+					span.col-xs-12
+						h3= t('welcomeOptions.general.sections.one.title')
+						span.text-pad-left= t('welcomeOptions.general.sections.one.overview')
+					span.col-xs-12
+						h3= t('welcomeOptions.general.sections.two.title')
+						span.text-pad-left= t('welcomeOptions.general.sections.two.overview')
+					span.col-xs-12
+						h3= t('welcomeOptions.general.sections.three.title')
+						span.text-pad-left= t('welcomeOptions.general.sections.three.overview')
+			span.hidden-xs.hidden-sm.col-md-2
+			span.col-xs-12.col-md-5
+				div.row
+					span.col-xs-12
+						h2= t('welcomeOptions.account.title')
+					span.col-xs-12
+						span.fs-2.text-pad-left= t('welcomeOptions.account.overview')
+						//-span.pull-right
+							+SubButton(t('loginOrRegister'), undefined, 'fa-key', undefined, undefined, constants.states.ACCOUNT, 'active', '{reload: true}').pyAccountButton
+					span.col-xs-12
+						strong.text-warning= t('welcomeOptions.account.javascript')
+		div.row
+			span.col-xs-1
+			hr.col-xs-10
+			span.col-xs-1
+		div.row
+			span.col-xs-12.text-center
+				strong.text-info= t('welcomeOptions.general.javascript')
+			span.col-xs-12
+				span.pull-right
+					+NJButton(constants.viewUrls.DEFAULT, 'button', t('welcomeOptions.continue'), 'fa-arrow-right')

@@ -1,0 +1,37 @@
+extends layout
+
+block HeadMetas
+	+MetaProperties
+
+block Header
+	div.pyHeader
+		span.py-search-text= t('searchDescription')
+		div.nojsOnly
+			+NJNavbar
+		div.jsOnly
+			+Navbar
+
+block Footer
+	div.pyFooter
+		div.nojsOnly
+			+NJFooter
+		div.jsOnly
+			+Footer
+
+block Body
+	div.pyLayout.row
+		div.nojsOnly
+			div.col-xs-12
+				+NJAlerts
+			div.col-xs-12.pyNJLayoutColumn
+				+NJContentColumn
+		div.pyJSLayout.jsOnly.col-xs-12
+			div.row.hidden-print
+				+Alerts
+			div
+				+ContentColumn
+			div.row.hidden-print
+				+Modals
+
+block AddJavascript
+	+JavascriptSection

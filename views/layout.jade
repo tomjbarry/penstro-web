@@ -1,0 +1,8 @@
+doctype html
+
+include includes/includes
+
+- var tLoadError = t('loadError')
+html(ng-controller='HeaderController', lang=t('lang.lang'))
+	+HeadSection
+	+BodySection

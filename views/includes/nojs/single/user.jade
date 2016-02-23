@@ -1,0 +1,46 @@
+mixin NJUser(user)
+	div.pyUser
+		- var hideExplicit = user.warning && !paramUtil.toBoolean(paramUtil.constructWarning(req));
+		+NJSingle
+			div.row
+				span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+					div.row
+						div.col-xs-12
+							span.pyUsernameReference
+								+TitleIcon('fa-user')
+								+NJUserTitle(user.username, true)
+							span.pull-right
+								+HelpLink(constants.helpTopics.USERS.name)
+					div.row
+						div.col-xs-12
+							+ContentInfo('user')
+				span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+						+NJAppreciationSummary(user.appreciation)
+			div.row
+				div.col-xs-12
+					+NJWarning(hideExplicit, constants.viewUrls.USERS)
+						+NJProfileContent(user.description, true)
+			div.row
+				div.btn-group
+					- var pathVars = {}; pathVars[constants.pathVariables.USER] = user.username.username;
+					- var activePath = req.path
+					- var usersLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID, pathVars);
+					- var usersRepliesLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID_REPLIES, pathVars);
+					- var usersFolloweesLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID_FOLLOWEES, pathVars);
+					- var usersFollowersLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID_FOLLOWERS, pathVars);
+					- var usersAuthoredPostingsLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID_POSTINGS, pathVars);
+					- var usersAuthoredCommentsLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID_COMMENTS, pathVars);
+					- var userPaths = {}
+					- userPaths[usersLink] = ''
+					- userPaths[usersRepliesLink] = ''
+					- userPaths[usersFollowersLink] = ''
+					- userPaths[usersFolloweesLink] = ''
+					- userPaths[usersAuthoredPostingsLink] = ''
+					- userPaths[usersAuthoredCommentsLink] = ''
+					- userPaths[activePath] = 'active'
+					+NJButton(usersLink, 'button', t('shared:activity'), 'fa-star')(class!=userPaths[usersLink])
+					+NJButton(usersRepliesLink, 'button', t('shared:replies'), 'fa-at')(class!=userPaths[usersRepliesLink])
+					+NJButton(usersFolloweesLink, 'button', t('shared:followees'), 'fa-binoculars')(class!=userPaths[usersFolloweesLink])
+					+NJButton(usersFollowersLink, 'button', t('shared:followers'), 'fa-child')(class!=userPaths[usersFollowersLink])
+					+NJButton(usersAuthoredPostingsLink, 'button', t('shared:authoredPostings'), 'fa-newspaper-o')(class!=userPaths[usersAuthoredPostingsLink])
+					+NJButton(usersAuthoredCommentsLink, 'button', t('shared:authoredComments'), 'fa-comments')(class!=userPaths[usersAuthoredCommentsLink])

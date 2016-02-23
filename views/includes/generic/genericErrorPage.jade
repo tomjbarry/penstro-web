@@ -1,0 +1,7 @@
+mixin GenericErrorPage(title, overview, icons)
+	+GenericInfoPage(title)
+		div.row
+			span.col-xs-12
+				i(class=icons, aria-hidden="true").fa.fa-fw.fa-5x.pull-left
+				span.text-danger= overview
+				i(class=icons, aria-hidden="true").fa.fa-fw.fa-5x.pull-right

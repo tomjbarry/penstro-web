@@ -1,0 +1,15 @@
+mixin SupportPage
+	+GenericInfoPage(t('supportOptions.title'))
+		div.row
+			span.hidden-xs.col-sm-3
+			span.col-xs-12.col-sm-6.text-center
+				p= t('supportOptions.overview')
+			span.hidden-xs.col-sm-3
+		div.row
+			span.col-xs-12
+				h4= t('supportOptions.emailTitle')
+				span &nbsp;
+				span= t('supportOptions.email')
+		div.row
+			span.col-xs-12.text-center
+				strong!= t('supportOptions.dmca', constants.premadeLinks)

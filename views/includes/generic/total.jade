@@ -1,0 +1,33 @@
+mixin Total(show, total, amount, fee, tax, author)
+	span.row
+		span(ng-show=show).ng-hide
+			span.col-xs-12
+				span(ng-show=amount).ng-hide.pull-right
+					span= t('purchaseCalculation.amount')
+					span= t('shared:symbols.currency')
+					span(ng-bind=amount)
+			span.col-xs-12
+				span(ng-show=author).ng-hide.pull-right
+					span= t('purchaseCalculation.author')
+					span= t('shared:symbols.currency')
+					span(ng-bind=author)
+			span.col-xs-12
+				span(ng-show=fee).ng-hide.pull-right
+					span= t('purchaseCalculation.fee')
+					span= t('shared:symbols.currency')
+					span(ng-bind=fee)
+			span.col-xs-12
+				span(ng-show=tax).ng-hide.pull-right
+					span= t('purchaseCalculation.tax')
+					span= t('shared:symbols.currency')
+					span(ng-bind=tax)
+			span.col-xs-12
+				span(ng-show=total).ng-hide.pull-right
+					span= t('purchaseCalculation.total')
+					span= t('shared:symbols.currency')
+					span(ng-bind=total)
+		span(ng-hide=show).ng-hide
+			span.col-xs-12
+				span.pull-right
+					+Icon().fa-cog.fa-spin.fa-fw
+					span= t('purchaseCalculation.calculating')

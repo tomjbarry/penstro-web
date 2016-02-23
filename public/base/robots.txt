@@ -1,0 +1,46 @@
+# robotstxt.org/
+
+User-agent: *
+Allow: /posts/$
+Allow: /posts$
+Allow: /comments
+Allow: /comments/
+Allow: /tags
+Allow: /tags/
+Allow: /users
+Allow: /users/
+Allow: /welcome
+Allow: /terms
+Allow: /careers
+Allow: /support
+Allow: /help
+
+Disallow: /posts/*
+Allow: /posts/*/t/*
+
+Disallow: /*?
+Disallow: /users/*/*
+Disallow: /tags/*/*
+Disallow: /comments/*/*
+Disallow: /posts/*/t/*/*
+Disallow: /settings
+Disallow: /securityLogout
+Disallow: /notFound
+Disallow: /noContent
+Disallow: /password
+Disallow: /invalid
+Disallow: /deleted
+Disallow: /settingsError
+Disallow: /payment
+Disallow: /email
+Disallow: /current
+Disallow: /notifications
+Disallow: /feed
+Disallow: /backers
+Disallow: /backing
+Disallow: /followers
+Disallow: /following
+Disallow: /blocked
+Disallow: /offers
+Disallow: /offersOutstanding
+Disallow: /messages

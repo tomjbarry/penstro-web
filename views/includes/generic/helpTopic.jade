@@ -1,0 +1,13 @@
+mixin HelpTopic(topic)
+	- if(typeof(topic) === 'undefined') {topic = 'default';}
+	div.pyHelpTopic.row
+		span.col-xs-12
+			h1(id=topic)= t('titles:helpTopics.' + topic)
+		span.col-xs-12
+			p.text-pad-left!= t('help:' + topic + '.default.o', constants.premadeLinks)
+		span.col-xs-1
+		hr.col-xs-10
+		span.col-xs-1
+		if block
+			div.col-xs-12
+				block

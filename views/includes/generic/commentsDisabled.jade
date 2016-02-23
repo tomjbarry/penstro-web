@@ -1,0 +1,7 @@
+mixin CommentsDisabled(hide)
+	span.pyCommentsDisabled
+		span(ng-hide=hide).pyCommentsDisabled.ng-hide
+			strong= t('actionDisabled.reply')
+			+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.COMMENTS_DISABLED, 'left').pull-right
+		span(ng-show=hide).ng-hide
+			block

@@ -1,0 +1,21 @@
+mixin NJSortSelect
+	span= t('sort')
+	ul.button-group
+		- var paramSort = paramUtil.constructSort(req)
+		- var sortParams = {}
+		- sortParams[constants.paramValues.SORT_OPTION_VALUE] = ''
+		- sortParams[constants.paramValues.SORT_OPTION_PROMOTION] = ''
+		- sortParams[constants.paramValues.SORT_OPTION_COST] = ''
+		if typeof(paramSort) === 'undefined' || paramSort === ''
+			- sortParams[constants.defaults.SORT] = 'active'
+		else
+			- sortParams[paramSort] = 'active'
+		li
+			a(href=utils.utils.addQuery(constants.params.SORT, constants.paramValues.SORT_OPTION_VALUE, req.query), class=sortParams[constants.paramValues.SORT_OPTION_VALUE]).button.tiny.sortOptionValue
+				span= t('sortOption.value')
+		li
+			a(href=utils.utils.addQuery(constants.params.SORT, constants.paramValues.SORT_OPTION_PROMOTION, req.query), class=sortParams[constants.paramValues.SORT_OPTION_PROMOTION]).button.tiny.sortOptionPromotion
+				span= t('sortOption.promotion')
+		li
+			a(href=utils.utils.addQuery(constants.params.SORT, constants.paramValues.SORT_OPTION_COST, req.query), class=sortParams[constants.paramValues.SORT_OPTION_COST]).button.tiny.sortOptionCost
+				span= t('sortOption.cost')

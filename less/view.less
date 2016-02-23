@@ -1,0 +1,154 @@
+.pyWarning .well {
+	background-color: @py-content-warning-color;
+	color: @py-content-warning-font-color;
+}
+
+// gradient
+
+.gradient .pageItem,
+.gradient .pySingle,
+.gradient .pyForm,
+.gradient .pyInfo,
+.gradient .pyHelp,
+.gradient .pyTerms {
+	//background: @py-content-gradient-start; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	//background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	//background: -moz-linear-gradient(top,  @py-content-gradient-start 0%, @py-content-gradient-stop 100%); /* FF3.6+ */
+	//background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@py-content-gradient-start), color-stop(100%,@py-content-gradient-stop)); /* Chrome,Safari4+ */
+	//background: -webkit-linear-gradient(top,  @py-content-gradient-start 0%,@py-content-gradient-stop 100%); /* Chrome10+,Safari5.1+ */
+	//background: -o-linear-gradient(top,  @py-content-gradient-start 0%,@py-content-gradient-stop 100%); /* Opera 11.10+ */
+	//background: -ms-linear-gradient(top,  @py-content-gradient-start 0%,@py-content-gradient-stop 100%); /* IE10+ */
+	//background: linear-gradient(to bottom,  @py-content-gradient-start 0%,@py-content-gradient-stop 100%); /* W3C */
+	//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@py-content-gradient-start', endColorstr='@py-content-gradient-stop',GradientType=0 ); /* IE6-8 */
+}
+
+.pageItem,
+.pySingle,
+.pyForm,
+.pyInfo,
+.pyHelp,
+.pyTerms {
+	color: @py-content-font-color;
+	background-color: @py-content-background-color;
+	border: @py-content-border-size solid @py-content-border-color;
+	//border-radius: @py-content-border-radius;
+	padding: @py-content-padding;
+	margin-top: @py-content-margin-top;
+	box-shadow: @py-content-box-shadow;
+	//hiding overflow hides menus; instead, hide on the content
+	//overflow: hidden;
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+
+.pySubPageableContent {
+	margin: @py-sub-pageable-margin;
+}
+
+/*
+.pySubSingle {
+	color: @py-content-font-color;
+	background-color: @py-content-background-color;
+	border: @py-content-border-size solid @py-content-border-color;
+	padding: @py-sub-content-padding;
+	margin-top: @py-content-margin-top;
+	box-shadow: @py-content-box-shadow;
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+*/
+
+.pyPageableHr {
+	display: none;
+}
+
+.pageItem-2, .pageItem-5, .pageItem-8, .pageItem-11 {
+	.pyTag .pyPageableHr {
+		display: block;
+		margin: 0px;
+		visibility: hidden;
+		border-top: 0;
+	}
+}
+
+.pyPostingPreview .pageItem,
+.pyPosting .pySingle {
+	//border-color: @py-content-posting-color;
+	.title {
+		color: @py-content-posting-color;
+	}
+}
+
+.pyTagPreview .pageItem,
+.pyTag .pySingle {
+	//border-color: @py-content-tag-color;
+	.title {
+		color: @py-content-tag-color;
+	}
+}
+/*
+.pyUserPreview .pageItem,
+.pyUser .pySingle {
+	border-color: @py-content-user-color;
+}
+
+.pyCommentPreview .pageItem,
+.pyCommentView .pageItem,
+.pyComment .pySingle {
+	border-color: @py-content-comment-color;
+}
+*/
+
+.label.pyTagReference,
+.label.pyTagReference:hover {
+	background-color: @py-content-tag-color;
+	margin: @py-content-tag-margin;
+	color: @py-content-tag-font-color;
+}
+
+.pyPostingReference,
+.pyPostingReference:hover {
+	color: @py-content-posting-color;
+}
+
+.pyCommentReference,
+.pyCommentReference:hover {
+	color: @py-content-comment-color;
+}
+
+.pyTagReference,
+.pyTagReference:hover {
+	color: @py-content-tag-color;
+}
+
+.pyUsernameReference,
+.pyUsernameReference:hover {
+	color: @py-content-user-color;
+}
+
+.pyMessage .pageItem.fromSelf {
+	background: @py-content-message-color-self;
+}
+
+.pyContent {
+	//overflow: hidden;
+	white-space: normal;
+	overflow-wrap: break-word;
+	font-size: @py-content-font-size;
+	line-height: @py-content-line-height;
+	font-family: @py-content-font-stack;
+}
+
+.pyContentInfo {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.pyNoMarkdown.pyContent {
+	white-space: pre;
+}
+
+.pyMarkdownContent {
+	overflow: auto;
+}

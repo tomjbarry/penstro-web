@@ -1,0 +1,16 @@
+mixin Notification()
+	div(ng-controller='NotificationController').pyEvent
+		div.pySingle.col-xs-12
+			div.row
+				div.col-xs-12
+					span.pull-left
+						+EventReference('title','link')
+					span.pull-right
+						+Timestamp('timeSince', 'calendar')
+			div(ng-show='subSingleAlert').ng-hide.row
+				hr.col-xs-12
+				span.col-xs-12
+					+SubAlert('subSingleAlert')
+		div(ng-show='subData.single').col-xs-12
+			div.row
+				div(ui-view=constants.partials.SUB_SINGLE)

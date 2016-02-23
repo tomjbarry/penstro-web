@@ -1,0 +1,16 @@
+mixin DropdownButtonSplit(label, bindLabel, icon, dropdownIcon, click, open, disabled, show, showLeft, showRight, groupClass)
+	- var hideClass;
+	if show
+		- hideClass = 'ng-hide';
+	div(dropdown, is-open=open, class=hideClass, ng-show=show, class!=groupClass).btn-group.pyDropdownSplitButton.hidden-print
+		button(type='button', ng-disabled=disabled, tooltip=label, ng-click=click, aria-label=label, ng-show=showLeft, class!=attributes.class).btn
+			if icon
+				i(class!=icon, aria-hidden="true").fa.fa-fw
+			span(ng-bind=bindLabel)= label
+		button(type='button', ng-disabled=disabled, dropdown-toggle, ng-show=showRight, class!=attributes.class).btn.dropdown-toggle
+			span
+				if dropdownIcon
+					i(class!=dropdownIcon, aria-hidden="true").fa.f-fw
+				i.caret
+		if block
+			block

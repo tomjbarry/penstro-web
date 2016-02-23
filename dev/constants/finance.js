@@ -1,0 +1,7 @@
+define([], function() {
+	return {
+		PURCHASE_COINS_CONVERSION_RATE: 100,
+		TOTAL_TAX_RATE: 0.0795,
+		APPRECIATION_FEE_RATE: 0.1
+	};
+});

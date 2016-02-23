@@ -1,0 +1,3 @@
+mixin NJComments(comments)
+	div.pyComments
+		+NJPageable('NJCommentView', comments, t('shared:replies'), true, true)

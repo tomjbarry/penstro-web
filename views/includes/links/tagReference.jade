@@ -1,0 +1,3 @@
+mixin TagReference(tag)
+	a(ui-sref=constants.states.TAGS_ID + '({' + constants.pathVariables.TAG + ': ' + tag + '})', ui-sref-options='{reload: true}', ng-show="typeof(" + tag + ") !== 'undefined'").pyTagReference.ng-hide.label
+		span(ng-bind=tag).tag

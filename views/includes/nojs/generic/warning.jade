@@ -1,0 +1,22 @@
+mixin NJWarning(show, decline)
+	div.pyWarning
+		if show
+			div.well
+				div.row
+					div.col-xs-12
+						strong= t('warningOptions.label')
+						+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.WARNING, 'left').pull-right
+				div.row
+					div.col-xs-12
+						p= t('warningOptions.prompt')
+				div.row
+					div.col-xs-12
+						span.pull-left
+							+NJButton(decline, 'button', t('warningOptions.decline'), 'fa-times')
+						span.pull-right
+							+NJButton(constants.viewUrls.SETTINGS, 'button', t('settings'), 'fa-cogs')
+							- var query = utils.utils.addQuery(constants.params.WARNING, 'true', req.query)
+							+NJButton(utils.utils.constructQueryPathString(req.path, req.params, query), 'button', t('warningOptions.accept'), 'fa-check')
+		else
+			div
+				block

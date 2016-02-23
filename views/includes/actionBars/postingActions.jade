@@ -1,0 +1,23 @@
+mixin PostingActions
+	div(ng-controller='PostingActionsController').pyPostingActions
+		+ActionsAuthentication('authenticated')
+			+DropdownButton(undefined, 'fa-ellipsis-h', 'optionalOpen', undefined, 'loadedCurrentUser').btn-xs
+				ul(role='menu').dropdown-menu
+					li
+						+DropdownButtonInner(t('promotion'), undefined, 'fa-heart', 'openPromotion()', 'loadedCurrentUser', undefined, undefined, undefined, '{active: promotionData.open}', 'promotionData.loading || !pscope.posting.canAppreciate')
+					//-li
+						+DropdownButtonInner(t('edit.posting'), undefined, 'fa-eraser', undefined, 'currentUsername === pscope.posting.author.username && !pscope.posting.disabled', constants.states.POSTINGS_ID_EDIT + '({' + constants.pathVariables.POSTING + ': pscope.postingId})', 'active', '{reload: true}', '{disabled: !loadedEnable}', '!loadedEnable')
+					li
+						+DropdownButtonInner(t('disable'), undefined, 'fa-eye-slash', 'onDisable()', 'currentUsername === pscope.posting.author.username && !pscope.posting.disabled', undefined, undefined, undefined, '{disabled: !loadedEnable}', '!loadedEnable')
+					li
+						+DropdownButtonInner(t('enable'), undefined, 'fa-eye', 'onEnable()', 'currentUsername === pscope.author.posting.username && pscope.posting.disabled', undefined, undefined, undefined, '{disabled: !loadedEnable}', '!loadedEnable')
+					li
+						+DropdownButtonInner(t('flag'), undefined, 'fa-flag', 'openFlag()', 'currentUsername !== pscope.author.posting.username', undefined, undefined, undefined, '{active: flagData.open}', 'flagData.loading')
+			+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.authed.MORE, true).pyTourLeft
+			+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.authed.PROMOTE, true).pyTourLeft
+			+PromoteDisabled('pscope.posting.canAppreciate', t('actionDisabled.posting'))
+				//-+ActionButton(t('promotion'), undefined, 'fa-heart', 'openPromotion()', 'loadedCurrentUser', undefined, undefined, undefined, '{active: promotionData.open}', 'promotionData.loading || !pscope.posting.canAppreciate').pyPromoteButton.btn-xs
+				//-+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.authed.PROMOTE, true).pyTourLeft
+				+ActionButton(t('appreciation'), undefined, 'fa-usd', 'openAppreciation()', 'loadedCurrentUser && currentUsername !== pscope.posting.author.username', undefined, undefined, undefined, '{active: appreciationData.open}', 'appreciationData.loading || !pscope.posting.canAppreciate').pyAppreciateButton.btn-xs
+				+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.authed.APPRECIATE, true).pyTourLeft
+		+ActionButton(t('socialShare'), undefined, 'fa-share', 'openShare()', undefined, undefined, undefined, undefined, '{active: socialData.open}').pySocialShareButton.btn-xs

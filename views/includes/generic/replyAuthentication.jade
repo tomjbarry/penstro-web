@@ -1,0 +1,5 @@
+mixin ReplyAuthentication(bind)
+	span(ng-show=bind, class!=attributes.class).ng-hide
+		block
+	//-div(ng-hide=bind, class!=attributes.class).ng-hide
+		+ActionButton(t('replyAuthenticated'), undefined, 'fa-arrow-right', undefined, undefined, constants.states.ACCOUNT, 'active', '{reload: true}', undefined, undefined, undefined, t('replyAuthenticatedTooltip')).pyAccountButton

@@ -1,0 +1,4 @@
+mixin MenuButton(caption, bind, icon, click, show, sref, srefActive, srefOptions, ngClass, ngDisabled, count, tooltip)
+	+Button(caption, bind, icon, click, 'button', sref, srefActive, srefOptions, ngClass, ngDisabled, show, count, tooltip, 'MENU')(class!=attributes.class,id!=attributes.id).pyMenuButton
+		if block
+			block

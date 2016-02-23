@@ -1,0 +1,9 @@
+mixin UserNavigation
+	div(ng-controller='UserNavigationController').btn-group.pyUserNavigation
+		+NavButton(t('shared:activity'), constants.states.USERS_ID + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}')
+		+NavButton(t('shared:replies'), constants.states.USERS_ID_REPLIES + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}', 'navigation.replyCount').pyCommentButton
+		//- (default) +NavButton(t('shared:activity'), constants.states.USERS_ID_ACTIVITY + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}')
+		+NavButton(t('shared:followees'), constants.states.USERS_ID_FOLLOWEES + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}', 'navigation.followeeCount').pyUserButton
+		+NavButton(t('shared:followers'), constants.states.USERS_ID_FOLLOWERS + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}', 'navigation.followerCount').pyUserButton
+		+NavButton(t('shared:authoredPostings'), constants.states.USERS_ID_POSTINGS + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}', 'navigation.postingCount').pyPostingButton
+		+NavButton(t('shared:authoredComments'), constants.states.USERS_ID_COMMENTS + '({' + constants.pathVariables.USER + ': navigation.user})', 'active', '{reload: true}', 'navigation.commentCount').pyCommentButton

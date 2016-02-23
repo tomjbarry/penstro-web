@@ -1,0 +1,47 @@
+mixin NJComment(comment)
+	- var hideExplicit = comment.warning && !paramUtil.toBoolean(paramUtil.constructWarning(req));
+	- var pathVars = {};
+	- var parentLink, baseLink, baseTitle;
+	if comment.parent
+		- pathVars[constants.pathVariables.COMMENT] = comment.parent; parentLink = utils.utils.formatUrl(constants.viewUrls.COMMENTS_ID, pathVars);
+	- pathVars = {};
+	if comment.type === constants.commentTypes.POSTING
+		- pathVars[constants.pathVariables.POSTING] = comment.base; baseLink = utils.utils.formatUrl(constants.viewUrls.POSTINGS_ID, pathVars); baseTitle = t('shared:base.posting');
+	else if comment.type === constants.commentTypes.TAG
+		- pathVars[constants.pathVariables.TAG] = comment.base; baseLink = utils.utils.formatUrl(constants.viewUrls.TAGS_ID, pathVars); baseTitle = t('shared:base.tag');
+	else if comment.type === constants.commentTypes.USER
+		- pathVars[constants.pathVariables.USER] = comment.base; baseLink = utils.utils.formatUrl(constants.viewUrls.USERS_ID, pathVars); baseTitle = t('shared:base.user');
+	div.pyComment
+		+NJSingle
+			div.row
+				span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+					div.row
+						div.col-xs-12
+							+TitleIcon('fa-comment-o')
+							+NJRemoved(comment.removed)
+							span.pull-right
+								span.pull-right
+									+HelpLink(constants.helpTopics.COMMENTS.name)
+								div
+									+NJLink(baseLink).pull-right
+										span= baseTitle
+								if comment.parent
+									div
+										+NJLink(parentLink).pull-right
+											span= t('shared:parent')
+					div.row
+						div.col-xs-12
+							+NJAuthorReference(comment.author)
+							span &nbsp
+							+NJTimestamp(comment.created)
+					div.row
+						div.col-xs-12
+							+NJBeneficiaryReference(comment.beneficiary)
+							span &nbsp
+							+NJContentInfo(comment)
+				span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					+NJAppreciationSummary(comment.tally.appreciation)
+			div.row
+				div.col-xs-12
+					+NJWarning(hideExplicit, constants.viewUrls.COMMENTS)
+						+NJCommentContent(comment.content, true)

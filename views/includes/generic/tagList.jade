@@ -1,0 +1,4 @@
+mixin TagList(bind)
+	span(class!=attributes.class).pyTagList
+		span(ng-repeat='tag in ' + bind + ' track by $index')
+			+TagReference('tag')

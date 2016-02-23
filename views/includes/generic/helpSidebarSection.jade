@@ -1,0 +1,5 @@
+mixin HelpSidebarSection(topic, section)
+	- if(typeof(topic) === 'undefined') {topic = 'default';}
+	- if(typeof(section) === 'undefined') {section = 'default';}
+	li.pyHelpSidebarSection
+		a(href='#' + section, prevent-default='', scroll-to=section)= t('help:' + topic + '.' + section + '.t')

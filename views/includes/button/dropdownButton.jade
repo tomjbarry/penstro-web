@@ -1,0 +1,14 @@
+mixin DropdownButton(label, icon, open, disabled, show)
+	- var hideClass;
+	if show
+		- hideClass = 'ng-hide';
+	div(dropdown, is-open=open, class=hideClass, ng-show=show).btn-group.pyDropdownButton.hidden-print
+		button(class!=attributes.class, type='button', ng-disabled=disabled, tooltip=label, dropdown-toggle, aria-label=label).btn.dropdown-toggle
+			if icon
+				i(class!=icon, aria-hidden="true").fa.fa-fw
+			span= label
+			span.menu-space
+			span
+				i.caret
+		if block
+			block

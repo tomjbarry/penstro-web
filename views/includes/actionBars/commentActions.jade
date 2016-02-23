@@ -1,0 +1,21 @@
+mixin CommentActions
+	div(ng-controller='CommentActionsController').pyCommentActions
+		+ActionsAuthentication('authenticated')
+			+DropdownButton(undefined, 'fa-ellipsis-h', 'optionalOpen', undefined, 'loadedCurrentUser').btn-xs
+				ul(role='menu').dropdown-menu
+					li
+						+DropdownButtonInner(t('promotion'), undefined, 'fa-heart', 'openPromotion()', 'loadedCurrentUser', undefined, undefined, undefined, '{active: promotionData.open}', 'promotionData.loading || !pscope.comment.canAppreciate')
+					li
+						+DropdownButtonInner(t('disable'), undefined, 'fa-eye-slash', 'onDisable()', 'currentUsername === pscope.comment.author.username && !pscope.comment.disabled', undefined, undefined, undefined, '{disabled: !loadedEnable}' , '!loadedEnable')
+					li
+						+DropdownButtonInner(t('enable'), undefined, 'fa-eye', 'onEnable()', 'currentUsername === pscope.comment.author.username && pscope.comment.disabled', undefined, undefined, undefined, '{disabled: !loadedEnable}', '!loadedEnable')
+					li
+						+DropdownButtonInner(t('flag'), undefined, 'fa-flag', 'openFlag()', 'currentUsername !== pscope.comment.author.username', undefined, undefined, undefined, '{active: flagData.open}', 'flagData.loading')
+			+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.authed.MORE, true).pyTourLeft
+			+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.authed.PROMOTE, true).pyTourLeft
+			+PromoteDisabled('pscope.comment.canAppreciate', t('actionDisabled.comment'))
+				//-+ActionButton(t('promotion'), undefined, 'fa-heart', 'openPromotion()', 'loadedCurrentUser', undefined, undefined, undefined, '{active: promotionData.open}', 'promotionData.loading || !pscope.comment.canAppreciate').pyPromoteButton.btn-xs
+				//-+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.authed.PROMOTE, true).pyTourLeft
+				+ActionButton(t('appreciation'), undefined, 'fa-usd', 'openAppreciation()', 'loadedCurrentUser && currentUsername !== pscope.comment.author.username', undefined, undefined, undefined, '{active: appreciationData.open}', 'appreciationData.loading || !pscope.comment.canAppreciate').pyAppreciateButton.btn-xs
+				+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.authed.APPRECIATE, true).pyTourLeft
+		+ActionButton(t('socialShare'), undefined, 'fa-share', 'openShare()', undefined, undefined, undefined, undefined, '{active: socialData.open}').pySocialShareButton.btn-xs

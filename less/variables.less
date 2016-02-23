@@ -1,0 +1,290 @@
+@py-dull-forest-green: #a3b278;
+@py-dull-purple-blue: #a689b2;
+@py-dull-purple-blue-light: #f5deff;
+@py-deep-blue: #1d1a66;
+@py-deep-green: #124e0a;
+@py-adventurous-orange: #ff3600;
+@py-very-light-blue: #e7e4ff;
+@py-deep-gray: #1b1b1b;
+// uneven color creates visible line with opacity change, so use 343434 instead of 333333
+@py-gray: #343434;
+@py-lighter-red-orange: #fb3737;
+@py-light-red-orange: #eb3030;
+@py-lighter-gray: #787878;
+@py-light-gray: #646464;
+@py-dull-maroon: #411010;
+@py-light-maroon: #a94646;
+@py-flat-red: #b53737;
+@py-gray-black: #161616;
+@py-money-green: #2e6f0b;
+@py-money-green-darker: #256704;
+@py-money-green-darkest: #195300;
+@py-deep-blue: #38587c;
+@py-dull-yellow: #e2c85a;
+@py-dull-light-yellow: #ffe780;
+@py-dull-dark-yellow: #3a310f;
+@py-bright-teal: #21c5aa;
+@py-light-green: #21c55f;
+
+@py-deep-pink: #bd3d95;
+@py-deep-pink-lighter: #d454b0;
+@py-green: #4cbd3d;
+@py-deep-turquoise: #122d31;
+@py-light-turquoise: #99cfd7;
+@py-turqouise: #68b096;
+@py-dull-turquoise: #607b7f;
+@py-duller-turquoise: #587072;
+@py-dull-tan: #b58a37;
+@py-deep-purple: #2d0d30;
+@py-light-purple: #ad37b5;
+@py-dull-brown: #4e432e;
+//@py-very-light-gray: #dbdbdb;
+@py-very-light-gray: #e6e6e6;
+@py-very-light-gray-purple: #d1d6e6;
+@py-darker-white: #eeeeee;
+
+@py-goldenrod: #b8860b;
+@py-goldenrod-darker: #b088002;
+@py-goldenrod-darkest: #9064000;
+
+@py-bright-teal-light: #20a7bb;
+@py-bright-teal: #1e91a2;
+@py-bright-teal-dark: #1e7380;
+
+@py-gutter: @grid-gutter-width;
+@py-gutter-half: floor((@grid-gutter-width / 2));
+
+@py-background-transparent: rgba(52,52,52,0);
+
+//@py-primary-color: #400040;
+//@py-primary-color-light: #C0A0C0;
+//@py-secondary-color: #004000;
+//@py-secondary-color-light: #A0C0A0;
+//@py-trim-color: #400040;
+//@py-trim-border: 5px solid;
+//@py-trim-padding: 5px;
+//@py-trim-margin: 5px;
+//@py-sidebar-min-height: 300px;
+//@py-header-color: @py-gray;
+
+@py-font-color: black;
+@py-font-color-dark: black;
+//@py-background-color: @py-light-gray;
+@py-background-color: @py-very-light-gray;
+@py-alt-background-color: @py-deep-gray;
+//@py-primary-color: @py-dull-forest-green;
+//@py-primary-color-light: @py-dull-forest-green;
+//@py-primary-color: @py-deep-blue;
+//@py-primary-color-light: @py-deep-blue;
+@py-primary-color: @py-bright-teal;
+@py-primary-color-light: @py-bright-teal-light;
+
+@py-secondary-color: @py-very-light-blue;
+@py-secondary-color-light: @py-very-light-blue;
+@py-active-color: @py-lighter-red-orange;
+@py-active-color-darker: @py-light-red-orange;
+@py-error-color: #ff0000;
+
+//@py-background-color: #1f091f;
+@font-stack-fancy: georgia, times, serif;
+//-@py-font-stack-posting: 'Merriweather', @font-stack-fancy;
+@py-font-stack-posting: @font-stack-fancy;
+@font-stack-basic: Arial, sans-serif;
+@py-content-font-stack: "Helvetica Nueue", Helvetica, Arial, sans-serif;
+//@py-font-color: white;
+@py-disabled-link-color: black;
+@py-medium-width: 40.063em;
+@py-large-width: 64.063em;
+@py-xlarge-width: 90.063em;
+@py-xxlarge-width: 120.063em;
+@py-validation-text-color: @py-error-color;
+
+@py-loader-font-size: 5em;
+
+@py-font-size: @font-size-base;
+@py-font-size-2:            ceil((@font-size-base * 1.25)); // ~18px
+@py-font-size-3:            ceil((@font-size-base * 1.7)); // ~24px
+@py-font-size-4:            floor((@font-size-base * 2.15)); // ~30px
+@py-font-size-5:            floor((@font-size-base * 2.6)); // ~36px
+
+@py-height-multiplier: 3;
+@py-height-xs: ceil((@py-font-size * @py-height-multiplier));
+@py-height-sm: ceil((@py-font-size-2 * @py-height-multiplier) + @py-height-xs);
+@py-height-md: ceil((@py-font-size-3 * @py-height-multiplier) + @py-height-sm);
+@py-height-lg: ceil((@py-font-size-4 * @py-height-multiplier) + @py-height-md);
+@py-height-xl: ceil((@py-font-size-5 * @py-height-multiplier) + @py-height-lg);
+
+// screen height breakpoints set at width breakpoints, in case of landscape
+@py-screen-height-xs: @screen-xs;
+@py-screen-height-sm: @screen-sm;
+@py-screen-height-md: @screen-md;
+@py-screen-height-lg: @screen-lg;
+
+@py-menu-width: 110px;
+
+@py-button-margin: 2px;
+@py-button-color: white;
+@py-button-hover-color: white;
+@py-button-box-shadow: none;
+@py-button-hover-box-shadow: 0 1px 2px rgba(0,0,0,0.4), inset 0 0 3px @py-gray;
+@py-button-active-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+@py-button-icon-color: white;
+@py-button-icon-hover-color: white;
+//@py-button-background-color: @py-lighter-gray;
+//@py-button-background-color: @py-dull-turquoise;
+@py-button-background-color: @py-bright-teal;
+@py-button-background-color-active: @py-active-color;
+@py-button-background-color-active-hover: @py-active-color-darker;
+//@py-button-background-color-hover: @py-light-gray;
+//@py-button-background-color-hover: @py-duller-turquoise;
+@py-button-background-color-hover: @py-bright-teal-dark;
+@py-button-dropdown-font-size: 0.8em;
+@py-button-size: 2em;
+@py-menu-button-size: 1.5em;
+@py-mini-button-size: 1.5em;
+@py-action-button-size: 1.5em;
+@py-modal-background-color: @py-alt-background-color;
+@py-modal-color: white;
+
+@py-badge-color: @py-light-gray;
+@py-coins-color: @py-goldenrod;
+@py-coins-color-darkest: @py-goldenrod-darkest;
+@py-currency-color: @py-money-green;
+@py-currency-color-darkest: @py-money-green-darkest;
+@py-notifications-color: @py-adventurous-orange;
+@py-messages-color: @py-deep-blue;
+@py-feed-color: @py-dull-purple-blue;
+
+@py-button-promote-background-color: @py-goldenrod;
+@py-button-promote-background-color-hover: @py-goldenrod-darker;
+@py-button-appreciate-background-color: @py-money-green;
+@py-button-appreciate-background-color-hover: @py-money-green-darker;
+
+//@py-navbar-background-color: @py-dull-turquoise;
+@py-navbar-background-color: @py-bright-teal;
+@py-navbar-color: black;
+@py-navbar-border-color: black;
+@py-navbar-link-border-radius: 5px;
+@py-navbar-box-shadow: 0px 2px 2px @py-gray;
+//@py-navbar-background-color-hover: @py-duller-turquoise;
+@py-navbar-background-color-hover: @py-bright-teal-dark;
+@py-navbar-margin-bottom: 5px;
+@py-navbar-min-height: 53px;
+@py-navbar-max-height: 53px;
+@py-navbar-padding-left: 0px;
+//@py-navbar-padding-right: 8px;
+@py-navbar-padding-right: 0px;
+@py-navbar-container-padding-hor: 12px;
+@py-screen-navbar-brand-scale: 350px;
+@py-screen-navbar-brand-scale-img: '/resources/img/quill48.png';
+//@py-screen-navbar-brand-scale-width: 48px;
+//@py-screen-navbar-brand-scale-height: 48px;
+@py-screen-navbar-brand-scale-width: @py-navbar-min-height;
+@py-screen-navbar-brand-scale-height: @py-navbar-min-height;
+
+@py-margin-top: @py-navbar-min-height + @py-navbar-margin-bottom;
+@py-margin-horizontal: 10px;
+
+@py-content-line-height: 1.5;
+@py-content-font-size: 17px;
+
+@py-content-warning-color: @py-dull-maroon;
+@py-content-warning-font-color: @py-secondary-color;
+
+@py-content-gradient-start: #ffffff;
+@py-content-gradient-stop: #e5e5e5;
+
+@py-content-margin-top: 5px;
+@py-content-box-shadow: 0px 1px 1px 0px @py-light-gray;
+@py-content-padding: 10px 20px 10px 20px;
+@py-content-color: @py-very-light-gray;
+@py-content-background-color: white;
+@py-content-border-color: @py-primary-color;
+//@py-content-border-size: 5px;
+@py-content-border-size: 0px;
+//@py-content-border-radius: 5%;
+@py-content-border-radius: 5px;
+
+@py-content-hr-color: gray;
+
+@py-content-font-color: @py-gray-black;
+@py-content-posting-color: @py-deep-turquoise;
+//@py-content-posting-color: @py-bright-teal;
+@py-content-tag-color: @py-deep-purple;
+@py-content-comment-color: @py-dull-tan;
+@py-content-user-color: @py-flat-red;
+
+@py-content-tag-font-color: white;
+
+@py-content-message-color-self: @py-darker-white;
+
+@py-content-tag-margin: 0px 2px 0px 2px;
+
+@py-content-separator-margin-inner: 10px;
+@py-content-separator-margin-outer: 4px;
+
+@py-sub-pageable-margin: 2px 20px 20px 20px;
+@py-sub-content-padding: @py-content-padding;
+
+@py-appreciation-summary-size: 2em;
+@py-appreciation-summary-size-small: 1em;
+@py-appreciation-summary-padding: 0px .5em 0px 0px;
+@py-appreciation-summary-value-size: 1.5em;
+
+@py-badge-color: white;
+
+@py-footer-border-top: 1px solid @py-darker-white;
+@py-footer-margin: 10px;
+@py-footer-padding: 10px;
+@py-footer-list-item-padding: 10px 25px;
+
+@py-alert-warning-color: @py-dull-dark-yellow;
+@py-alert-warning-background-color: @py-dull-yellow;
+@py-alert-warning-border-color: @py-dull-dark-yellow;
+
+@py-alert-margin-top: -@py-navbar-margin-bottom;
+@py-alert-padding-top: @py-navbar-margin-bottom;
+//@py-alert-processing-margin-bottom: 20px;
+@py-alert-processing-margin-bottom: 0px;
+
+@py-alert-beta-color: black;
+@py-alert-beta-background-color: @py-flat-red;
+@py-alert-beta-border-color: black;
+
+@py-alert-payment-color: black;
+@py-alert-payment-background-color: @py-bright-teal;
+@py-alert-payment-border-color: black;
+
+@py-alert-cache-delay-color: black;
+@py-alert-cache-delay-background-color: @py-green;
+@py-alert-cache-delay-border-color: black;
+
+@py-alert-tour-available-color: black;
+@py-alert-tour-available-background-color: @py-deep-pink;
+@py-alert-tour-available-title-background-color: @py-deep-pink-lighter;
+@py-alert-tour-available-border-color: black;
+
+@py-help-link-color: black;
+@py-help-link-hover-color: grey;
+@py-help-link-icon-color: black;
+@py-help-link-modal-color: white;
+@py-help-link-modal-hover-color: grey;
+@py-help-link-modal-icon-color: black;
+
+@py-help-section-margin-bottom: 40px;
+@py-terms-section-margin-bottom: 40px;
+
+@py-loader-margin: 80px 0px 80px 0px;
+
+@py-tour-button-icon-color: black;
+@py-tour-popover-arrow-padding-hor: 20px;
+@py-tour-width: 300px;
+
+@py-restricted-username-color: @py-content-user-color;
+@py-restricted-password-color: black;
+@py-restricted-email-color: blue;
+
+@py-social-button-color-facebook: #48649f;
+@py-social-button-color-google-plus: #dd4d40;
+@py-social-button-color-twitter: #00aced;
+@py-social-button-color-reddit: #cee3f8;

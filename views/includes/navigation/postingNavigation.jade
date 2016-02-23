@@ -1,0 +1,4 @@
+mixin PostingNavigation
+	div(ng-controller='PostingNavigationController').btn-group.pyPostingNavigation
+		+NavButton(t('shared:replies'), constants.states.POSTINGS_ID_TITLE + '({' + constants.pathVariables.POSTING + ': navigation.posting, ' + constants.pathVariables.TITLE + ': navigation.title})', 'active', '{reload: true}', 'navigation.replyCount').pyCommentButton
+		//- (default) +NavButton(t('shared:replies'), constants.states.POSTINGS_ID_REPLIES + '({' + constants.pathVariables.POSTING + ': navigation.posting})', 'active', '{reload: true}')

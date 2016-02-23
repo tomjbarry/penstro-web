@@ -1,0 +1,25 @@
+mixin NJBasicNavigation(showSettings)
+	div.pyActionMenu.tooltip-container
+		div.navbar-right
+			ul(role='menu', class!=attributes.class).nav.navbar-nav.navbar-right
+				li
+					+NJLink(constants.viewUrls.POSTINGS)
+						+NJIcon('fa-newspaper-o fa-2x')
+						//-strong= t('shared:postings')
+				li
+					+NJLink(constants.viewUrls.TAGS)
+						+NJIcon('fa-tags fa-2x')
+						//-strong= t('shared:tags')
+				li
+					+NJLink(constants.viewUrls.USERS)
+						+NJIcon('fa-users fa-2x')
+						//-strong= t('shared:users')
+				li
+					+NJLink(constants.viewUrls.COMMENTS)
+						+NJIcon('fa-comments fa-2x')
+						//-strong= t('shared:comments')
+				if showSettings
+					li
+						+NJLink(constants.viewUrls.SETTINGS)
+							+NJIcon('fa-gears fa-2x')
+							//-span= t('settings')

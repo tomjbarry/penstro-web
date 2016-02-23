@@ -1,0 +1,3 @@
+mixin UserReference(bind, click, disabled)
+	+Removed('!(' + bind + ' && ' + bind + '.exists && ' + bind + '.username)')
+		+UsernameReference(bind + '.username', click, undefined, disabled)

@@ -1,0 +1,319 @@
+{
+	"default":{
+		"t":"Terms of Service",
+		"p":{
+			"0":"Please read and accept the following Terms of Service carefully.",
+			"1":"You must accept these Terms of Service at the bottom to continue."
+		}
+	},
+	"acceptance":{
+		"t":"Acceptance of the Terms of Services",
+		"p":{
+			"0":"Welcome to Penstro.com (the “Website”), run by Penstro LLC (a.k.a. “we”, “us”, “Company”, or “Penstro”). As a user (the “Client” or “you”) you agree to be bound to the following terms and conditions (collectively the “Terms of Service”) by your use of the services that we provide. These Terms and Conditions will govern your use of the content, functionality, and services provided by us on the Website or any other services that we offer in conjunction with the Website. By using the Website or these services, you accept and agree to abide by these Terms of Service. Should you disagree with some of the provisions herein, you are permitted to leave the Website without accepting these Terms of Service, but you agree not to use the content, functionality, or services of the Website and any other services offered by Penstro by doing so.",
+			"1":"By accepting these Terms of Service, you attest that you are at least 18 years of age and a legal adult. In addition, you attest that you are a United States resident or citizen, subject to federal and applicable state and local laws. You also attest that if there are any legal barriers to your use of the Website or any services offered by Penstro, it is your sole responsibility to ensure that such barriers are observed and complied with."
+		}
+	},
+	"changes":{
+		"t":"Changes to the Terms of Service, Privacy Policy, and Website",
+		"p":{
+			"0":"This Website is considered a work in progress, and all features, functionality, and services are subject to change without notice at our discretion. We reserve the right to update these Terms of Service, including our Privacy Policy, the Website, and any other services we offer in conjunction with the Website, from time to time at our discretion. We may, but are under no obligation to do so, attempt to notify users of any major changes to any provisions or updates within the Terms of Service. Your continued use of the Website following the publishing of any updated Terms of Service means that you accept and agree to be bound and abide by the changed version of the Terms of Service."
+		}
+	},
+	"privacy":{
+		"t":"Privacy",
+		"p":{
+			"0":"The Terms of Service also includes our Privacy Policy. You may review the Privacy Policy at any time through the Website as available here. We reserve the right to update this Privacy Policy from time to time at our discretion without requirement of notification to you. Your use of the Website, or any services also offered by Penstro, is at your own risk, and as such if you do not want any information or data to be used in any way that is permitted by this Privacy Policy, you may not use the Website or any services also offered by Penstro. Your use of the Website constitutes your acceptance of this Privacy Policy."
+		},
+		"ul":{
+			"0":{
+				"t":"Data Collection",
+				"0":"We may collect data that is not typically used to identify a user from every visitor of the Website (“Anonymous Data”).",
+				"1":"We may collect data that is used primarily to identify a user or visitor of the Website (“Account Information”). This includes your username, password, email, payment information, and the acceptance of these Terms of Service and Privacy Policy.",
+				"2":"We may collect any data including, but not limited to, information, data, text, photographs, videos, audio clips, posts, comments, software, scripts, graphics, and interactive features generated, provided, or otherwise made accessible on or through the Website (“Content”). This does not include any Account Information except for usernames, unless that Account Information is submitted by you in any area of the Website that is not designated as such by us.",
+				"3":"We may collect information about user activity or use of the Website (“User Activity”)."
+			},
+			"1":{
+				"t":"Data Use",
+				"0":"We may aggregate, perform calculations on, or otherwise alter any Anonymous Data, Account Information, Content, or User Activity in a manner that obfuscates any identifying information of individuals (“Aggregated Data”) for purposes of easily sorting, displaying, or otherwise gathering information on users.",
+				"1":"We may store any Aggregated Data, Anonymous Data, Account Information, Content, User Activity, or other such data on our servers or on third parties' servers.",
+				"2":"We may send notifications through email for purposes of security, identification, or with promotional offers for the Website. These emails are sent as a response to user actions, by you or other users, and as such you acknowledge and waive any right to opt out of these emails.",
+				"3":"We may contact you by email or other means.",
+				"4":"We may use reasonable security measures, policies, technologies, and practices to secure data."
+			},
+			"2":{
+				"t":"Data Sharing",
+				"0":"We may share Aggregated Data, Anonymous Data, Content, and/or User Activity at any time for any reason or for no reason.",
+				"1":"We may share usernames at any time for any reason or for no reason.",
+				"2":"We are not responsible for the privacy policies, data collection, or security protocols of any third party services used in conjunction with either the Website or our services, including any payment processors, social networks, data services, or other such services.",
+				"3":"We may contract or employ other agencies, groups, or entities to perform tasks on our behalf that may involve the sharing of any type of data, including Account Information. You acknowledge and accept that this sharing may occur.",
+				"4":"All data stored by us is considered an asset. As such, in the event that we decide to sell, transfer, merge, or otherwise change the ownership of any assets which may include this data, you acknowledge that such a change in ownership may occur and that the receiver of this data may continue to use this data according to this Privacy Policy.",
+				"5":"We may share any data necessary, including Aggregated Data, Anonymous Data, Account Information, Content, User Activity, or other such data on our servers or on a third party's services, to comply with any legal statutes, judicial orders, or government agency or entity policies.",
+				"6":"We may share any data necessary, including Aggregated Data, Anonymous Data, Account Information, Content, User Activity, or other such data on our servers or on a third party's services, to enforce these Terms of Service.",
+				"7":"We may share any data necessary, including Aggregated Data, Anonymous Data, Account Information, Content, User Activity, or other such data on our servers or on a third party's services, to carry out any request by you.",
+				"8":"We may share any data necessary, including Aggregated Data, Anonymous Data, Account Information, Content, User Activity, or other such data on our servers or on a third party's services, to detect, prevent, or address fraud, security, or technical issues.",
+				"9":"We may share any data necessary, including Aggregated Data, Anonymous Data, Account Information, Content, User Activity, or other such data on our servers or on a third party's services, to protect our property or legal rights, or the property or legal rights of others."
+			}
+		}
+	},
+	"access":{
+		"t":"Accessing the Website",
+		"p":{
+			"0":"The Website, and any services offered by us in conjunction with the Website, is provided as is, with no guarantees or obligations to any users, except as explicitly provided in these Terms of Service. Users are permitted to access available features and services by the sole determination of the Company, and these users possess no right to these features and services. We reserve the right to suspend, restrict, or permit access to some features to users at our sole discretion. We also reserve the right to suspend, remove, or alter any user account at any time for any reason or for no reason. We will not be held liable if, for any reason at all, any services, features, or any other part of the Website is unavailable at any time or for any period, nor for any data loss.",
+			"1":"It is the responsibility of each user to provide correct, current, and complete information to us as a condition of use of the Website.",
+			"2":"All access to the Website, or parts, features, or services provided by Penstro in conjunction with the Website, is at your own risk, and you will be solely responsible for any damage, loss, or liability to you or any other party resulting therefrom.",
+			"3":"Penstro offers no warranties of any kind, whether expressed or implied, with respect to any products or services that Penstro offers or the Website is used in conjunction with."
+		}
+	},
+	"security":{
+		"t":"Security",
+		"p":{
+			"0":"Access to the Website may require certain information from the users that will be considered confidential, including but not limited to a user password, email address, and payment information. This information must be treated as confidential by the user, and this information should not be disclosed to any third party for any reason, excepting those third party services used in conjunction with the Website. Security of each user's account and information is the responsibility of that user, excepting as provided in these Terms of Service, and it is the responsibility of each user to notify us of any potential security breaches regarding that users account. We reserve the right to add, remove, or update any security features at our discretion in order to provide a reasonably secure service.",
+			"1":"We attempt to provide a reasonably secure service to users, but we cannot offer any guarantee that a secure service is provided. We also cannot guarantee that any information or other content is secure and confidential. It is the users responsibility not to provide any information to us that should be kept confidential, including that information which is required of a user. By using the Website and any services offered by Penstro, you accept any risk and agree to indemnify and hold harmless Penstro for any potential security breaches, data loss, errors, or other breach of confidentiality of this information. All data is handled according to our Privacy Policy to provide a reasonable safeguard to your information."
+		}
+	},
+	"reports":{
+		"t":"Authority Reports",
+		"p":{
+			"0":"Penstro reserves the right to monitor or investigate any activity in its own stead, and if we deem any activity as suspicious, malicious, or potentially illegal, we may report any violations or suspected violations along with any relevant user information, including Account Information or other information necessary to identify an individual or entity, to a legal authority or a third party in the course of our investigation (an “Authority Report”) in order to comply with any relevant legal statutes at our discretion."
+		}
+	},
+	"intellectualProperty":{
+		"t":"Intellectual Property Rights",
+		"p":{
+			"0":"All original content created by Penstro, including the Website and all features and services offered by Penstro, are owned by Penstro LLC and are protected by United States and international copyright, trademark, patent, trade secret, and/or other intellectual property or proprietary rights laws. The user agrees not to copy, modify, create derivative works of, publicly display, publicly perform, republish, or redistribute any copyrighted material, except to the extent that is explicitly permitted by the Website or by Penstro."
+		}
+	},
+	"userContent":{
+		"t":"User Contributions and Content",
+		"p":{
+			"0":"All Content added, created, uploaded, submitted, distributed, or posted to the Website by users (collectively “User Content”), whether publicly posted or privately transmitted, is the sole responsibility of the user who originated such User Content (the “Author”). As a submitter of User Content, you represent that all User Content provided by you is accurate, complete, up-to-date, and in compliance with all applicable laws, rules, and regulations. You also represent that you own or are licensed to reproduce, distribute, and sell any User Content provided by you, and that in doing so you are not violating any intellectual property or proprietary rights laws. You acknowledge that all Content, including User Content, accessed by you using the Website is at your own risk, and you will be solely responsible for any damage, loss, or liability to you or any other party resulting therefrom. We offer no guarantee that any Content that you access, on or through the Website, is or will continue to be accurate, complete, up-to-date, or in compliance with all applicable laws, rules, and regulations.",
+			"1":"By submitting public User Content through the Website, you hereby do and shall grant us a worldwide, non-exclusive, perpetual, royalty-free, fully paid, sublicensable and transferable license to use, edit, modify, reproduce, distribute, prepare derivative works of, display, perform, and otherwise fully exploit the User Content in connection with the Website and our (and our successors' and assigns') businesses, including without limitation for promoting and redistributing part or all of the Website (and derivative works thereof) in any media formats and through any media channels (including, without limitation, third party websites and feeds). You also hereby do and shall grant each user of the Website a non-exclusive, perpetual license to access your User Content through the Website, and to use, edit, modify, reproduce, distribute, prepare derivative works of, display, and perform such User Content. For clarity, the foregoing licenses granted to us and our users does not affect your other ownership or license rights in your User Content, including the right to grant additional licenses to your User Content, unless otherwise agreed to in writing. You represent and warrant that you have all rights to grant such licenses to us without infringement or violation of any third party rights, including without limitation, any privacy rights, publicity rights, copyrights, trademarks, contract rights, trade secrets, patents, or any other intellectual property or proprietary rights.",
+			"2":"We do not guarantee that any Content will be made available on the Website, in public or in private. We reserve the right to, but do not have any obligation to, (I) remove, edit, or modify any Content at our sole discretion, at any time, without notice to you and for any reason (including, but not limited to, upon receipt of claims or allegations from third parties or authorities relating to such Content or if we are concerned that you may have violated these Terms of Service), or for no reason at all and (ii) to remove or block any Content from the Website, for any reason or no reason at all.",
+			"3":"You are permitted to use the Website for your personal, non-commercial use, or legitimate business purposes, provided that your activities are lawful and in accordance with these Terms of Service. Prohibited uses include violation of laws and regulations, disrupting the Website in any manner as provided below, or violating the Content Standards set below. No right, title, or interest in or to the Website or any content on the site is transferred to you, and all rights not expressly granted are reserved. Any use of the Website not expressly permitted by these Terms of Service is a breach of these Terms of Service, and we may use any action to rectify any damages at our sole discretion.",
+			"4":"Any feedback, in the form of reviews, comments, suggestions, recommendations, improvements, or changes to the services or the Website that you may choose to provide us from time to time in any manner (“Feedback”) whether provided on the Website as User Content or in any communication, public or private, regarding the Website, is provided at your sole discretion. When you provide Feedback, you grant us, under all right, title, and interest in and to the Feedback, a non-exclusive, royalty-free, worldwide, transferable, sub-licensable, irrevocable, perpetual license to use that Feedback, and/or to incorporate it into the Website or other products or services.",
+			"5":"The Website may contain Content specifically provided by us, our partners, or our users, and such Content is protected by copyrights, trademarks, service marks, patents, trade secrets, or other intellectual property or proprietary rights and laws. You shall abide by and maintain all copyright notices, information, and restrictions contained in any Content accessed through the Website."
+		}
+	},
+	"serviceDisruptions":{
+		"t":"Disruptions of the Services",
+		"p":{
+			"0":"Any use of the Website by any person, excepting Penstro and its members, owners, or employees, that interferes with other users, Penstro, or the functionality, services, or features of the Website in a detrimental manner, determined by us, may be considered by us at our discretion as a disruption of the services we offer (“Service Disruption”). Any users who participate, knowingly or unknowingly, in any Service Disruption may receive Disciplinary Action and/or an Authority Report, depending on the severity and perceived intent of the Service Disruption."
+		}
+	},
+	"contentStandards":{
+		"t":"Content Standards",
+		"p":{
+			"0":"User Content is not intended to be legal, medical, financial, or any other professional advice, nor form an attorney-client, doctor-patient, accountant-client, or other professional relationship, nor any such advice or relationship among the users, nor between the users and Penstro. Use of the Website should never be understood to be replacing the use of any qualified professional, including but not limited to an attorney, doctor, financial consultant, or other professional, and Penstro's relationship to all documents and transactions completed using the Website is that of a trusted, disinterested third party.",
+			"1":"In addition to the requirements set in these Terms of Service, including the requirements against Disruptions of the Services, all User Content must be lawful and in compliance with all relevant statutes as well as in compliance with these Content Standards. User content must:"
+		},
+		"ol":{
+			"0":"Not contain defamatory, obscene, indecent, offensive, harassment, inflammatory, hateful, violent, abusive, malicious, or otherwise objectionable material.",
+			"1":"Not infringe any patent, trademark, trade secret, copyright, or other intellectual property rights or proprietary rights and laws.",
+			"2":"Not promote any illegal activity, or advocate, promote, participate, communicate, instruct, or assist any unlawful act.",
+			"3":"Not promote any discrimination based on sex, race, religion, nationality, disability, sexual orientation, or age.",
+			"4":"Not be likely to deceive any person.",
+			"5":"Not violate the legal rights (including the rights of publicity and privacy) of others or contain any material that could give rise to any civil or criminal liability under applicable laws or regulations that otherwise may be in conflict with these Terms of Service.",
+			"6":"Not violate any non-disclosure agreements, confidentiality agreements, or any other contract prohibiting your Content between you and any third party.",
+			"7":"Not in any way disrupt the services of this Website or any other service provided by any third party, including the security of this Website or the security of a third party.",
+			"8":"Not cause annoyance, inconvenience, or needless anxiety or be likely to upset, embarrass, alarm, or annoy any other person.",
+			"9":"Not be used to impersonate any person, or to misrepresent your identity or affiliation with any person or organization.",
+			"10":"Not involve commercial activities or sales, such as contests, sweepstakes, and other sales promotions, barter, or advertising.",
+			"11":"Not give the impression that they emanate from us or any other person or entity, if this is not the case.",
+			"12":"Not be used, if public, as test empty documents with no actual content or for typing exercises."
+		}
+	},
+	"contentViolations":{
+		"t":"Content Violations and Reporting Content Abuse",
+		"p":{
+			"0":"Violations of the given Content Standards by any content may result in any action by Penstro including but not limited to the editing, removal, or addition of content, the termination of offending accounts, bans or suspensions of usernames, emails, or IP addresses, legal action or recourse, the sharing of offending content with relevant authorities or agencies as an Authority Report, or any other action as Penstro determines at our discretion in order to uphold the Content Standards. We reserve the right to update, change, add, remove, or modify the Content Standards in any way at our own discretion, and we reserve the right to apply the Content Standards at our own judgment. A violation of Content Standards is not required for any action allowed in this section, and we reserve the right to execute any of these actions for any reason or no reason at all."
+		}
+	},
+	"prohibitedUse":{
+		"t":"Prohibited Use",
+		"p":{
+			"0":"As a user of the Website and any other services offered by us, you agree not to cause any Service Disruption, violate any Content Standards, or use the site in any manner including, but not limited to, the following:"
+		},
+		"ol":{
+			"0":"Providing false personal information",
+			"1":"Attempting to circumvent any privacy or security protocols of the Website",
+			"2":"Attempting to circumvent any privacy or security protocols of any user",
+			"3":"Use of the Website as a person under the age of 18",
+			"4":"Use of the Website as a person who is not a United States resident or citizen",
+			"5":"Attempting to compromise the safety of Penstro, its members, owners, or employees",
+			"6":"Attempting to compromise the safety of any user",
+			"7":"Using the Website or any services offered by us while committing any unlawful, misleading, malicious, or discriminatory act",
+			"8":"Attempting or assisting in any Service Disruption",
+			"9":"Using the Website or any services offered by us to, directly or indirectly, cause any disruption, annoyance, or other malicious effect on any other user",
+			"10":"Using the Website or any services offered by us to, directly or indirectly, cause any disruption, annoyance, or other malicious effect on any other business, agency, group, or website",
+			"11":"Soliciting personal information from other users",
+			"12":"Sharing of personal information of other users",
+			"13":"Collecting information from the Website or any services offered by us using any automated process",
+			"14":"Violating these Terms of Service"
+		}
+	},
+	"pennies":{
+		"t":"Penstro Pennies",
+		"p":{
+			"0":"1. Any Purchase (the act of having Penstro Pennies credited to a user's account for use of the services Penstro offers, without transfer of ownership, in exchange for a monetary currency) of Penstro Pennies (a.k.a. “Penstro Penny”, “Penny”, “Pennies”, or “coins”) by a user (the “customer”) shall be done at the responsibility and discretion of that user and shall follow the conditions below. Any users that are under the age of 18, are not a valid adult, or are not a U.S. citizen or resident, are prohibited from using Penstro or any services offered by Penstro."
+		},
+		"ol":{
+			"0":"The Purchased Penstro Pennies have no monetary value, and are irredeemable for any reason with any party, including Penstro, for any monetary value. Penstro Pennies are not considered a financial currency of any type, and may not be exchanged for any products, services, or currency, excepting any services offered by Penstro in exchange for a sum of these coins. Penstro Pennies shall not be in any way considered a gift card, coupon, promotional offer, currency, virtual currency, or any object of value, and as such you acknowledge that these Penstro Pennies are not subject to any government or civilian oversight by any agency.",
+			"1":"Penstro is not a bank and offers no banking services. No interest or obligations, financial or otherwise, are granted to any customer who Purchases coins.",
+			"2":"Pennies are not in any way considered an interest, stock, or any type of share with Penstro. Pennies are not in any way considered a credit, loan, guarantee, bank credits, or promise in any way by Penstro, and no user may make any claims on Pennies nor any claims on the perceived value or Purchase costs of any Pennies.",
+			"3":"Penstro Pennies are not owned nor controlled by any user, including the user that Purchases the coins, but instead are owned and controlled entirely by Penstro. Any customer who has Penstro Pennies that have been credited to the customer's account may only request to exchange these Pennies without any guarantee or requirement of any actual effect.",
+			"4":"Pennies shall be considered a Digital Good, and sales of these Digital Goods shall be considered a retail transaction, subject to applicable sales tax. Any transaction privilege taxes may be passed on to the customer by Penstro.",
+			"5":"Any applicable tax will be determined and paid in the jurisdiction that the coins are Purchased from, regardless of the customer's location.",
+			"6":"Purchases may be subject to additional fees or taxes other than those explicitly specified in these Terms of Service.",
+			"7":"We may delay the results of any Purchase to allow us to process the transaction or to ensure that the transaction has been successful.",
+			"8":"The customer agrees to provide a valid instrument and payment information to fund the Purchase. At this time, only valid PayPal accounts may be used to make a payment.",
+			"9":"The customer confirms by making any payment that the customer has permission to use that valid instrument or payment information, and that the customer has permission to make the payment, in order to fund any Purchase of Penstro Pennies.",
+			"10":"The customer is responsible for any fees, fines, or payments required by their payment vendors, including but not limited to overdraft fees, transfers, use charges, and any other such charge.",
+			"11":"No refunds will be offered for any reason other than those given below.",
+			"12":"Purchase does not guarantee coins, but in the event of an error, and coins are not received, customers may receive a refund of the Purchase price after a reasonable amount of time upon notifying Penstro of such an error. Penstro reserves the right to refund any transaction in the currency of its choice. No interest shall be paid upon the Purchase price, or any refunds, of the coins. Any errors should be promptly reported (within 30 days), and any potential refunds for any errors will be distributed, or not distributed, solely at the discretion of Penstro.",
+			"13":"Suspected attempts, at the discretion of Penstro, to manipulate content through the use of Penstro Pennies (i.e., chargebacks, voting schemes, etc.) may result in a Disciplinary Action or other actions at the sole discretion of Penstro.",
+			"14":"Coins may be removed at any time for any reason, or no reason, and any user's account may be terminated without reimbursement for any remaining coins or transactions in progress. User's have no claim on any coins in that user's account at any time, regardless of inactivity, voluntary deletion, error, or any Disciplinary Action.",
+			"15":"Coins may be spent only on Promoting Content, as defined below, and such Promoting of Content is subject to the limitations on Promoting Content given below.",
+			"16":"Purchases of coins may only be conducted with legitimate business purpose. Any suspected or actual illegal activity by customers, regardless of intent, is at the responsibility and liability of that customer, and is subject to Disciplinary Action and an Authority Report.",
+			"17":"Customers are liable for any legal fees or actions taken in order to comply with any applicable law regarding purchases of Penstro Pennies. Penstro may at any time conduct action or legal recourse to recover costs for these actions and fees at our sole discretion.",
+			"18":"Penstro reserves the right of removing or adding coins at our sole discretion to any user at any time for any reason or no reason.",
+			"19":"Penstro reserves the right to alter the method, functionality, use, cost, and purpose of the coins at any time for any reason or no reason, at our sole discretion."
+		}
+	},
+	"tips":{
+		"t":"Tips",
+		"p":{
+			"0":"Any Tip (a transfer of funds to another user through the services offered by Penstro, informally a “tip”), in any currency or in Penstro Pennies, by a user (the “customer”) shall be done at the responsibility and discretion of that user and shall follow the conditions below. Recipients of that Tip (the “tippee(s)”) shall be the receiver of a portion of the funds. Any users that are under the age of 18, are not a valid adult, or are not a U.S. citizen or resident, are prohibited from using Penstro or any services offered by Penstro."
+		},
+		"ol":{
+			"0":"Any Tip includes a Purchase of Penstro Pennies, and these coins will be immediately used without any additional user involvement for the purpose of applying the coins towards Promoting Content. No coins will be received by that user, but instead those coins are considered to be used immediately. This Tip, where it includes the Purchase of Penstro Pennies, shall be subject to the same conditions for Purchasing Penstro Pennies given above.",
+			"1":"It is the responsibility of the tippee to ensure that adequate federal, state, local, and any other jurisdictional applicable taxes, including income and sales taxes, are paid by the tippee for the funds that they may receive from any Tip.",
+			"2":"The tippee is liable for any fees that may be required for the transfer of funds in a Tip.",
+			"3":"We may delay the results of any Tip to allow us to process the transaction or ensure that the transaction has been successful.",
+			"4":"The customer agrees to provide a valid instrument and payment information to fund the Purchase. At this time, only valid PayPal accounts may be used to make a payment.",
+			"5":"The customer confirms by making any payment that the customer has permission to use that valid instrument or payment information, and that the customer has permission to make the payment, in order to fund any Tip.",
+			"6":"The customer is responsible for any fees, fines, or payments required by their payment vendors, including but not limited to overdraft fees, transfers, use charges, and any other such charge.",
+			"7":"Tipping does not count as a purchase or sale of any product, service, or goods, excepting the fee taken by Penstro as the Purchase of Penstro Pennies. No rights or licenses, expressed or implied, are transferred to the customer by the tippee regarding any content by the act of tipping. The customer understands and acknowledges that any receivers of any funds are under no obligation to the customer.",
+			"8":"Tipping must not be used for any reason to circumvent any federal, state, local, or other applicable statutes for transfers of funds. Any suspected attempt to circumvent these statutes will be dealt with at the discretion of Penstro and may result in an Authority Report or Disciplinary Action.",
+			"9":"Tipping may only be conducted with legitimate business purpose. Any suspected or actual illegal activity by customers, regardless of intent, is at the responsibility and liability of that customer, and is subject to Disciplinary Action and an Authority Report.",
+			"10":"Customers are liable for any legal fees or any actions taken in order to comply with any applicable law regarding purchases of Penstro Pennies. Penstro may at any time conduct any legal action or other recourse to recover costs for these actions and fees at our sole discretion.",
+			"11":"Penstro does not directly receive funds from any Tip. Instead, funds from the tip are split between any Authors and Backers of the Content, while a mandatory Purchase of Penstro Pennies are applied as a service charge. As such, you acknowledge and agree to waive any rights to any refunds as a customer of a Tip, and furthermore, you acknowledge that Penstro has neither the ability nor the obligation to offer any refunds for a Tip.",
+			"12":"Penstro is not responsible nor obligated in any way to resolve or to assist in resolving any disputes (i.e. chargebacks, etc.) between the payment processor, PayPal, a user's bank, credit issuer, or payment card issuer. Penstro reserves the right, but not the obligation, to resolve or to assist in resolving such disputes at its sole discretion. In addition, Penstro assumes no responsibility nor obligation to review such disputes, including the claims of such disputes.",
+			"13":"In the event that you Tip, you acknowledge that recipients of the funds of any Tip, not counting any service charges or Purchase, are not employees nor are they affiliated with Penstro in any way on account of their being an Author of Content or receiver of funds from a Tip. Additionally, you acknowledge that Tips are not subject to local or federal laws regarding tips to employees.",
+			"14":"In the event that you receive any Tip, you acknowledge that customers of any Tip are not employees, employers, or in any way affiliated with Penstro on account of their Purchases or Tips. Additionally, you acknowledge that you are not an employee or associated with Penstro in any way on account of your being an Author of Content or receipt of funds from a Tip, and as such these Tips are not subject to local or federal laws regarding tips to employees.",
+			"15":"In the event that you Tip any Content that has any Backers, you acknowledge and agree to Tip the author and any Backers equally, or if the customer chooses to Tip an amount that does not allow for equal Tips, then the Author shall receive any remainder if the amount is divided evenly."
+		}
+	},
+	"promotingContent":{
+		"t":"Promoting Content",
+		"p":{
+			"0":"The act of spending Penstro Pennies on Content to raise that Content's score (the act of “Promoting Content”, or a “Promotion”, or to “Promote”) is intended as a method of assisting users to sort Content. Promoting Content may, but is not required to, alter the status, rank, or score of any Content.",
+			"1":"We reserve the right to nullify, remove, subtract, add, or otherwise alter the status, rank, or score of any Content, regardless of any amount spent on Promotion of that Content.",
+			"2":"Promotion may incur a delay between the act of Promoting Content and the reflection of any updated status, rank, or score. Due to these delays, it is possible for other actions to alter to alter any status, rank, or score of any Content, resulting in any or no change to the actual status, rank, or score of the Promoted Content.",
+			"3":"Promoting Content, where that Content violates the Content Standards, may result in the same actions or Disciplinary Action towards the user who Promoted the Content as the actions or Disciplinary Action taken towards the user who submitted the Content. The choice to do so is at our discretion, in order to uphold the Content Standards."
+		}
+	},
+	"cookies":{
+		"t":"Cookies",
+		"p":{
+			"0":"We may utilize browser cookies from time to time at our discretion. Some of these cookies are necessary for the site to function properly, and others may be otherwise beneficial to us or to you. We may, but are under no obligation to do so, maintain or publish a list of cookies and the intended use of each of these cookies for the convenience of our users at our discretion. Use of the Website, or acceptance of these Terms of Service, shall be considered acceptance or an “opt in” to receiving cookies from us."
+		}
+	},
+	"backers":{
+		"t":"Backers",
+		"p":{
+			"0":"Penstro permits users to give Penstro Pennies to another user for the sole purpose of Promoting that user's content (entirely as the act of “Backing” a user). A user may accept or decline an offer to be Backed by another user. If the user accepts the offer to be Backed, then any Content where funds offered with the Backing are used to Promote that Content will have a “Backer”, where the Backer for that content is the user who is Backing the Author of that Content.",
+			"1":"Each user acknowledges and agrees to the following:"
+		},
+		"ol":{
+			"0":"Promotion of Content alone is in no way considered a Backing of any user;",
+			"1":"A Backing offer may be accepted or rejected;",
+			"2":"An accepted Backing offer may be canceled at any time;",
+			"3":"Any user who Tips any Content that has a Backer shall Tip both the Author and any Backers evenly, or if the customer chooses to Tip an amount that does not allow for equal Tips, then the Author shall receive any remainder if the amount is divided evenly;",
+			"4":"Any Content that has a Backer will not have any option for a user to Tip only the Author of that Content;",
+			"5":"Tips given to Authors and Backers are not split, but instead the customers of any Tip offer equivalent Tips to each, or if the customer chooses to Tip an amount that does not allow for equal Tips, then the Author shall receive any remainder if the amount is divided evenly. As such, this Backing does not constitute any Tip Pooling or any other tipping arrangement that may be subject to any federal or local laws; and",
+			"6":"Backers do not have any claim or license to any Content that is produced by any user that they are Backing by the act of Backing, but instead have only the claims or licenses as they, as users, may have had without being a Backer."
+		}
+	},
+	"otherActions":{
+		"t":"Other Actions",
+		"p":{
+			"0":"We reserve the right to take any actions as determined by us to ensure that the Website, any services offered by us, and any Content available on the Website or any services offered by us are maintained, improved, added to, fixed, developed, or otherwise altered. We also reserve the right to take any actions as determined by us to ensure that the Website, any services offered by us, and any Content available on the Website or any services offered by us are in compliance with any laws, regulations, policies, or guides by any governmental or civilian agency with relevance determined at our discretion."
+		}
+	},
+	"infringement":{
+		"t":"Law and Copyright Infringement",
+		"p":{
+			"0":"Any material or Content is not reviewed by us before it is posted or viewable on the Website. We may attempt to occasionally enforce the Content Standards, but we cannot ensure that all Content complies with the Content Standards. We assume no liability for any action or inaction regarding any transmissions, communications, or content provided by any user or third party. You agree to indemnify and hold harmless Penstro for any action or inaction taken to comply with any lawful request at our discretion, including any information that may be disclosed to a third party for the purposes of any investigation.",
+			"1":"Notices may be addressed through email to dmca@penstro.com or through mail to Attn: DMCA Agent, Penstro LLC, 11447 N 69th St, Scottsdale, AZ, 85254.",
+			"2":"If you believe that any User Content violates your copyright, please follow the procedure set forth by article 512(c) of the DMCA and provide us a written takedown notice including the following information:"
+		},
+		"ol":{
+			"0":"A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that has allegedly been infringed.",
+			"1":"Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site are covered by a single notification, a representative list of such works at that site.",
+			"2":"Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit us to locate the material.",
+			"3":"Information reasonably sufficient for us to contact you, such as email, mailing address, and/or telephone number.",
+			"4":"A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.",
+			"5":"A statement that the information in the notification is accurate and, under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed."
+		}
+	},
+	"disciplinaryActions":{
+		"t":"Disciplinary Actions",
+		"p":{
+			"0":"Penstro may take any action in order to uphold any relevant legal statutes, the Website, the company of Penstro LLC, or the Content Standards as it sees fit. These actions against a user (known as “Disciplinary Actions”) may be executed by Penstro for any reason or for no reason, at any time and for any duration as determined at our discretion. These actions may include, but are not limited to, the following:"
+		},
+		"ol":{
+			"0":"Account termination or suspension",
+			"1":"Blocks, bans, or suspensions of usernames, email addresses, IP Addresses, or other identifiers",
+			"2":"Authority Reports, as given above",
+			"3":"Modification of account status or data",
+			"4":"Legal action",
+			"5":"Removal, edits, updates, or other alteration of Account Information",
+			"6":"Removal, edits, updates, or other alteration of any Content",
+			"7":"Removal, addition to, or other alteration of any user's Penstro Pennies",
+			"8":"Removal, addition to, or other alteration of the status, rank, or score of any Content",
+			"9":"Reversal of any transaction under the control of Penstro"
+		}
+	},
+	"communication":{
+		"t":"Communication",
+		"p":{
+			"0":"Any communication necessary to fulfill any provisions of these Terms of Service and Privacy Policy must use email as the sole communication as specified on our support page. You agree and acknowledge to only use email to communicate with us and that any other communication will have no effect."
+		}
+	},
+	"indemnification":{
+		"t":"Indemnification",
+		"p":{
+			"0":"The Website, and any services offered by Penstro in conjunction with the Website, is provided “as is”, and your use of the Website and such services are at your sole risk. Penstro offers no warranties of any kind, whether expressed or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement, with respect to any products or services that Penstro offers or is used in conjunction with. You acknowledge that you have only a limited, non-exclusive, nontransferable license to use the Website. You agree and acknowledge that the Website may contain errors, bugs, or mistakes, and as such you will use it carefully and avoid using it in ways that may result in any loss of information, property, or otherwise cause a Service Disruption. We are not liable for damages, direct or consequential, resulting from your use of the Website, and you agree to defend, indemnify, and hold us harmless from any claims, losses, liability costs and expenses including but not limited to attorney's fees and fines, arising from your violation of any third party's rights."
+		}
+	},
+	"jurisdiction":{
+		"t":"Governing Law and Jurisdiction",
+		"p":{
+			"0":"These Terms of Service and the Privacy Policy, and any dispute or claim arising out of or related to them shall be governed in all respects by the laws of the State of Arizona without giving effect to any choice or conflict of law provision or rule. Any legal action, suit, or proceeding, arising out of or related to these Terms of Service, the Website, or any services offered by Penstro shall be instituted exclusively in the federal courts of the United States or the courts of the State of Arizona. "
+		}
+	},
+	"priorAgreements":{
+		"t":"Prior Written Agreements",
+		"p":{
+			"0":"These Terms of Service supersede any prior written agreements, including prior Terms of Services or Privacy Policies, between Penstro and you."
+		}
+	},
+	"severability":{
+		"t":"Severability",
+		"p":{
+			"0":"Every provision of this Agreement is intended to be severable. If any term or provision hereof is illegal or invalid for any reason whatsoever, such illegality or invalidity shall not affect the validity or legality of the remainder of this Agreement."
+		}
+	},
+	"waiver":{
+		"t":"Waiver",
+		"p":{
+			"0":"Any actions or enforcements granted by these Terms of Service are not required of Penstro. Failure to exercise any of these actions or enforcements of these Terms of Service shall not constitute a waiver of the rights, including the right to these actions or enforcements, granted to Penstro."
+		}
+	},
+	"translation":{
+		"t":"English Translation",
+		"p":{
+			"0":"These Terms of Service and Privacy Policy have originally been written in the English language. Alternate translations may be provided as a courtesy. In the event that these Terms of Service and Privacy Policy are translated into another language, and a discrepancy exists between the English version and another language version, the English version shall prevail."
+		}
+	}
+}

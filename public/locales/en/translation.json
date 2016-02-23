@@ -1,0 +1,641 @@
+{
+	"app":{
+		"name":"Penstro",
+		"description":"Find what you love, not what you like.",
+		"url":"https://penstro.com",
+		"keywords":"content, articles, quality, penstro, writing"
+	},
+	"lang":{
+		"lang":"en",
+		"loc":"en_US"
+	},
+	"searchDescription":"Penstro is a social platform with a focus on quality over quantity. Any general content is encouraged, but the best is Tipped!",
+	"deprecatedBrowser":"You're using an older browser! You are only able to browse content in this mode. We recommend upgrading in order to view this site properly.",
+	"loadFailed":"There was a problem retrieving the content. Please try again later.",
+	"loadError":"There was a problem receiving all necessary scripts. We recommend that you refresh the page. Refresh?",
+	"loaderSteps":{
+		"initial":"Initializing now. This will save time later.",
+		"loading":"Loading...",
+		"halfway":"Almost there..."
+	},
+	"accountDeleted":"Account marked for removal.",
+	"deleted":"You have chosen to delete your account.",
+	"redirecting":"Redirecting...",
+	"undelete":"Undelete",
+	"socialShare":"Share",
+	"permalink":"Permalink",
+	"purchaseCurrency":"Purchase",
+	"purchaseCurrencyOptions":{
+		"amount":"How many Pennies do you want?",
+		"warning":"Pennies can only be used to Promote a post, but not to Tip!",
+		"submit":"Purchase"
+	},
+	"purchaseCalculation":{
+		"amount":"Cost: ",
+		"fee":"Promotion Fee: ",
+		"tax":"Tax: ",
+		"author":"Tip(s): ",
+		"total":"Total: ",
+		"calculating":"Calculating..."
+	},
+	"totalCurrency":"Total: ",
+	"calculating":"Calculating...",
+	"footer":{
+		"acceptance":"Use of this website constitutes acceptance of the <a href='__TERMS__'>Terms of Service</a>, including the <a href='__termsSections.PRIVACY.link__'>Privacy Policy</a>."
+	},
+	"errorOptions":{
+		"default":{
+			"title":"Error!",
+			"overview":"An error has occurred! Please try again, or come back later. If the problem persists, please contact an administrator."
+		},
+		"notFound":{
+			"title":"Not found!",
+			"overview":"The page requested was not found."
+		},
+		"internal":{
+			"title":"Internal error!",
+			"overview":"There has been a temporary error! We are working to resolve this issue quickly, please be patient!"
+		},
+		"denied":{
+			"title":"Not authorized!",
+			"overview":"You are not authorized to view this content! Try logging in with an account that is authorized for this content."
+		},
+		"javascript":{
+			"title":"Javascript only!",
+			"overview":"This page is only available if javascript is enabled! Please enable javascript for all available features."
+		},
+		"noContent":{
+			"title":"No content found!",
+			"overview":"The content was not found! Try going back."
+		},
+		"redirecting":{
+			"title":"Redirecting!",
+			"overview":"Redirecting. You will be at your page in just a moment."
+		},
+		"loadFailure":{
+			"title":"Load failure!",
+			"overview":"There was a problem loading. Try refreshing the page. If this problem persists, please contact an administrator."
+		}
+	},
+	"authorReference":"By",
+	"beneficiaryReference":"Backed by",
+	"replyAuthenticated":"Log in to comment!",
+	"replyAuthenticatedTooltip":"Log in or register",
+	"loginOrRegister":"Sign up!",
+	"readRules":"Don't forget to read the rules before submitting content!",
+	"actionsSelf":"View profile",
+	"actionsOther":"View user",
+	"forgotUsernamePassword":"Forgot username/password?",
+	"terms":"Terms of Service",
+	"welcome":"Welcome",
+	"tour":"Tour",
+	"rules":"Rules",
+	"profile":"Profile",
+	"close":"Close",
+	"cancel":"Cancel",
+	"clear":"Clear",
+	"show":"Show",
+	"hide":"Hide",
+	"settings":"Settings",
+	"about":"About",
+	"privacy":"Privacy",
+	"careers":"Careers",
+	"support":"Support",
+	"help":"Help",
+	"current":"Profile",
+	"flag":"Report",
+	"unflag":"Unflag",
+	"warn":"Mark explicit",
+	"unwarn":"Unmark explicit",
+	"follow":"Follow",
+	"unfollow":"Unfollow",
+	"lock":"Lock",
+	"unlock":"Unlock",
+	"block":"Block",
+	"unblock":"Unblock",
+	"adminView":"Moderator View",
+	"normalView":"Normal View",
+	"offer":"Back user",
+	"offerOptions":{
+		"amount":"Amount",
+		"submit":"Back user",
+		"offerSubmit":"Back user",
+		"emailOfferSubmit":"Back user",
+		"username":"Username",
+		"email":"Email",
+		"usernamePlaceholder":"Username",
+		"emailPlaceholder":"Email"
+	},
+	"accept":"Accept",
+	"deny":"Deny",
+	"cancel":"Cancel",
+	"withdraw":"Withdraw",
+	"message":"Message",
+	"to":"To: ",
+	"from":"From: ",
+	"messageOptions":{
+		"message":"Message",
+		"messagePlaceholder":"Keep it pleasant and professional",
+		"submit":"Send"
+	},
+	"refresh":"Refresh",
+	"promotion":"Promote",
+	"promotionOptions":{
+		"tags":"Re-Tag post",
+		"tagsPlaceholder":"Space separated tags",
+		"warning":"Vote on explicit content",
+		"promotion":"Amount",
+		"submit":"Promote"
+	},
+	"appreciation":"Tip",
+	"appreciationOptions":{
+		"tags":"Re-Tag post",
+		"tagsPlaceholder":"Space separated tags",
+		"warning":"Vote on explicit content",
+		"appreciation":"How much do you want to spend?",
+		"alt":"OR",
+		"appreciationAlt":"How much do you wish to tip?",
+		"target":"User",
+		"submit":"Tip"
+	},
+	"updateTally":"Update tally",
+	"updateTallyOptions":{
+		"title":"Add to tally",
+		"appreciation":"Tip",
+		"promotion":"Promotion",
+		"submit":"Add"
+	},
+	"enable":"Enable",
+	"disable":"Disable",
+	"remove":"Remove",
+	"unremove":"Unremove",
+	"removed":"Removed",
+	"none":"No content found.",
+	"noneTime":"No content found. Try a longer time interval.",
+	"noMore":"No more content could be found!",
+	"pageable":{
+		"next":"Next",
+		"previous":"Previous",
+		"showMore":"More like this"
+	},
+	"cacheDelay":{
+		"alert":"Awaiting confirmation from server. This may take a minute.",
+		"toggle":"Awaiting confirmation..."
+	},
+	"paymentProcessing":{
+		"alert":"Checking all current and previous payments. This may take a few minutes. If you have no outstanding purchases, this will have no effect.",
+		"toggle":"Checking payments..."
+	},
+	"settingsOptions":{
+		"reset":"Reset to defaults",
+		"language":"Language",
+		"interfaceLanguage":"Interface Language",
+		"warning":"Allow explicit content?",
+		"allowWarning":"Allow",
+		"denyWarning":"Deny",
+		"allowProfileComments":"Allow comments on your profile?",
+		"hideUserProfile":"Hide your profile from the list?",
+		"sendConfirmationToken":"Confirm",
+		"sendEmailChangeToken":"Change",
+		"sendPaymentIdChangeTokenChange":"Change/Remove",
+		"sendPaymentIdChangeTokenAdd":"Link PayPal ID",
+		"delete":"Delete account",
+		"sendDeleteToken":"Request deletion",
+		"currentEmail":"Email",
+		"currentPaymentId":"PayPal ID (email)",
+		"changePassword":"Change password",
+		"oldPassword":"Verify password",
+		"oldPasswordPlaceholder":"Password",
+		"newPassword":"New password",
+		"newPasswordPlaceholder":"Password",
+		"confirmNewPassword":"Confirm new password",
+		"confirmNewPasswordPlaceholder":"Password",
+		"changePasswordSubmit":"Change password",
+		"passwordScore":"Password Strength",
+		"changeEmail":"Change",
+		"cancelChangeEmail":"Cancel",
+		"submit":"Submit"
+	},
+	"flagOptions":{
+		"posting":"Why should this post be removed?",
+		"comment":"Why should this comment be removed?",
+		"user":"Why should this user change their description?",
+		"message":"If this user has sent spam, abusive messages, or has violated the rules when messaging you, we recommend blocking this user and reporting the incident. We do not typically read messages, but if the user is found to be abusive then further action will be taken. If these messages require a moderator, such as for legal reasons or threats, please contact the site.",
+		"reasons":{
+			"plagiarism":{
+				"title":"Copyright",
+				"overview":"Copyright or plagiarism concerns."
+			},
+			"violation":{
+				"title":"Rules violation",
+				"overview":"The author is in violation of the rules."
+			},
+			"spam":{
+				"title":"Spam",
+				"overview":"This is spam or blatant advertising."
+			},
+			"illicit":{
+				"title":"Illegal",
+				"overview":"This violates the law or contains illicit content."
+			}
+		}
+	},
+	"follow":"Follow",
+	"register":"Register",
+	"registerOptions":{
+		"username":"Username",
+		"password":"Password",
+		"confirmNewPassword":"Confirm password",
+		"email":"Email",
+		"usernamePlaceholder":"Username",
+		"passwordPlaceholder":"Password",
+		"confirmNewPasswordPlaceholder":"Password",
+		"emailPlaceholder":"Email",
+		"confirmAge":"I'm at least 13 years old",
+		"rememberMe":"Remember me on this computer",
+		"passwordScore":"Password Strength",
+		"recaptcha":"I'm not a robot",
+		"submit":"Register"
+	},
+	"passwordStrength":{
+		"scoreOptions":{
+			"0":"Awful",
+			"1":"Poor",
+			"2":"Moderate",
+			"3":"Good",
+			"4":"Great!"
+		}
+	},
+	"logout":"Logout",
+	"login":"Login",
+	"loginOptions":{
+		"username":"Username",
+		"password":"Password",
+		"usernamePlaceholder":"Username",
+		"passwordPlaceholder":"Password",
+		"rememberMe":"Remember me",
+		"submit":"Login"
+	},
+	"authenticationRequired":"You must log in to view this content.",
+	"sidebar":{
+		"show":"Show",
+		"hide":"Hide"
+	},
+	"preview":"Preview",
+	"description":"Profile description",
+	"noDescription":"This user's profile has not been filled out.",
+	"descriptionOptions":{
+		"open":"Edit",
+		"description":"Description",
+		"descriptionPlaceholder":"About you",
+		"warning":"Explicit",
+		"submit":"Update"
+	},
+	"appreciationResponseOptions":{
+		"open":"Edit",
+		"appreciationResponse":"Tip response",
+		"appreciationResponsePlaceholder":"Express your gratitude!",
+		"warning":"Explicit",
+		"submit":"Update"
+	},
+	"appreciationResponse":"Tip response",
+	"create":{
+		"posting":"Post!",
+		"comment":{
+			"posting":"Reply!",
+			"comment":"Reply!",
+			"tag":"Reply!",
+			"user":"Reply!",
+			"current":"Reply!",
+			"generic":"Reply!"
+		},
+		"offer":"Back user",
+		"emailOffer":"Back user by email",
+		"message":"Message user"
+	},
+	"edit":{
+		"posting":"Edit",
+		"comment":"Edit"
+	},
+	"actionDisabled":{
+		"posting":"This post has been locked.",
+		"comment":"This comment has been locked.",
+		"reply":"Comments are disabled."
+	},
+	"postingOptions":{
+		"title":"Title",
+		"titlePlaceholder":"Title",
+		"content":"Post",
+		"contentPlaceholder":"",
+		"tags":"Tags",
+		"tagsPlaceholder":"Space separated tags",
+		"backer":"Backer",
+		"backerPlaceholder":"Username",
+		"warning":"Explicit",
+		"cost":"Promotion",
+		"preview":"Description",
+		"imageLink":"Default image",
+		"imageWidth":"Image width (in pixels)",
+		"imageHeight":"Image height (in pixels)",
+		"submit":"Post!",
+		"requiredCostBacker":"Backer will only be used if there is an initial promotion."
+	},
+	"postingEditOptions":{
+		"content":"Post",
+		"contentPlaceholder":"Write something!",
+		"title":"Title",
+		"titlePlaceholder":"Title",
+		"preview":"Description",
+		"previewPlaceholder":"Description",
+		"imageLink":"Default image",
+		"imageWidth":"Image width (in pixels)",
+		"imageHeight":"Image height (in pixels)",
+		"submit":"Submit"
+	},
+	"commentOptions":{
+		"content":"Comment",
+		"contentPlaceholder":"",
+		"backer":"Backer",
+		"backerPlaceholder":"Username",
+		"warning":"Explicit",
+		"cost":"Promotion",
+		"submit":"Reply!",
+		"requiredCostBacker":"Backer will only be used if there is an initial promotion."
+	},
+	"commentEditOptions":{
+		"content":"Comment",
+		"contentPlaceholder":"",
+		"submit":"Submit"
+	},
+	"emailTokenLinksOptions":{
+		"emailChange":{
+			"emailChange":"Change email",
+			"email":"New email",
+			"password":"Verify password",
+			"emailPlaceholder":"Email",
+			"passwordPlaceholder":"Password",
+			"submit":"Change email"
+		},
+		"paymentChange":{
+			"paymentChange":"Change PayPal ID",
+			"paymentId":"New PayPal ID",
+			"password":"Verify password",
+			"paymentIdPlaceholder":"Leave blank to remove!",
+			"passwordPlaceholder":"Password",
+			"submit":"Change PayPal ID"
+		},
+		"passwordChange":{
+			"passwordChange":"Create new password",
+			"newPassword":"Password",
+			"confirmNewPassword":"Confirm new password",
+			"newPasswordPlaceholder":"Password",
+			"confirmNewPasswordPlaceholder":"Password",
+			"submit":"Update"
+		}
+	},
+	"resetPasswordOptions":{
+		"title":"Reset password",
+		"email":"Email",
+		"emailPlaceholder":"Email of your account",
+		"submit":"Send reset"
+	},
+	"warningOptions":{
+		"label":"Warning! Explicit content!",
+		"accept":"Accept",
+		"decline":"Decline",
+		"prompt":"The content shown here may be explicit. Please verify that you are of legal age, at least 18, and are willing to view explicit content.",
+		"warn":"The content shown here may be explicit."
+	},
+	"paymentOptions":{
+		"title":"Payment",
+		"info":"Before making a purchase, you should review our <a href='__TERMS__'>Terms of Service</a>, particularly our policies on <a href='__termsSections.PENNIES.link__'>Purchasing Penstro Pennies</a> and <a href='__termsSections.TIPS.link__'>Tipping users</a>!",
+		"prompt":"Otherwise, you may continue to PayPal to make your payment."
+	},
+	"contentInfo":{
+		"warning":"Explicit",
+		"removed":"Removed",
+		"flagged":"Flagged",
+		"disabled":"Disabled",
+		"archived":"Archived"
+	},
+	"termsOptions":{
+		"decline":"Decline",
+		"accept":"Accept",
+		"acceptWait":"Take a moment to read the terms"
+	},
+	"listSelectOptions":{
+		"select":"Select",
+		"backer":{
+			"button":"Select Backer",
+			"title":"Backers",
+			"empty":"No backers.",
+			"username":"Backer",
+			"value":"Amount"
+		}
+	},
+	"navbar":{
+		"label":{
+			"navigation":"Toggle navigation menu",
+			"action":"Toggle action menu"
+		}
+	},
+	"sr":{
+		"skipToContent":"Skip to content"
+	},
+	"editor":{
+		"secureOptions":{
+			"prompt":"For security purposes, images are automatically hidden.",
+			"accept":"Show"
+		},
+		"autoPreview":{
+			"refresh":"Preview",
+			"edit":"Edit"
+		},
+		"linkOptions":{
+			"title":"Add a link",
+			"url":"Url",
+			"urlPlaceholder":"http://",
+			"submit":"Add"
+		},
+		"imageOptions":{
+			"title":"Add an image link",
+			"url":"Image Url",
+			"urlPlaceholder":"https://",
+			"alt":"Alternative Text",
+			"altPlaceholder":"",
+			"width":"Width",
+			"widthPlaceholder":"Width in pixels",
+			"height":"Height",
+			"heightPlaceholder":"Height in pixels",
+			"submit":"Add"
+		}
+	},
+	"modUserOptions":{
+		"actions":"Actions",
+		"email":"Email:",
+		"paymentId":"Payment Id:",
+		"notificationCount":"Notifications:",
+		"feedCount":"Feed:",
+		"loginFailureCount":"Failed logins:",
+		"changeUsername":"Change username",
+		"changePassword":"Change password",
+		"changeEmail":"Change email",
+		"changeEmailRequest":"Send change email request",
+		"changePaymentRequest":"Send change payment request",
+		"lock":"Suspend user",
+		"unlock":"Clear user suspensions",
+		"resetSettings":"Reset settings",
+		"clearLoginFailures":"Clear failed logins",
+		"addBalance":"Add Pennies",
+		"coins":"Pennies",
+		"suspensions":"Suspensions",
+		"lockDuration":"Lock duration",
+		"roles":"Roles",
+		"overrideRoles":"Override roles",
+		"changeRoles":"Change roles",
+		"changeOverrideRoles":"Change override roles",
+		"pendingActions":"Pending actions",
+		"changePendingActions":"Change pending actions",
+		"description":"Profile",
+		"appreciationResponse":"Tip response"
+	},
+	"modRestrictedOptions":{
+		"restricted":"Restricted",
+		"word":"Word",
+		"submit":"Add"
+	},
+	"promotionStats":{
+		"title":"Promotion Statistics",
+		"stats":"Statistics",
+		"tallyLabel":"Value",
+		"replyTallyLabel":"Value of replies"
+	},
+	"tallyTooltips":{
+		"posting":{
+			"coins":"Total promotion of this post in Pennies",
+			"currency":"Tips to this post's author"
+		},
+		"comment":{
+			"coins":"Total promotion of this comment in Pennies",
+			"currency":"Tips to this comment's author"
+		},
+		"tag":{
+			"coins":"Total promotion of posts using this tag",
+			"currency":"Total tips to posts promoting this tag"
+		},
+		"user":{
+			"coins":"Total promotion of this user's posts and comments",
+			"currency":"Total tips to this user for posts and comments"
+		},
+		"offer":{
+			"coins":"Offered Pennies"
+		},
+		"backer":{
+			"coins":"Available Pennies"
+		}
+	},
+	"supportOptions":{
+		"title":"Support",
+		"overview":"We currently handle all support through email. In order for us to correctly handle your request, please include you username, the issue you are having, and all other necessary information in your message using the email registered with your account.",
+		"emailTitle":"Email:",
+		"email":"support@penstro.com",
+		"dmca":"If you need to contact a DMCA agent, please follow the instructions in the <a href='__termsSections.INFRINGEMENT.link__'>Terms of Service, Law and Copyright Infringement</a>"
+	},
+	"careerOptions":{
+		"title":"Careers",
+		"overview":"We are not hiring or accepting applications at this time.",
+		"more":"Please check again soon. This may change in the future!"
+	},
+	"welcomeOptions":{
+		"title":"Welcome to Penstro!",
+		"startTour":"Tour!",
+		"continue":"Continue",
+		"general":{
+			"sections":{
+				"one":{
+					"title":"Quality.",
+					"overview":"Content is sorted by monetary value. The best rises to the top. Your time is valuable; the site is completely free to use, but we encourage you to give to the creators of the best content."
+				},
+				"two":{
+					"title":"Fulfilling.",
+					"overview":"There's more to a quality post than getting it read. It's not enough for it to be liked, it has to encourage the audience to do more. An article's success is measured by what readers think it's worth to them."
+				},
+				"three":{
+					"title":"Variety.",
+					"overview":"Without voting, views, or editor picks as core metrics, content is not subject to the lowest common denominator. Here, something liked by many may be equivalent to something loved by one. Nothing has to fit with the crowd, it just has to fit with you."
+				}
+			},
+			"tourOverview":"If you haven't been here before, we recommend taking the tour!",
+			"javascript":"You may browse the site without javascript, but we recommend turning it on for faster browsing!"
+		},
+		"account":{
+			"title":"Don't have an account?",
+			"overview":"You aren't here to follow celebrities or to kill time. You're here to view the best content or create better.",
+			"javascript":"Javascript is required in order to register and to use all account features."
+		}
+	},
+	"signupOptions":{
+		"title":"Sign up!",
+		"login":"Already a member?",
+		"subtitle":"Why join?",
+		"overview":"An account is necessary to submit posts, follow users, and judge content. If you're only joining because it's easy, free, and quick, then stop now. Easy, free, and quick does not describe quality.",
+		"why":{
+			"title":"You can:",
+			"list":{
+				"one":"Join a community dedicated to quality",
+				"two":"Support, follow, and outclass the best",
+				"three":"Get your work tipped for its merit"
+			}
+		},
+		"prompt":"Not convinced?",
+		"try":"Take a look at the content first and get a feel for it. If you aren't impressed, we challenge you to do better."
+	},
+	"loggedOutOptions":{
+		"title":"Logged out!",
+		"overview":"For security reasons, you have been logged out. You may log back in or continue unauthenticated.",
+		"contact":"This process is entirely automated. If you believe that there has been an error, please contact the administrator to ensure that your account is secure.",
+		"reasons":{
+			"title":"There are a number of reasons why this may have happened. The most fequent cases are given below. Check the alert message that is showing for more information.",
+			"one":{
+				"title":"Inactivity",
+				"description":"An account is logged off automatically if there has been no activity. Every user should properly log out after using this site, especially when browsing in a public or shared location. Users are automatically logged out after a short duration as an extra precaution."
+			},
+			"two":{
+				"title":"Multiple logins",
+				"description":"Each user is only permitted to log in at one location at a time. This is a precaution to prevent account theft. The most likely cause of this is when a user attempts to log in to their account without logging out of their other device. However, if you feel your account has been compromised, please contact the support immediately."
+			},
+			"three":{
+				"title":"Authorization",
+				"description":"Accounts may be locked for abuse of the rules. This usually happens automatically, and the suspension is temporary. If you believe this was done in error, please contact the support to have the issue corrected."
+			}
+		}
+	},
+	"externalUrlOptions":{
+		"title":"You are leaving Penstro!",
+		"overview":"You are leaving the Penstro platform. It is possible for some users to disguise links to resemble safe content. If you did not expect to get redirected here, please press cancel.",
+		"prompt":"Is this the url you are expecting?",
+		"cancel":"Cancel!"
+	},
+	"imgAlts":{
+		"brand":"Penstro",
+		"tip":"Tip",
+		"post":"Post",
+		"paymentLabel":"PayPal is used to make payments.",
+		"paymentButton":"Pay with PayPal",
+		"hidden":"This image is hidden"
+	},
+	"openGraph":{
+		"posting":{
+			"description":"Post by __author__ valued at $__value__."
+		},
+		"comment":{
+			"description":"Comment by __author__ valued at $__value__."
+		},
+		"tag":{
+			"description":"See posts trending by [ __tag__ ] with a cumulative value of $__value__."
+		},
+		"user":{
+			"description":"User with __postingsCount__ posts."
+		}
+	}
+}

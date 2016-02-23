@@ -1,0 +1,66 @@
+mixin Posting
+	div(ng-controller='PostingController').pyPosting
+		div(ng-hide='single.hiddenId === postingId').pySingle.col-xs-12
+			div.row
+				div.col-xs-12
+					+AppreciationSummary('tally.appreciation', t('tallyTooltips.posting.currency'), undefined, 'openStatistics()')
+					+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.unauthed.APPRECIATION, false).pull-left
+					span.pyPostingReference
+						+Removed('posting.removed')
+							+Title('posting.title', true).posting-title
+					//-span.pull-right
+						+HelpLink(constants.helpTopics.POSTINGS.name, undefined, 'left')
+						+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.unauthed.HELP, false).pyTourLeft
+				div.col-xs-12
+					+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.unauthed.TITLE, false)
+			div.row
+				div.col-xs-12
+					+AuthorReference('posting.author')
+					+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.unauthed.AUTHOR, false).pyTourLeft
+					span &nbsp;
+					+Timestamp('timeSince', 'calendar')
+					+BeneficiaryReference('posting.beneficiary')
+					+ContentInfo('posting')
+					span(ng-show='posting.tags && posting.tags.length').ng-hide.pull-right
+						+TagList('posting.tags').pull-right
+				div.col-xs-12
+					+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.unauthed.TAGS, false).pull-right.pyTourLeft
+			//-div.row
+				div.col-xs-12
+					+BeneficiaryReference('posting.beneficiary')
+			div.row
+				div.col-xs-12
+					+EditPosting
+			//-div(ng-show='posting.imageLink').row
+				span.hidden-xs.col-md-1
+				+Image('{{posting.imageLink}}', '{{posting.imageWidth}}', '{{posting.imageHeight}}').col-xs-12.col-md-10
+				span.hidden-xs.col-md-1
+			div.row
+				div.col-xs-12
+					+Warning('hideExplicit', constants.states.POSTINGS)
+						+PostingContent('posting.content', true, false)
+			div.row
+				div.col-xs-12
+					span.pull-left
+						+PostingActions
+					span.pull-right
+						+ActionButton(undefined, 'replyTallyLabel', '{{showSubPageableIcon}}', 'toggleSubPageable()', 'posting.replyCount > 0', undefined, undefined, undefined, undefined, 'loadingComments').pyInverseButton.btn-xs.pull-right
+						+ReplyAuthentication('authenticated')
+							+CommentsDisabled('posting.canComment')
+								+ActionButton(t('create.comment.posting'), undefined, 'fa-comment', 'toggleReply()', undefined, undefined, undefined, undefined, '!posting.canComment').btn-xs
+							+TourSection(constants.tourStates.POSTING.name, constants.tourStates.POSTING.authed.COMMENT, true).pyTourLeft
+				div(ng-show='showCreateComment && authenticated').col-xs-12
+					+CreateComment()
+				//-
+					+DropdownButtonSplit(undefined, 'activeSubPageableLabel', '{{showSubPageableIcon}}', 'toggleSubPageable', 'openSubPageableOptions').col-xs-12
+						ul.dropdown-menu
+							li(ng-repeat='subPageable in subPageableOptions track by $index')
+								+DropdownButtonInner(undefined, 'subPageable.label', 'subPageable.icon', 'subPageable.click', undefined, undefined, undefined, undefined, 'subPageable.label === activeSubPageableLabel')
+				span.col-xs-12
+					+SubAlert('subPageableAlert')
+			+AdminOnly
+				div.row
+					div.col-xs-12
+						+ActionButton(t('adminView'), undefined, 'fa-beer', undefined, undefined, adminConstants.states.POSTINGS_ID + '({' + constants.pathVariables.POSTING + ': posting.id})', 'active', '{reload: true}')
+		div(ng-show='showSubPageable').ng-hide
+			div(ui-view=constants.partials.SUB_PAGEABLE)

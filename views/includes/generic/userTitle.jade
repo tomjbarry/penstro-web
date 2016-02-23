@@ -1,0 +1,3 @@
+mixin UserTitle(bind, header)
+	+Removed('!(' + bind + ' && ' + bind + '.exists && ' + bind + '.username)')
+		+Title(bind + '.username', header)

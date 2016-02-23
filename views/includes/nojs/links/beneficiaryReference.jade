@@ -1,0 +1,5 @@
+mixin NJBeneficiaryReference(beneficiary)
+	if beneficiary
+		span= t('beneficiaryReference')
+		span &nbsp
+		+NJUserReference(beneficiary)

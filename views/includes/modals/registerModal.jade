@@ -1,0 +1,54 @@
+mixin RegisterModal
+	script(type='text/ng-template')#registerModal
+		+Modal
+			form(name=constants.forms.REGISTER, ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						span.col-xs-12
+							strong= t('register')
+							+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.REGISTER, 'left').pull-right
+				div.modal-body
+					div.row
+						+Loader('!registerData.loading')
+							span.col-xs-12
+								+SubAlert('registerData.alert')
+							span.col-xs-12.col-md-8
+								+FormInput('registerUsername', t('registerOptions.username'), constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.USERNAME, 'text', 'registerData.username', 'registerData.errors.username', t('registerOptions.usernamePlaceholder'), 'registerData.open', undefined, undefined, undefined, t('shared:symbols.username'))
+							span.col-xs-6.col-md-4
+								+FormInput('registerConfirmAge', t('registerOptions.confirmAge'), undefined, undefined, 'checkbox', 'registerData.confirmAge', 'registerData.errors.confirmAge')
+							//-span.col-xs-6.col-md-5
+								+FormInput('registerRememberMe', t('registerOptions.rememberMe'), undefined, undefined, 'checkbox', 'registerData.rememberMe', 'registerData.errors.rememberMe')
+							//-span.col-xs-12.col-md-7
+							span.col-xs-12
+								+FormInput('registerEmail', t('registerOptions.email'), constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.EMAIL, 'email', 'registerData.email', 'registerData.errors.email', t('registerOptions.emailPlaceholder'))
+							span(ng-show='zxcvbnLoaded && typeof(registerData.password) !== "undefined" && registerData.password.length > 0').ng-hide.col-xs-12
+								+PasswordScore('registerOptions.passwordScore', 'passwordScore', 'passwordAdvice')
+								//-
+									div.row
+										span.col-xs-12
+											label= t('registerOptions.passwordScore')
+										span.col-xs-12
+											+ValidationInformation('passwordAdvice')
+									div.progress.row
+										div(ng-show='passwordScore===0').ng-hide.progress-bar.progress-bar-danger.col-xs-12
+										div(ng-show='passwordScore===1', style='width: 25% !important').ng-hide.progress-bar.progress-bar-danger.col-xs-12= t('passwordStrength.scoreOptions.1')
+										div(ng-show='passwordScore===2', style='width: 50% !important').ng-hide.progress-bar.progress-bar-warning.col-xs-12= t('passwordStrength.scoreOptions.2')
+										div(ng-show='passwordScore===3', style='width: 75% !important').ng-hide.progress-bar.progress-bar-success.col-xs-12= t('passwordStrength.scoreOptions.3')
+										div(ng-show='passwordScore===4', style='width: 100% !important').ng-hide.progress-bar.progress-bar-success.col-xs-12= t('passwordStrength.scoreOptions.4')
+							span.col-xs-12.col-md-6
+								+FormInput('registerPassword', t('registerOptions.password'), constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.PASSWORD, 'password', 'registerData.password', 'registerData.errors.password', t('registerOptions.passwordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+							span.col-xs-12.col-md-6
+								+FormInput('registerConfirmNewPassword', t('registerOptions.confirmNewPassword'), constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.PASSWORD, 'password', 'registerData.confirmNewPassword', 'registerData.errors.confirmNewPassword', t('registerOptions.confirmNewPasswordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+							span.col-xs-12
+								+FormSection(constants.viewIds.REGISTER_RECAPTCHA, t('registerOptions.recaptcha'), undefined, undefined, 'registerData.errors.recaptchaResponse')
+									span.col-xs-12.text-center
+										div(id=constants.viewIds.REGISTER_RECAPTCHA, py-recaptcha)
+								//-
+									div(data-sitekey="6LcTfQkTAAAAAPEXcT4JVVBWKRADn-p8DmwlitPA").g-recaptcha
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: registerData.loading}', aria-label=t('registerOptions.submit')).btn= t('registerOptions.submit')

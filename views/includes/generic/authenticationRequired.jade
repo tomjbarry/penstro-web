@@ -1,0 +1,6 @@
+mixin AuthenticationRequired(show)
+	div.pyAuthenticationRequired
+		div(ng-show=show).ng-hide
+			block
+		div(ng-hide=show).ng-hide.text-center
+			p= t('authenticationRequired')

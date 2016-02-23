@@ -1,0 +1,5 @@
+mixin ProfileContent(bind, showTopHr, showBottomHr)
+	span(ng-show=bind).ng-hide
+		+MarkdownContent(bind, showTopHr, showBottomHr).pyProfileContent
+	span(ng-hide=bind).ng-hide
+		span= t('noDescription')

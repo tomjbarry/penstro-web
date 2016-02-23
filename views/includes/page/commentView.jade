@@ -1,0 +1,35 @@
+mixin CommentView(iter)
+	div(ng-controller='CommentViewController').pyCommentView.col-xs-12.col-md-12
+		div(ng-init='init(' + iter + ')').pageItem
+			+Preview
+				div.row
+					span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+						div.row
+							div.col-xs-12
+								+Link(constants.states.COMMENTS_ID + '({' + constants.pathVariables.COMMENT + ': comment.id})', undefined, '{reload: true}').pyCommentReference
+									//-+TitleIcon('fa-comment-o')
+									+Removed('comment.removed')
+										span(ng-bind='commentLabel')
+								span.pull-right
+									+DropdownButton(t('shared:base.context'), 'fa-chevron-up', 'contextOpen', undefined, 'comment.base || comment.parent')
+										ul(role='menu').dropdown-menu
+											li(ng-show='comment.base').ng-hide
+												a(ng-href='{{baseLink}}')
+													+ButtonInner(undefined, 'baseTitle', 'fa-angle-double-up')
+											li(ng-show='comment.parent').ng-hide
+												+Link(constants.states.COMMENTS_ID + '({' + constants.pathVariables.COMMENT + ': comment.parent})', undefined, '{reload: true}')
+													+ButtonInner(undefined, 'parentTitle', 'fa-angle-up')
+						div.row
+							div.col-xs-12
+								+AuthorReference('comment.author')
+								span &nbsp
+								+Timestamp('timeSince', 'calendar')
+						div.row
+							div.col-xs-12
+								+ContentInfo('comment')
+					span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+						+AppreciationSummary('tally.appreciation', t('tallyTooltips.comment.currency'))
+				div.row
+					div.col-xs-12
+						+WarningSimple('hideExplicit')
+							+CommentContent('comment.content', true)

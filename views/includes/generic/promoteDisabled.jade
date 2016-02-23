@@ -1,0 +1,7 @@
+mixin PromoteDisabled(hide, label)
+	span.pyPromoteDisabled
+		span(ng-hide=hide).pyPromoteDisabled.ng-hide
+			strong= label
+			+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.PROMOTE_DISABLED, 'left').pull-right
+		span(ng-show=hide).ng-hide
+			block

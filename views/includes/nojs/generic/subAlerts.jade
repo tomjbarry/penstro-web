@@ -1,0 +1,10 @@
+mixin NJSubAlerts(allowClose)
+	div.pySubAlerts
+		div(ng-show='successes', ng-repeat='msg in successes track by $index').ng-hide
+			+Alert(msg, 'msg', allowClose)(class='pyAlertSuccess success')
+		div(ng-show='infos', ng-repeat='msg in infos track by $index').ng-hide
+			+Alert(msg, 'msg', allowClose)(class='pyAlertInfo info')
+		div(ng-show='warnings', ng-repeat='msg in warnings track by $index').ng-hide
+			+Alert(msg, 'msg', allowClose)(class='pyAlertWarning warning')
+		div(ng-show='errors', ng-repeat='msg in errors track by $index').ng-hide
+			+Alert(msg, 'msg', allowClose)(class='pyAlertError alert')

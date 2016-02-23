@@ -1,0 +1,25 @@
+mixin SocialModal
+	script(type='text/ng-template')#socialModal
+		+Modal
+			//-div.modal-header
+				div.row
+					div.col-xs-12
+			div.modal-body
+				div.row
+					div.col-xs-12.text-center.pyTable
+						+SocialButton('fa-facebook', constants.socialUrls.FACEBOOK).pySocialFacebook
+						+SocialButton('fa-google-plus', constants.socialUrls.GOOGLE_PLUS).pySocialGooglePlus
+						+SocialButton('fa-twitter', constants.socialUrls.TWITTER).pySocialTwitter
+						+SocialButton('fa-reddit', constants.socialUrls.REDDIT).pySocialReddit
+					//-
+						+SocialFacebookShare
+						+SocialGooglePlusShare
+						+SocialTwitterShare
+			div.modal-footer
+				div.row
+					div.col-xs-12
+						span.pull-left
+							button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+						span.pull-right
+							a(ng-href="{{socialData.permalink}}").pyTextSize3= t('permalink')
+							//-+LinkButton(t('permalink'), undefined, 'fa-share-alt', undefined, undefined, undefined, '{{socialData.permalink}}')

@@ -1,0 +1,40 @@
+mixin PromotionStatsModal(title, tally, tallyLabel, replyTally, replyTallyLabel, labels)
+	//- var titleBind; if(typeof(title) !== 'undefined') {titleBind = 'scope.' + title;}
+	//- var tallyLabelBind; if(typeof(tallyLabel) !== 'undefined') {tallyLabelBind = 'scope.' + tallyLabel;}
+	//- var replyTallyLabelBind; if(typeof(replyTallyLabel) !== 'undefined') {replyTallyLabelBind = 'scope.' + replyTallyLabel;}
+	script(type='text/ng-template')#promotionStatsModal
+		+Modal
+			div(ng-show='title').ng-hide.modal-header
+				div.row
+					div.col-xs-12
+						strong.fs-3.fancy(ng-bind='title')= t('promotionStats.title')
+			div.modal-body
+				div(ng-show='labels').row.ng-hide
+					span.col-xs-12
+						strong.fs-2.fancy= t('promotionStats.stats')
+						div.row
+							span.col-xs-1
+							span.col-xs-10
+								div.row
+									hr.col-xs-12
+									span(ng-repeat='label in labels track by $index').col-xs-12
+										span(ng-bind='label', ng-class='{"pull-right": $even, "pull-left": $odd}').fs-2
+									hr.col-xs-12
+							span.col-xs-1
+					span.col-xs-6.pull-left
+						div(ng-show='tallyLabel').ng-hide.row
+								span.col-xs-12.text-center
+									strong(ng-bind='tallyLabel').fs-2.fancy= t('promotionStats.tallyLabel')
+								span(ng-show='tally').ng-hide.col-xs-12.text-center
+									+TallySummary('tally')
+					span.col-xs-6.pull-right
+						div(ng-show='replyTallyLabel').ng-hide.row
+							span.col-xs-12.text-center
+								strong(ng-bind='replyTallyLabel').fs-2.fancy= t('promotionStats.replyTallyLabel')
+							span(ng-show='replyTally').ng-hide.col-xs-12.text-center
+								+TallySummary('replyTally')
+			div.modal-footer
+				div.row
+					span.col-xs-12
+						span.pull-left
+							+SubButton(t('close'), undefined, 'fa-circle-o', 'close()')

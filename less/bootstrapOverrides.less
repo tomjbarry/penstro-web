@@ -1,0 +1,218 @@
+@fa-font-path: "../fonts";
+
+@input-group-border: 2px;
+
+.navbar-brand {
+  @media (min-width: @grid-float-breakpoint) {
+    .navbar > .container &,
+    .navbar > .container-fluid & {
+      margin-left: 0px;
+    }
+  }
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+input[type="radio"], input[type="checkbox"] {
+	margin: 0px;
+}
+
+.input-group .form-control {
+	background-color: @py-secondary-color-light;
+	color: @py-font-color;
+	border: @input-group-border solid @py-font-color;
+}
+
+.input-group-addon {
+	color: @py-font-color;
+	background-color: @py-button-background-color;
+	border: @input-group-border solid @py-font-color;
+}
+
+// needs to have a margin of 0 to counteract .btn margin
+.input-group-btn .btn {
+	margin: 0px;
+}
+
+.badge {
+	color: @py-badge-color;
+}
+
+.label {
+	display: inline-block;
+}
+
+.open .dropdown-menu {
+	display: block;
+}
+
+.open .pySubNavView .dropdown-menu {
+	position: inherit;
+}
+
+@media print {
+  .btn {
+    display: none !important;
+  }
+}
+
+.btn {
+	margin: @py-button-margin;
+	background-color: @py-button-background-color;
+	color: @py-button-color;
+	font-weight: bold;
+	-webkit-box-shadow: @py-button-box-shadow;
+	box-shadow: @py-button-box-shadow;
+	i {
+		color: @py-button-icon-color;
+	}
+}
+.btn:hover,
+.btn:focus {
+	-webkit-box-shadow: @py-button-hover-box-shadow;
+	box-shadow: @py-button-hover-box-shadow;
+	background-color: @py-button-background-color-hover;
+	color: @py-button-hover-color;
+	i {
+		//color: @py-button-icon-hover-color;
+	}
+}
+.btn.active {
+	background-color: @py-button-background-color-active;
+}
+.btn.active:hover {
+	background-color: @py-button-background-color-active-hover;
+}
+
+.btn.pyPromoteButton {
+	background-color: @py-button-promote-background-color;
+}
+.btn.pyPromoteButton:hover,
+.btn.pyPromoteButton:focus {
+	background-color: @py-button-promote-background-color-hover;
+}
+
+.btn.pyAppreciateButton {
+	background-color: @py-button-appreciate-background-color;
+}
+.btn.pyAppreciateButton:hover,
+.btn.pyAppreciateButton:focus {
+	background-color: @py-button-appreciate-background-color-hover;
+}
+
+.btn.active.pyPromoteButton,
+.btn.active.pyAppreciateButton {
+	background-color: @py-button-background-color-active;
+}
+.btn.active.pyPromoteButton:hover,
+.btn.active.pyAppreciateButton:hover {
+	background-color: @py-button-background-color-active-hover;
+}
+
+.btn.pyInverseButton {
+	background-color: @py-button-color;
+	color: @py-button-background-color;
+	i {
+		color: @py-button-background-color;
+	}
+}
+.btn.pyInverseButton:hover,
+.btn.pyInverseButton:focus {
+	background-color: @py-button-hover-color;
+	color: @py-button-background-color-hover;
+	i {
+		color: @py-button-background-color-hover;
+	}
+}
+
+.dropdown-menu > li > a.active {
+	color: @py-active-color;
+}
+
+.modal-content {
+	color: @py-modal-color;
+	background-color: @py-modal-background-color;
+}
+
+.navbar {
+	margin-bottom: @py-navbar-margin-bottom;
+	border: 0px;
+}
+
+nav.navbar.navbar-default {
+	border-radius: 0px;
+}
+
+.navbar {
+	padding-left: @py-navbar-padding-left;
+	padding-right: @py-navbar-padding-right;
+	@media (min-width: @grid-float-breakpoint) {
+		border-radius: 0px;
+	}
+}
+
+.navbar-default {
+	background-color: @py-navbar-background-color;
+	border-color: @py-navbar-border-color;
+	a {
+		border-radius: @py-navbar-link-border-radius;
+	}
+	.navbar-toggle {
+		border-color: @py-navbar-border-color;
+		.icon-bar {
+			background-color: @py-navbar-color;
+		}
+	}
+	.navbar-brand {
+		color: @py-navbar-color;
+		border-radius: @py-navbar-link-border-radius;
+		padding: 0px;
+	}
+	.navbar-nav > li > a {
+		color: @py-navbar-color;
+	}
+	-webkit-box-shadow: @py-navbar-box-shadow;
+	box-shadow: @py-navbar-box-shadow;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: @py-navbar-color;
+	background-color: @py-navbar-background-color-hover;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: @py-navbar-background-color-hover;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	/*
+	color: @py-navbar-color;
+	-webkit-box-shadow: @py-button-hover-box-shadow;
+	box-shadow: @py-button-hover-box-shadow;
+	background-color: @py-navbar-background-color-hover;
+	*/
+	outline: none;
+	outline-offset: initial;
+}
+
+.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.alert-warning {
+	background-color: @py-alert-warning-background-color;
+	color: @py-alert-warning-color;
+	border-color: @py-alert-warning-border-color;
+}
+
+
+hr,
+.pyMarkdownContentHr {
+	border-color: @py-content-hr-color;
+}

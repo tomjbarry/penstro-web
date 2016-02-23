@@ -1,0 +1,25 @@
+mixin NJBasicInfoPages
+	div
+		span.text-center
+			ul.list-inline
+				li
+					+NJLink(constants.viewUrls.WELCOME)
+						span= t('welcome')
+				li
+					+NJTermsLink()
+						span= t('terms')
+				li
+					+NJTermsLink(constants.termsSections.STANDARDS)
+						span= t('rules')
+				li
+					+NJTermsLink(constants.termsSections.PRIVACY)
+						span= t('privacy')
+				li
+					+NJLink(constants.viewUrls.CAREERS)
+						span= t('careers')
+				li
+					+NJLink(constants.viewUrls.SUPPORT)
+						span= t('support')
+				li
+					+NJLink(constants.viewUrls.HELP)
+						span= t('help')

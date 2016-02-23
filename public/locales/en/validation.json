@@ -1,0 +1,88 @@
+{
+	"exists":{
+		"username":"That username is already in use!",
+		"email":"That email is already associated with an account.",
+		"selfEmail":"This is already the email associated with this account!",
+		"usernameOrEmail":"The username or email is already in use!"
+	},
+	"notFound":{
+		"backer":"This user is not backing you!",
+		"username":"User not found!",
+		"email":"No user is associated with this email."
+	},
+	"restricted":{
+		"username":"The username is not allowed.",
+		"password":"The password is not allowed",
+		"email":"The email is not allowed"
+	},
+	"notAllowed":{
+		"password":"Password must match your current password."
+	},
+	"register":{
+		"password":"Passwords must be at least __0__ characters.",
+		"confirmAge":"You must be at least 13 years of age to register!"
+	},
+	"recaptcha":{
+		"required":"Please fill out the ReCaptcha to verify that you are not a robot!",
+		"invalid":"Invalid ReCaptcha. Please try again.",
+		"external":"Could not connect to Google's servers to validate the ReCaptcha at this time. Please try again in a few minutes!"
+	},
+	"editor":{
+		"image":{
+			"https":"All images should be hosted over HTTPS. Please use a different image."
+		}
+	},
+	"balance":"Not enough funds!",
+	"py":{
+		"validation":{
+			"error":{
+				"required":"The field is required!",
+				"numeric":"Must be a number!",
+				"format":{
+					"generic":"Invalid format",
+					"decimal":"Too many decimal places",
+					"username":"Invalid username",
+					"password":"Invalid password",
+					"email":"Invalid email",
+					"tags":"Invalid tags",
+					"tag":"Invalid tag",
+					"currency":"Invalid currency"
+				},
+				"invalid":"Invalid",
+				"match":{
+					"confirm":"The fields must match!"
+				},
+				"length":{
+					"generic":"Incorrect length",
+					"short":{
+						"generic":"Must be at least __0__ characters",
+						"default":"Too short"
+					},
+					"long":{
+						"generic":"Must be less than __0__ characters",
+						"default":"Too long"
+					},
+					"tags":{
+						"short":"More tags are required",
+						"long":"Too many tags"
+					},
+					"tag":{
+						"short":"Tag __0__ must be at least __1__ characters",
+						"long":"Tag __0__ must be less than __1__ characters"
+					}
+				},
+				"size":{
+					"small":{
+						"generic":"Must be larger than __0__",
+						"default":"Too small"
+					},
+					"large":{
+						"generic":"Must be smaller than __0__",
+						"default":"Too large"
+					}
+				}
+			}
+		}
+	},
+	"default":""
+}

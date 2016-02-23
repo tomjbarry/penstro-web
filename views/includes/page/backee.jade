@@ -1,0 +1,17 @@
+mixin Backee(iter)
+	div(ng-controller='BackeeController').pyBackee.col-xs-12.col-md-12
+		div(ng-init='init(' + iter + ')')
+			div(ng-hide='disabled').pageItem
+				div.row
+					div.col-xs-12
+						span.pull-left
+							div
+								span= t('to')
+									+UserReference('backee.target')
+							div
+								span= t('from')
+									+UserReference('backee.source')
+						+ValueSummary('tally.value', t('tallyTooltips.backer.coins')).pull-right
+					div.col-xs-12
+						span.pull-left
+							+SubButton(t('withdraw'), undefined, 'fa-times', 'withdraw()', undefined, undefined, undefined, undefined, undefined, 'disabled')

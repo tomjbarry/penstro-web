@@ -1,0 +1,25 @@
+mixin OpenGraphMetaList(m)
+	if m
+		if m.t
+			each og, key in m.t
+				if typeof(og) === 'string'
+					meta(property='og:' + key, content=t(og))
+				else if Array.isArray(og)
+					if typeof(og[0]) === 'object'
+						meta(property='og:' + key, content=t(og[1], og[0]))
+					else
+						each o in og
+							meta(property='og:' + key, content=t(o))
+				else if typeof(og) === 'object'
+					each o, k in og
+						meta(property='og:' + key.trim() + ':' + k, content=t(o))
+		if m.p
+			each og, key in m.p
+				if typeof(og) === 'string'
+					meta(property='og:' + key, content=og)
+				else if Array.isArray(og)
+					each o in og
+						meta(property='og:' + key, content=o)
+				else if typeof(og) === 'object'
+					each o, k in og
+						meta(property='og:' + key.trim() + ':' + k, content=o)

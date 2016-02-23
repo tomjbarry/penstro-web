@@ -1,0 +1,12 @@
+mixin DropdownButtonInner(caption, bind, icon, click, show, sref, srefActive, srefOptions, ngClass, ngDisabled, count, captionClass, iconBind, tooltip, svg, fallbackSvg)
+	//- dont use srefActive
+	- var href = constants.values.VOID_ACTION;
+	- var hideClass;
+	if sref
+		- href = undefined;
+	if show
+		- hideClass = 'ng-hide';
+	a(href=href, class!=attributes.class, class=hideClass, ng-click=click, type='button', ui-sref=sref, ui-sref-opts=srefOptions, ng-class=ngClass, ng-disabled=ngDisabled, ng-show=show, tooltip-placement="bottom", tooltip=tooltip).pyDropdownButtonInner
+		+ButtonInner(caption, bind, icon, count, 'DROPDOWN', captionClass, iconBind, svg, fallbackSvg)
+			if block
+				block

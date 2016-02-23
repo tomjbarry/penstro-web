@@ -1,0 +1,6 @@
+mixin NJButton(href, type, label, icon)
+	a(href=href, type=type, class!=attributes.class, role='button', aria-label=label).btn.pyButton
+		if icon
+			+NJIcon(icon)
+		if label
+			span= label

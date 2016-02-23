@@ -1,0 +1,11 @@
+mixin NJHelpSection(topic, section)
+	- if(typeof(topic) === 'undefined') {topic = 'default';}
+	- if(typeof(section) === 'undefined') {section = 'default';}
+	div.pyHelpSection.row
+		span.col-xs-12
+			h3(id='NJ' + section)= t('help:' + topic + '.' + section + '.t')
+		span.col-xs-12
+			p.text-pad-left!= t('help:' + topic + '.' + section + '.o', constants.premadeLinks)
+		if block
+			div.col-xs-12
+				block

@@ -1,0 +1,15 @@
+mixin MarkdownContent(bind, showTopHr, showBottomHr)
+	if showTopHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr.pyMarkdownContentHrTop
+			span.col-xs-2
+	div.row
+		div(py-bind-convert-html=bind).pyContent.pyMarkdownContent.col-xs-12
+	if showBottomHr
+		div.row
+			span.col-xs-2
+			span.col-xs-8
+				hr.pyMarkdownContentHr.pyMarkdownContentHrBottom
+			span.col-xs-2

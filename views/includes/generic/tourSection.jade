@@ -1,0 +1,12 @@
+mixin TourSection(section, subSection, authed, placement)
+	span
+	block
+	//-
+		- var as, a = 'u'; if(authed) {a = 'a';as = 'true'}
+		- var title = t('tour:' + section + '.' + a + '.' + subSection + '.t')
+		- var content = t('tour:' + section + '.' + a + '.' + subSection + '.tx')
+		- var p = 'bottom'; if(typeof(placement) !== 'undefined') {p = placement;}
+		span(class='pyTourSectionId-' + utils.utils.getTourId(section, subSection, authed), py-tour-section=section, py-tour-sub-section=subSection, py-tour-authed=as, class!=attributes.class).pyTourSection.hidden-print
+			if block
+				block
+			span(data-content=content, data-title=title, data-placement=p).pyTourSectionSubElement

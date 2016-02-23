@@ -1,0 +1,13 @@
+mixin ExternalUrl
+	+GenericInfoPage(t('externalUrlOptions.title'))
+		div.row
+			span.col-xs-12
+				div.row
+					span.col-xs-12.text-center
+						strong= t('externalUrlOptions.prompt')
+						span &nbsp;
+						a(ng-href='{{externalUrl}}', ng-bind='externalUrl')
+					span.col-xs-12.text-center
+						h3= t('externalUrlOptions.overview')
+					span.col-xs-12
+						a(ng-click='back()').btn.col-xs-12= t('externalUrlOptions.cancel')

@@ -1,0 +1,33 @@
+mixin LoginModal
+	script(type='text/ng-template')#loginModal
+		+Modal
+			form(name=constants.forms.LOGIN, ng-submit='submit()', action=constants.values.VOID_ACTION)
+				div.modal-header
+					div.row
+						div.col-xs-12
+							span
+								strong= t('login')
+							span.pull-right
+								//-span
+									+SubButton(t('forgotUsername'), undefined, 'fa-ticket', 'cancel()', undefined, constants.states.RESET_PASSWORD, undefined, '{reload: true}')
+								span
+									+SubButton(t('forgotUsernamePassword'), undefined, 'fa-wrench', 'cancel()', undefined, constants.states.RESET_PASSWORD, undefined, '{reload: true}')
+								+HelpLink(constants.helpTopics.ACCOUNT.name, constants.helpTopics.ACCOUNT.sections.LOGIN, 'left').pull-right
+				div.modal-body
+					div.row
+						+Loader('!loginData.loading')
+							div.col-xs-12
+								+SubAlert('loginData.alert')
+							div.col-xs-12
+								+FormInput('loginUsername', t('loginOptions.username'), undefined, undefined, 'text', 'loginData.username', undefined, t('loginOptions.usernamePlaceholder'), 'loginData.open', undefined, undefined, undefined, t('shared:symbols.username'))
+							div.col-xs-12.col-md-8
+								+FormInput('loginPassword', t('loginOptions.password'), undefined, undefined, 'password', 'loginData.password', undefined, t('loginOptions.passwordPlaceholder'), undefined, undefined, undefined, undefined, t('shared:symbols.password'))
+							div.col-xs-12.col-md-4
+								+FormInput('loginRememberMe', t('loginOptions.rememberMe'), undefined, undefined, 'checkbox', 'loginData.rememberMe', undefined)
+				div.modal-footer
+					div.row
+						div.col-xs-12
+							span.pull-left
+								button(type='button', ng-click='cancel()', aria-label=t('cancel')).btn= t('cancel')
+							span.pull-right
+								button(type='submit', ng-class='{disabled: loginData.loading}', aria-label=t('loginOptions.submit')).btn= t('loginOptions.submit')

@@ -1,0 +1,25 @@
+mixin UserActions
+	div(ng-controller='UserActionsController').pyUserActions
+		+ActionsAuthentication('authenticated')
+			span(ng-show='loadedCurrentUser && pscope.username && currentUsername && currentUsername !== pscope.username').ng-hide
+				+DropdownButton(undefined, 'fa-ellipsis-h', 'optionalOpen', undefined, 'loadedCurrentUser').btn-xs
+					ul(role='menu').dropdown-menu
+						//-
+							li
+								+DropdownButtonInner(t('offer'), undefined, 'fa-gift', 'openOffer()', undefined, undefined, undefined, undefined, '{active: offerData.open}', 'offerData.loading')
+						li
+							+DropdownButtonInner(t('block'), undefined, 'fa-bell-slash', 'onBlock()', '!isBlocking()', undefined, undefined, undefined, '{disabled: (!loadedBlocking || typeof(pscope.blocked) === "undefined")}', '(!loadedBlocking || typeof(pscope.blocked) === "undefined")')
+						li
+							+DropdownButtonInner(t('unblock'), undefined, 'fa-bell', 'onUnblock()', 'isBlocking()', undefined, undefined, undefined, '{disabled: (!loadedBlocking || typeof(pscope.blocked) === "undefined")}', '(!loadedBlocking || typeof(pscope.blocked) === "undefined")')
+						li
+							+DropdownButtonInner(t('flag'), undefined, 'fa-flag', 'openFlag()', undefined, undefined, undefined, undefined, '{active: flagData.open}', 'flagData.loading')
+				+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.authed.MORE, true).pyTourLeft
+				+ActionButton(t('appreciationResponse'), undefined, 'fa-trophy', undefined, 'showAppreciationResponse', constants.states.USERS_ID_APPRECIATION_RESPONSE + '({' + constants.pathVariables.USER + ': username})', 'active', '{reload: true}').btn-xs
+				+ActionButton(t('follow'), undefined, 'fa-child', 'onFollow()', '!isFollowing()', undefined, undefined, undefined, '{disabled: (!loadedFollowing || typeof(pscope.follows) === "undefined")}', '(!loadedFollowing || typeof(pscope.follows) === "undefined")').btn-xs
+				+ActionButton(t('unfollow'), undefined, 'fa-bomb', 'onUnfollow()', 'isFollowing()', undefined, undefined, undefined, '{disabled: (!loadedFollowing || typeof(pscope.follows) === "undefined")}', '(!loadedFollowing || typeof(pscope.follows) === "undefined")').active.btn-xs
+				+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.authed.FOLLOW, true).pyTourLeft
+				+ActionButton(t('message'), undefined, 'fa-paper-plane', undefined, undefined, constants.states.USERS_ID_MESSAGES + '({' + constants.pathVariables.USER + ': username})', 'active', '{reload: true}').btn-xs
+				+TourSection(constants.tourStates.USER.name, constants.tourStates.USER.authed.MESSAGE, true).pyTourLeft
+			span(ng-hide='loadedCurrentUser && pscope.username && currentUsername && currentUsername !== pscope.username').ng-hide
+				+ActionButton(t('actionsSelf'), undefined, 'fa-home', undefined, undefined, constants.states.CURRENT, 'active', '{reload: true}').btn-xs
+		+ActionButton(t('socialShare'), undefined, 'fa-share', 'openShare()', undefined, undefined, undefined, undefined, '{active: socialData.open}').pySocialShareButton.btn-xs

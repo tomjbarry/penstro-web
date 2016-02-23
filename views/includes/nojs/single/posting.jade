@@ -1,0 +1,39 @@
+mixin NJPosting(posting)
+	- var hideExplicit = posting.warning && !paramUtil.toBoolean(paramUtil.constructWarning(req));
+	div.pyPosting
+		+NJSingle
+			div(itemtype=constants.richSnippets.ITEMTYPES.ARTICLE, itemscope).row
+				span.col-xs-12.col-sm-8.col-md-9.col-lg-10
+					- var mdP = utils.metaData.posting(posting)
+					if mdP.openGraph
+						div.row.ng-hide
+							span(itemprop='description')= t(mdP.openGraph.t.description[1], mdP.openGraph.t.description[0])
+					div.row
+						div.col-xs-12
+							span.pyPostingReference
+								+TitleIcon('fa-newspaper-o')
+								+NJRemoved(posting.removed)
+									if posting.title
+										+NJTitle(posting.title, true)(itemprop='headline').posting-title
+							span.pull-right
+								+HelpLink(constants.helpTopics.POSTINGS.name)
+					div.row
+						div.col-xs-12.col-md-6
+							+NJAuthorReference(posting.author)
+							span &nbsp
+							+NJTimestamp(posting.created)
+							meta(itemprop='datePublished', content=utils.utils.getTimeISO(posting.created))
+						if posting.tags && posting.tags.length > 0
+							div.col-xs-12.col-md-6
+								+NJTagList(posting.tags).pull-right
+					div.row
+						div.col-xs-12
+							+NJBeneficiaryReference(posting.beneficiary)
+							span &nbsp
+							+NJContentInfo(posting)
+				span.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					+NJAppreciationSummary(posting.tally.appreciation)
+			div.row
+				div.col-xs-12
+					+NJWarning(hideExplicit, constants.viewUrls.POSTINGS)
+						+NJPostingContent(posting.content, true)

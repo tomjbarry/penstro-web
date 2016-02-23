@@ -1,0 +1,60 @@
+mixin Comment
+	div(ng-controller='CommentController').pyComment
+		div.pySingle.col-xs-12
+			div.row
+				div.col-xs-12
+					+EditComment
+			div.row
+				div.col-xs-12
+					+Warning('hideExplicit', constants.states.COMMENTS)
+						+CommentContent('comment.content', false, true)
+			//-div.row
+				div.col-xs-12
+					span.pull-right
+						span.pull-right
+							+HelpLink(constants.helpTopics.COMMENTS.name, undefined, 'left')
+							+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.unauthed.HELP, false).pyTourLeft
+			div.row
+				div.col-xs-12
+					+AppreciationSummary('tally.appreciation', t('tallyTooltips.comment.currency'), undefined, 'openStatistics()', true)
+					+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.unauthed.APPRECIATION, false).pull-left
+					span.pyCommentReference
+						+Removed('comment.removed')
+					+AuthorReference('comment.author')
+					+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.unauthed.AUTHOR, false).pyTourLeft
+					span &nbsp
+					+Timestamp('timeSince', 'calendar')
+			div.row
+				div.col-xs-12
+					+BeneficiaryReference('comment.beneficiary')
+					//-span &nbsp
+					+ContentInfo('comment')
+			div.row
+				div.col-xs-12
+					span.pull-left
+						+CommentActions
+					span.pull-right
+						+DropdownButton(t('shared:base.context'), 'fa-chevron-up', 'contextOpen', undefined, 'comment.base || comment.parent').pyInverseButton.btn-xs
+							ul(role='menu').dropdown-menu.dropdown-menu-right
+								li(ng-show='comment.base').ng-hide
+									a(ng-href='{{baseLink}}').pyDropdownButtonInner
+										+ButtonInner(undefined, 'baseTitle', 'fa-angle-double-up')
+								li(ng-show='comment.parent').ng-hide
+									+Link(constants.states.COMMENTS_ID + '({' + constants.pathVariables.COMMENT + ': comment.parent})', undefined, '{reload: true}').pyDropdownButtonInner
+										+ButtonInner(undefined, 'parentTitle', 'fa-angle-up')
+						+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.unauthed.CONTEXT, false).pyTourLeft
+						+ActionButton(undefined, 'replyTallyLabel', '{{showSubPageableIcon}}', 'toggleSubPageable()', 'comment.replyCount > 0', undefined, undefined, undefined, undefined, 'loadingComments').pyInverseButton.btn-xs.pull-right
+						+ReplyAuthentication('authenticated')
+							+CommentsDisabled('comment.canComment')
+								+ActionButton(t('create.comment.comment'), undefined, 'fa-comment', 'toggleReply()', undefined, undefined, undefined, undefined, '!comment.canComment').btn-xs
+							+TourSection(constants.tourStates.COMMENT.name, constants.tourStates.COMMENT.authed.COMMENT, true).pyTourLeft
+				span(ng-show='showCreateComment && authenticated').col-xs-12
+					+CreateComment()
+				span.col-xs-12
+					+SubAlert('subPageableAlert')
+			+AdminOnly
+				div.row
+					div.col-xs-12
+						+ActionButton(t('adminView'), undefined, 'fa-beer', undefined, undefined, adminConstants.states.COMMENTS_ID + '({' + constants.pathVariables.COMMENT + ': comment.id})', 'active', '{reload: true}')
+		div(ng-show='showSubPageable').ng-hide
+			div(ui-view=constants.partials.SUB_PAGEABLE)

@@ -1,0 +1,29 @@
+mixin HelpPage
+	div.pyHelp.col-xs-12
+		div.row
+			span.col-xs-12
+				h1= t('titles:helpTopics.default')
+			span.col-xs-12
+				p= t('help:default.o')
+			- var count = 0;
+			- var topic, section, k, key, topicName;
+				each topic, key in constants.helpTopics
+					if topic
+						- topicName = 'default'; if(typeof(topic.name) !== 'undefined') {topicName = topic.name;}
+						span.col-xs-12.col-sm-6
+							div.row
+								hr.col-xs-10
+								span.col-xs-2
+								span.col-xs-12
+									div.row
+										span.col-xs-12
+											+GenericHelpLink(topicName)
+												h3= t('titles:helpTopics.' + topicName)
+										if topic.sections
+											each section, k in topic.sections
+												span.col-xs-12
+													+GenericHelpLink(topicName, section)
+														span.text-pad-left.fs-2= t('help:' + topicName + '.' + section + '.t')
+						if count % 2 === 1
+							hr.visibility-hidden.hidden-xs.col-sm-12
+						- count++;

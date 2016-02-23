@@ -1,0 +1,15 @@
+mixin AdminOffer(iter)
+	+AdminOnly
+		div(ng-controller='AdminOfferController').pyOffer.col-xs-12.col-md-12
+			div(ng-init='init(' + iter + ')')
+				div(ng-hide='disabled').pageItem
+					div.row
+						div.col-xs-12
+							span.pull-left
+								div
+									span= t('to')
+										+UserReference('user.username')
+								div
+									span= t('from')
+										+UserReference('offer.source')
+							+ValueSummary('tally.value', t('tallyTooltips.offer.coins')).pull-right

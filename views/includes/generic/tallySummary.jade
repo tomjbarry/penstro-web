@@ -1,0 +1,11 @@
+mixin TallySummary(bind)
+	span.pyTallySummary
+		div(ng-show=bind + '.appreciation >= 0').ng-hide.pyAppreciation
+			span(class!=attributes.class).fancy
+				span= t('shared:symbols.currency')
+				span(ng-bind=bind + '.appreciation')
+		div(ng-show=bind + '.value >= 0').ng-hide.pyValue
+			span(class!=attributes.class).fancy
+				span(ng-bind=bind + '.value')
+				span &nbsp
+				span= t('shared:symbols.coins')

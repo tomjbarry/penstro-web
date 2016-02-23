@@ -1,0 +1,17 @@
+mixin NJExternalUrl
+	+GenericInfoPage(t('externalUrlOptions.title'))
+		div.row
+			span.col-xs-12
+				div.row
+					span.col-xs-12.text-center
+						strong= t('externalUrlOptions.prompt')
+						span &nbsp;
+						- var externalUrl = paramUtil.constructExternalUrl(req)
+						a(href=externalUrl)= externalUrl
+					span.col-xs-12.text-center
+						h3= t('externalUrlOptions.overview')
+					//- var backUrl = paramUtil.constructBackUrl(req)
+					//- if(utils.utilsServer.isExternalUrl(req.url, backUrl)) {backUrl = constants.viewUrls.DEFAULT;}
+					- var backUrl = constants.viewUrls.DEFAULT;
+					span.col-xs-12
+						a(href=backUrl).btn.col-xs-12= t('externalUrlOptions.cancel')

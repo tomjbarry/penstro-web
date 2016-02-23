@@ -1,0 +1,4 @@
+mixin AdminTagActions
+	div(ng-controller='AdminTagActionsController').pyTagActions
+		+ActionButton(t('lock'), undefined, 'fa-lock', 'onLock()', '!pscope.tag.locked', undefined, undefined, undefined, undefined, '!status.lock').pyLockButton
+		+ActionButton(t('unlock'), undefined, 'fa-unlock', 'onUnlock()', 'pscope.tag.locked', undefined, undefined, undefined, undefined, '!status.lock').pyLockButton
